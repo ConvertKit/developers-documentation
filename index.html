@@ -1,0 +1,1549 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#planning-your-integration" class="toc-h1 toc-link" data-title="Planning your integration">Planning your integration</a>
+          </li>
+          <li>
+            <a href="#overview" class="toc-h1 toc-link" data-title="Overview">Overview</a>
+          </li>
+          <li>
+            <a href="#api-basics" class="toc-h1 toc-link" data-title="API Basics">API Basics</a>
+          </li>
+          <li>
+            <a href="#account" class="toc-h1 toc-link" data-title="Account">Account</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#show-the-current-account" class="toc-h2 toc-link" data-title="Show the current account">Show the current account</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#forms" class="toc-h1 toc-link" data-title="Forms">Forms</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-forms" class="toc-h2 toc-link" data-title="List forms">List forms</a>
+                  </li>
+                  <li>
+                    <a href="#add-subscriber-to-a-form" class="toc-h2 toc-link" data-title="Add subscriber to a form">Add subscriber to a form</a>
+                  </li>
+                  <li>
+                    <a href="#list-subscriptions-to-a-form" class="toc-h2 toc-link" data-title="List subscriptions to a form">List subscriptions to a form</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#sequences" class="toc-h1 toc-link" data-title="Sequences">Sequences</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-sequences" class="toc-h2 toc-link" data-title="List sequences">List sequences</a>
+                  </li>
+                  <li>
+                    <a href="#add-subscriber-to-a-sequence" class="toc-h2 toc-link" data-title="Add subscriber to a sequence">Add subscriber to a sequence</a>
+                  </li>
+                  <li>
+                    <a href="#list-subscriptions-to-a-sequence" class="toc-h2 toc-link" data-title="List subscriptions to a sequence">List subscriptions to a sequence</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#tags" class="toc-h1 toc-link" data-title="Tags">Tags</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-tags" class="toc-h2 toc-link" data-title="List tags">List tags</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-tag" class="toc-h2 toc-link" data-title="Create a tag">Create a tag</a>
+                  </li>
+                  <li>
+                    <a href="#endpoint-9" class="toc-h2 toc-link" data-title="Endpoint">Endpoint</a>
+                  </li>
+                  <li>
+                    <a href="#tag-a-subscriber" class="toc-h2 toc-link" data-title="Tag a subscriber">Tag a subscriber</a>
+                  </li>
+                  <li>
+                    <a href="#remove-tag-from-a-subscriber" class="toc-h2 toc-link" data-title="Remove tag from a subscriber">Remove tag from a subscriber</a>
+                  </li>
+                  <li>
+                    <a href="#list-subscriptions-to-a-tag" class="toc-h2 toc-link" data-title="List subscriptions to a tag">List subscriptions to a tag</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#subscriber" class="toc-h1 toc-link" data-title="Subscriber">Subscriber</a>
+          </li>
+          <li>
+            <a href="#subscriber-list" class="toc-h1 toc-link" data-title="Subscriber list">Subscriber list</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#view-a-single-subscriber" class="toc-h2 toc-link" data-title="View a single subscriber">View a single subscriber</a>
+                  </li>
+                  <li>
+                    <a href="#update-subscriber" class="toc-h2 toc-link" data-title="Update subscriber">Update subscriber</a>
+                  </li>
+                  <li>
+                    <a href="#unsubscribe-subscriber" class="toc-h2 toc-link" data-title="Unsubscribe subscriber">Unsubscribe subscriber</a>
+                  </li>
+                  <li>
+                    <a href="#list-tags-for-a-subscriber" class="toc-h2 toc-link" data-title="List tags for a subscriber">List tags for a subscriber</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#webhooks" class="toc-h1 toc-link" data-title="Webhooks">Webhooks</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-a-webhook" class="toc-h2 toc-link" data-title="Create a webhook">Create a webhook</a>
+                  </li>
+                  <li>
+                    <a href="#destroy-webhook" class="toc-h2 toc-link" data-title="Destroy webhook">Destroy webhook</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#custom-fields" class="toc-h1 toc-link" data-title="Custom fields">Custom fields</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-fields" class="toc-h2 toc-link" data-title="List fields">List fields</a>
+                  </li>
+                  <li>
+                    <a href="#create-field" class="toc-h2 toc-link" data-title="Create field">Create field</a>
+                  </li>
+                  <li>
+                    <a href="#update-field" class="toc-h2 toc-link" data-title="Update field">Update field</a>
+                  </li>
+                  <li>
+                    <a href="#destroy-field" class="toc-h2 toc-link" data-title="Destroy field">Destroy field</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#purchases" class="toc-h1 toc-link" data-title="Purchases">Purchases</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-a-purchase" class="toc-h2 toc-link" data-title="Create a Purchase">Create a Purchase</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://convertkit.com'>Visit ConvertKit.com</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='planning-your-integration'>Planning your integration</h1>
+<p>Sweet! You&#39;re building an integration with ConvertKit. We&#39;re thrilled that you want to add-on to our platform. But before you dive in and start slinging code, let&#39;s talk about the best way to integrate with ConvertKit.</p>
+
+<p>How you setup your integration depends on what type of provider you are. Let&#39;s run through a few examples:</p>
+
+<ul>
+<li>  <strong>Email Capture.</strong> If your product is mostly for capturing new subscribers then you should integrate with forms in ConvertKit. So in OptinMonster when a subscriber opts-in they are subscriber to a form in ConvertKit.</li>
+<li>  <strong>E-Commerce.</strong> The most important thing for e-commerce customers is the ability to add a tag when a purchase is made. So when SamCart wrote their integration they have the ability to add or remove a subscriber from a tag after a purchase or refund.</li>
+<li>  <strong>Full Integration.</strong> If you want a more full integration with ConvertKit you can add support for forms, courses, and tags.</li>
+</ul>
+
+<p>If you aren&#39;t sure how best to structure your integration, just reach out to our team, we&#39;ll be happy to help you design it.</p>
+<h1 id='overview'>Overview</h1>
+<p>Calls for ConvertKit API v3 are relative to the url <a href="https://api.convertkit.com/v3/">https://api.convertkit.com/v3/</a></p>
+
+<p>API v3 is in active development. Currently it allows you to:</p>
+
+<ul>
+<li>  Get a list of forms for an account</li>
+<li>  Add subscriber to a form</li>
+<li>  Add subscriber to an email sequence</li>
+<li>  Create a tag</li>
+<li>  Tag a subscriber</li>
+<li>  Remove tags from a subscriber</li>
+<li>  Add, update, and list custom fields</li>
+</ul>
+<h1 id='api-basics'>API Basics</h1><h4 id='api-key'>API Key</h4>
+<p>All API calls require the <code>api_key</code> parameter. You can find your API Key in the ConvertKit Account page.</p>
+<h4 id='api-secret'>API Secret</h4>
+<p>Some API calls require the <code>api_secret</code> parameter. All calls that require <code>api_key</code> also work with <code>api_secret</code>, there&#39;s no need to use both. This key grants access to sensitive data and actions on your subscribers, so you should treat it as your password, and do not use it in any client-side code (usually that means JavaScript).</p>
+<h4 id='responses'>Responses</h4>
+<p>When an API call goes well the API will return a 200 or 201 HTTP response, along with a JSON response body.</p>
+
+<p>If there&#39;s some error the API will return an HTTP response in the 400 or 500 range, and a response body indicating what the error was, for example:</p>
+
+<p><code>{ &quot;error&quot;: &quot;Authorization Failed&quot;, &quot;message&quot;: &quot;API Key not present&quot; }</code> with a 401 error.</p>
+<h5 id='bad-data'>Bad data</h5>
+<p>When you create or update a field, you may receive an HTTP 422 if any fields contain bad data or required fields are missing.</p>
+<h5 id='rate-limiting'>Rate limiting</h5>
+<p>If your request rate exceeds our limits, you will receive an HTTP status of 429 with the message &quot;Too Many Requests&quot;.</p>
+
+<ul>
+<li>  For the subscribe endpoints for forms, sequences, and tags, the rate is no more than 600 requests over any 5 minute period.</li>
+</ul>
+<h5 id='internal-server-errors'>Internal server errors</h5>
+<p>If the server is overloaded or you encounter a bug, you will get a 500 error. Try again after a short period, and if you continue to encounter an error, please raise the issue with support.</p>
+<h1 id='account'>Account</h1><h2 id='show-the-current-account'>Show the current account</h2>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.convertkit.com/v3/account?api_secret<span class="o">=</span>&lt;your_secret_api_key&gt;
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"name"</span>:<span class="s2">"Acme Corp."</span>,
+    <span class="s2">"primary_email_address"</span>:<span class="s2">"you@example.com"</span>
+<span class="o">}</span>
+</code></pre><h4 id='endpoint'>Endpoint</h4>
+<p>GET /v3/account</p>
+<h4 id='required-parameters'>Required parameters</h4>
+<ul>
+<li>  <code>api_secret</code> - Your account API key.</li>
+</ul>
+<h1 id='forms'>Forms</h1><h2 id='list-forms'>List forms</h2>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+curl https://api.convertkit.com/v3/forms?api_key<span class="o">=</span>&lt;your_public_api_key&gt;
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+<span class="o">{</span>
+  <span class="s2">"forms"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 1,
+      <span class="s2">"name"</span>: <span class="s2">"A Form"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+      <span class="s2">"type"</span>: <span class="s2">"embed"</span>,
+      <span class="s2">"url"</span>: <span class="s2">"https://app.convertkit.com/landing_pages/1"</span>,
+      <span class="s2">"embed_js"</span>: <span class="s2">"http://api.convertkit.dev/v3/forms/1.js?api_key=&lt;your_public_api_key&gt;"</span>,
+      <span class="s2">"embed_url"</span>: <span class="s2">"http://api.convertkit.dev/v3/forms/1.html?api_key=&lt;your_public_api_key&gt;"</span>,
+      <span class="s2">"title"</span>: <span class="s2">"Join the newsletter"</span>,
+      <span class="s2">"description"</span>: <span class="s2">"Form description text."</span>,
+      <span class="s2">"sign_up_button_text"</span>: <span class="s2">"Subscribe"</span>,
+      <span class="s2">"success_message"</span>: <span class="s2">"Success! Now check your email to confirm your subscription."</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 2,
+      <span class="s2">"name"</span>: <span class="s2">"A Landing Page"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+      <span class="s2">"type"</span>: <span class="s2">"hosted"</span>,
+      <span class="s2">"url"</span>: <span class="s2">"https://app.convertkit.com/r4ndom_url/TWWDNTHT"</span>,
+      <span class="s2">"embed_js"</span>: <span class="s2">"http://api.convertkit.dev/v3/forms/2.js?api_key=&lt;your_public_api_key&gt;"</span>,
+      <span class="s2">"embed_url"</span>: <span class="s2">"http://api.convertkit.dev/v3/forms/2.html?api_key=&lt;your_public_api_key&gt;"</span>,
+      <span class="s2">"title"</span>: <span class="s2">"Join the newsletter"</span>,
+      <span class="s2">"description"</span>: <span class="s2">"&lt;p&gt;Landing page description text.&lt;/p&gt;"</span>,
+      <span class="s2">"sign_up_button_text"</span>: <span class="s2">"Subscribe"</span>,
+      <span class="s2">"success_message"</span>: <span class="s2">"Success! Now check your email to confirm your subscription."</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+<p>Get a list of all the forms for your account.</p>
+<h4 id='endpoint-2'>Endpoint</h4>
+<p>GET /v3/forms</p>
+<h4 id='required-parameters-2'>Required parameters</h4>
+<ul>
+<li>  <code>api_key</code> - Your account API key.</li>
+</ul>
+<h2 id='add-subscriber-to-a-form'>Add subscriber to a form</h2>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+curl -X POST https://api.convertkit.com/v3/forms/1/subscribe<span class="se">\</span>
+     -H <span class="s2">"Content-Type: application/json; charset=utf-8"</span><span class="se">\</span>
+     -d
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+<span class="o">{</span>
+  <span class="s2">"subscription"</span>: <span class="o">{</span>
+    <span class="s2">"id"</span>: 1,
+    <span class="s2">"state"</span>: <span class="s2">"inactive"</span>,
+    <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+    <span class="s2">"source"</span>: null,
+    <span class="s2">"referrer"</span>: null,
+    <span class="s2">"subscribable_id"</span>: 1,
+    <span class="s2">"subscribable_type"</span>: <span class="s2">"form"</span>,
+    <span class="s2">"subscriber"</span>: <span class="o">{</span>
+      <span class="s2">"id"</span>: 1,
+      <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
+      <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
+      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+      <span class="s2">"fields"</span>: <span class="o">{</span>
+        <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>Subscribe an email address to one of your forms.</p>
+<h4 id='endpoint-3'>Endpoint</h4>
+<p>POST /v3/forms/<form_id>/subscribe</p>
+<h4 id='required-parameters-3'>Required parameters</h4>
+<ul>
+<li>  <code>api_key</code> - Your account API key.</li>
+<li>  <code>email</code> - Subscriber email address.</li>
+</ul>
+<h4 id='optional-parameters'>Optional parameters</h4>
+<ul>
+<li>  <code>first_name</code> - Subscriber first name.</li>
+<li>  <code>fields</code> - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).</li>
+<li>  <code>name</code> - Subscriber first name. <em>legacy behavior, discouraged</em></li>
+<li>  <code>tags</code> - Comma-separated list of tag ids to subscribe to.</li>
+<li>  <code>courses</code> - Comma-separated list of sequence ids to subscribe to. <em>discouraged</em></li>
+<li>  <code>forms</code> - Comma-separated list of form ids to subscribe to. <em>strongly discouraged</em></li>
+</ul>
+<h2 id='list-subscriptions-to-a-form'>List subscriptions to a form</h2>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+curl https://api.convertkit.com/v3/forms/&lt;form_id&gt;/subscriptions?api_secret<span class="o">=</span>&lt;your_secret_api_key&gt;
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"total_subscriptions"</span>: 2,
+  <span class="s2">"page"</span>: 1,
+  <span class="s2">"total_pages"</span>: 1,
+  <span class="s2">"subscriptions"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 1,
+      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+      <span class="s2">"source"</span>: null,
+      <span class="s2">"referrer"</span>: null,
+      <span class="s2">"subscribable_id"</span>: 1,
+      <span class="s2">"subscribable_type"</span>: <span class="s2">"form"</span>,
+      <span class="s2">"subscriber"</span>: <span class="o">{</span>
+        <span class="s2">"id"</span>: 1,
+        <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
+        <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
+        <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+        <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+        <span class="s2">"fields"</span>: <span class="o">{</span>
+          <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
+        <span class="o">}</span>
+      <span class="o">}</span>,
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 2,
+      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-27T08:07:00Z"</span>,
+      <span class="s2">"source"</span>: null,
+      <span class="s2">"referrer"</span>: null,
+      <span class="s2">"subscribable_id"</span>: 1,
+      <span class="s2">"subscribable_type"</span>: <span class="s2">"form"</span>,
+      <span class="s2">"subscriber"</span>: <span class="o">{</span>
+        <span class="s2">"id"</span>: 2,
+        <span class="s2">"first_name"</span>: <span class="s2">"Arya"</span>,
+        <span class="s2">"email_address"</span>: <span class="s2">"arya@example.com"</span>,
+        <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+        <span class="s2">"created_at"</span>: <span class="s2">"2016-02-27T08:07:00Z"</span>,
+        <span class="s2">"fields"</span>: <span class="o">{</span>
+          <span class="s2">"last_name"</span>: <span class="s2">"Stark"</span>
+        <span class="o">}</span>
+      <span class="o">}</span>,
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+<p>List subscriptions to a form including subscriber data.</p>
+<h4 id='endpoint-4'>Endpoint</h4>
+<p>GET /v3/forms/<form_id>/subscriptions</p>
+<h4 id='required-parameters-4'>Required parameters</h4>
+<ul>
+<li>  <code>api_secret</code> - your api secret key</li>
+</ul>
+<h4 id='optional-parameters-2'>Optional parameters</h4>
+<ul>
+<li>  <code>sort_order</code> - <code>asc</code> or <code>desc</code>: <code>asc</code> to list subscribers added oldest to newest, <code>desc</code> to list subscribers added newest to oldest. <code>asc</code> is the default order.</li>
+<li>  <code>subscriber_state</code> - <code>active</code> or <code>cancelled</code>: receive only active subscribers or cancelled subscribers</li>
+</ul>
+<h1 id='sequences'>Sequences</h1>
+<p><em>NOTE: *Sequences</em> were formerly referred to as <em>Courses</em> API v3 retains the previous naming conventions, but will accept requests to <code>sequences</code> as the endpoint as well.*</p>
+<h2 id='list-sequences'>List sequences</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;your_public_api_key&gt;
+
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"courses"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 1,
+      <span class="s2">"name"</span>: <span class="s2">"My First Sequence"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 2,
+      <span class="s2">"name"</span>: <span class="s2">"My Second Sequence"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+<p>Returns a list of sequences for the account.</p>
+<h4 id='endpoint-5'>Endpoint</h4>
+<p>GET /v3/courses</p>
+<h4 id='required-parameters-5'>Required parameters</h4>
+<ul>
+<li>  <code>api_key</code> - Your account API key.</li>
+</ul>
+<h2 id='add-subscriber-to-a-sequence'>Add subscriber to a sequence</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.convertkit.com/v3/courses/1/subscribe<span class="se">\</span>
+     -H <span class="s2">"Content-Type: application/json; charset=utf-8"</span><span class="se">\</span>
+     -d
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"subscription"</span>: <span class="o">{</span>
+    <span class="s2">"id"</span>: 2,
+    <span class="s2">"state"</span>: <span class="s2">"inactive"</span>,
+    <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+    <span class="s2">"source"</span>: null,
+    <span class="s2">"referrer"</span>: null,
+    <span class="s2">"subscribable_id"</span>: 1,
+    <span class="s2">"subscribable_type"</span>: <span class="s2">"course"</span>,
+    <span class="s2">"subscriber"</span>: <span class="o">{</span>
+      <span class="s2">"id"</span>: 1,
+      <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
+      <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
+      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+      <span class="s2">"fields"</span>: <span class="o">{</span>
+        <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>Subscribe an email address to one of your sequences.</p>
+<h4 id='endpoint-6'>Endpoint</h4>
+<p>POST /v3/courses/<course_id>/subscribe</p>
+<h4 id='required-parameters-6'>Required parameters</h4>
+<ul>
+<li>  <code>api_key</code> - Your account API key.</li>
+<li>  <code>email</code> - Subscriber email address.</li>
+</ul>
+<h4 id='optional-parameters-3'>Optional parameters</h4>
+<ul>
+<li>  <code>first_name</code> - Subscriber first name.</li>
+<li>  <code>fields</code> - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).</li>
+<li>  <code>name</code> - Subscriber first name. <em>legacy behavior, discouraged</em></li>
+<li>  <code>tags</code> - Comma-separated list of tag ids to subscribe to.</li>
+<li>  <code>courses</code> - Comma-separated list of sequence ids to subscribe to. <em>discouraged</em></li>
+<li>  <code>forms</code> - Comma-separated list of form ids to subscribe to. <em>strongly discouraged</em></li>
+</ul>
+<h2 id='list-subscriptions-to-a-sequence'>List subscriptions to a sequence</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.convertkit.com/v3/sequences/&lt;sequence_id&gt;/subscriptions?api_secret<span class="o">=</span>&lt;your_secret_api_key&gt;
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"total_subscriptions"</span>: 2,
+  <span class="s2">"page"</span>: 1,
+  <span class="s2">"total_pages"</span>: 1,
+  <span class="s2">"subscriptions"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 1,
+      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+      <span class="s2">"source"</span>: null,
+      <span class="s2">"referrer"</span>: null,
+      <span class="s2">"subscribable_id"</span>: 1,
+      <span class="s2">"subscribable_type"</span>: <span class="s2">"course"</span>,
+      <span class="s2">"subscriber"</span>: <span class="o">{</span>
+        <span class="s2">"id"</span>: 1,
+        <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
+        <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
+        <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+        <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+        <span class="s2">"fields"</span>: <span class="o">{</span>
+          <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
+        <span class="o">}</span>
+      <span class="o">}</span>,
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 2,
+      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-27T08:07:00Z"</span>,
+      <span class="s2">"source"</span>: null,
+      <span class="s2">"referrer"</span>: null,
+      <span class="s2">"subscribable_id"</span>: 1,
+      <span class="s2">"subscribable_type"</span>: <span class="s2">"course"</span>,
+      <span class="s2">"subscriber"</span>: <span class="o">{</span>
+        <span class="s2">"id"</span>: 2,
+        <span class="s2">"first_name"</span>: <span class="s2">"Arya"</span>,
+        <span class="s2">"email_address"</span>: <span class="s2">"arya@example.com"</span>,
+        <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+        <span class="s2">"created_at"</span>: <span class="s2">"2016-02-27T08:07:00Z"</span>,
+        <span class="s2">"fields"</span>: <span class="o">{</span>
+          <span class="s2">"last_name"</span>: <span class="s2">"Stark"</span>
+        <span class="o">}</span>
+      <span class="o">}</span>,
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+<p>List subscriptions to a sequence including subscriber data.</p>
+<h4 id='endpoint-7'>Endpoint</h4>
+<p>GET /v3/sequences/<sequence_id>/subscriptions</p>
+<h4 id='required-parameters-7'>Required parameters</h4>
+<ul>
+<li>  <code>api_secret</code> - your api secret key</li>
+</ul>
+<h4 id='optional-parameters-4'>Optional parameters</h4>
+<ul>
+<li>  <code>sort_order</code> - <code>asc</code> or <code>desc</code>: <code>asc</code> to list subscribers added oldest to newest, <code>desc</code> to list subscribers added newest to oldest. <code>asc</code> is the default order.</li>
+<li>  <code>subscriber_state</code>?-?<code>active</code>?or??<code>cancelled</code>: receive only active subscribers or cancelled subscribers</li>
+</ul>
+<h1 id='tags'>Tags</h1><h2 id='list-tags'>List tags</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.convertkit.com/v3/tags?api_key<span class="o">=</span>&lt;your_public_api_key&gt;
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"tags"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 1,
+      <span class="s2">"name"</span>: <span class="s2">"House Stark"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 2,
+      <span class="s2">"name"</span>: <span class="s2">"House Lannister"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+<p>Returns a list of tags for the account.</p>
+<h4 id='endpoint-8'>Endpoint</h4>
+<p>GET /v3/tags</p>
+<h4 id='required-parameters-8'>Required parameters</h4>
+<ul>
+<li>  <code>api_key</code> - Your account API key.</li>
+</ul>
+<h2 id='create-a-tag'>Create a tag</h2><h2 id='endpoint-9'>Endpoint</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+Single tag
+
+curl -X POST https://api.convertkit.com/v3/tags
+     -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
+     -d <span class="s1">'{ "api_key": "&lt;your_public_api_key&gt;",\
+           "tag": {\
+             "name": "Example Tag"\
+           } }'</span>
+
+Multiple tags
+
+curl -X POST https://api.convertkit.com/v3/tags
+     -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
+     -d <span class="s1">'{ "api_key": "&lt;your_public_api_key&gt;",\
+           "tag": [{\
+             "name": "Example Tag"\
+           }, {\
+             "name": "Example Tag 2"\
+           }] }'</span>
+
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"account_id"</span>: 1,
+  <span class="s2">"created_at"</span>: <span class="s2">"2017-04-12T11:10:32Z"</span>
+  <span class="s2">"deleted_at"</span>: null,
+  <span class="s2">"id"</span>: 1,
+  <span class="s2">"name"</span>: <span class="s2">"Example Tag"</span>,
+  <span class="s2">"state"</span>: <span class="s2">"available"</span>,
+  <span class="s2">"updated_at"</span>: <span class="s2">"2017-04-12T11:10:32Z"</span>
+<span class="o">}</span>
+
+A request to create multiple tags will receive a JSON array with the same <span class="nb">type </span>of objects:
+
+<span class="o">[{</span>
+  <span class="s2">"account_id"</span>: 1,
+  <span class="s2">"created_at"</span>: <span class="s2">"2017-04-12T11:10:32Z"</span>
+  <span class="s2">"deleted_at"</span>: null,
+  <span class="s2">"id"</span>: 1,
+  <span class="s2">"name"</span>: <span class="s2">"Example Tag"</span>,
+  <span class="s2">"state"</span>: <span class="s2">"available"</span>,
+  <span class="s2">"updated_at"</span>: <span class="s2">"2017-04-12T11:10:32Z"</span>
+<span class="o">}</span>,
+<span class="o">{</span>
+  <span class="s2">"account_id"</span>: 1,
+  <span class="s2">"created_at"</span>: <span class="s2">"2017-04-12T11:11:566Z"</span>
+  <span class="s2">"deleted_at"</span>: null,
+  <span class="s2">"id"</span>: 1,
+  <span class="s2">"name"</span>: <span class="s2">"Example Tag 2"</span>,
+  <span class="s2">"state"</span>: <span class="s2">"available"</span>,
+  <span class="s2">"updated_at"</span>: <span class="s2">"2017-04-12T11:11:566Z"</span>
+<span class="o">}]</span>
+</code></pre>
+<p>POST /v3/tags</p>
+<h4 id='required-parameters-9'>Required parameters</h4>
+<ul>
+<li>  <code>api_key</code> - Your account API key.</li>
+<li>  <code>tag</code> - a JSON object or an array of JSON objects, respectively, that include the tag name
+
+<ul>
+<li>  <code>{ &quot;name&quot;: &quot;Example Tag&quot; }</code></li>
+</ul></li>
+</ul>
+<h2 id='tag-a-subscriber'>Tag a subscriber</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.convertkit.com/v3/tags/1/subscribe<span class="se">\</span>
+     -H <span class="s2">"Content-Type: application/json; charset=utf-8"</span><span class="se">\</span>
+     -d
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"subscription"</span>: <span class="o">{</span>
+    <span class="s2">"id"</span>: 3,
+    <span class="s2">"state"</span>: <span class="s2">"inactive"</span>,
+    <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+    <span class="s2">"source"</span>: null,
+    <span class="s2">"referrer"</span>: null,
+    <span class="s2">"subscribable_id"</span>: 1,
+    <span class="s2">"subscribable_type"</span>: <span class="s2">"tag"</span>,
+    <span class="s2">"subscriber"</span>: <span class="o">{</span>
+      <span class="s2">"id"</span>: 1,
+      <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
+      <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
+      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+      <span class="s2">"fields"</span>: <span class="o">{</span>
+        <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>Tags are handled as subscriptions. Subscribe an email address to a tag to have that tag applied to the subscriber with that email address.</p>
+<h4 id='endpoint-10'>Endpoint</h4>
+<p>POST /v3/tags/<tag_id>/subscribe</p>
+<h4 id='required-parameters-10'>Required parameters</h4>
+<ul>
+<li>  <code>api_key</code> - Your account API key.</li>
+<li>  <code>email</code> - Subscriber email address.</li>
+</ul>
+<h4 id='optional-parameters-5'>Optional parameters</h4>
+<ul>
+<li>  <code>first_name</code> - Subscriber first name.</li>
+<li>  <code>fields</code> - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).</li>
+<li>  <code>name</code> - Subscriber first name. <em>legacy behavior, deprecated</em></li>
+<li>  <code>tags</code> - Comma-separated list of tag ids to subscribe to.</li>
+<li>  <code>courses</code> - Comma-separated list of sequence ids to subscribe to. <em>discouraged</em></li>
+<li>  <code>forms</code> - Comma-separated list of form ids to subscribe to. <em>strongly discouraged</em></li>
+</ul>
+<h2 id='remove-tag-from-a-subscriber'>Remove tag from a subscriber</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE https://api.convertkit.com/v3/subscribers/1/tags/1?api_secret<span class="o">=</span>&lt;your_secret_api_key&gt;
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"id"</span>: 1,
+  <span class="s2">"name"</span>: <span class="s2">"House Stark"</span>,
+  <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>
+<span class="o">}</span>
+</code></pre><h4 id='endpoint-11'>Endpoint</h4>
+<p>DELETE /v3/subscribers/<subscriber_id>/tags/<tag_id></p>
+<h4 id='required-parameters-11'>Required parameters</h4>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+</ul>
+<h2 id='list-subscriptions-to-a-tag'>List subscriptions to a tag</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<span class="o">=</span>&lt;your_secret_api_key&gt;
+
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"total_subscriptions"</span>: 2,
+  <span class="s2">"page"</span>: 1,
+  <span class="s2">"total_pages"</span>: 1,
+  <span class="s2">"subscriptions"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 1,
+      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+      <span class="s2">"source"</span>: null,
+      <span class="s2">"referrer"</span>: null,
+      <span class="s2">"subscribable_id"</span>: 1,
+      <span class="s2">"subscribable_type"</span>: <span class="s2">"tag"</span>,
+      <span class="s2">"subscriber"</span>: <span class="o">{</span>
+        <span class="s2">"id"</span>: 1,
+        <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
+        <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
+        <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+        <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+        <span class="s2">"fields"</span>: <span class="o">{</span>
+          <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
+        <span class="o">}</span>
+      <span class="o">}</span>,
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 2,
+      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-27T08:07:00Z"</span>,
+      <span class="s2">"source"</span>: null,
+      <span class="s2">"referrer"</span>: null,
+      <span class="s2">"subscribable_id"</span>: 1,
+      <span class="s2">"subscribable_type"</span>: <span class="s2">"tag"</span>,
+      <span class="s2">"subscriber"</span>: <span class="o">{</span>
+        <span class="s2">"id"</span>: 2,
+        <span class="s2">"first_name"</span>: <span class="s2">"Arya"</span>,
+        <span class="s2">"email_address"</span>: <span class="s2">"arya@example.com"</span>,
+        <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+        <span class="s2">"created_at"</span>: <span class="s2">"2016-02-27T08:07:00Z"</span>,
+        <span class="s2">"fields"</span>: <span class="o">{</span>
+          <span class="s2">"last_name"</span>: <span class="s2">"Stark"</span>
+        <span class="o">}</span>
+      <span class="o">}</span>,
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+<p>List subscriptions to a tag including subscriber data.</p>
+<h4 id='endpoint-12'>Endpoint</h4>
+<p>GET /v3/tags/<tag_id>/subscriptions</p>
+<h4 id='required-parameters-12'>Required parameters</h4>
+<ul>
+<li>  <code>api_secret</code> - your api secret key</li>
+</ul>
+<h4 id='optional-parameters-6'>Optional parameters</h4>
+<ul>
+<li>  <code>sort_order</code> - <code>asc</code> or <code>desc</code>: <code>asc</code> to list subscribers added oldest to newest, <code>desc</code> to list subscribers added newest to oldest. <code>asc</code> is the default order.</li>
+<li>  <code>subscriber_state</code> - <code>active</code> or <code>cancelled</code>: receive only active subscribers or cancelled subscribers</li>
+</ul>
+<h1 id='subscriber'>Subscriber</h1><h1 id='subscriber-list'>Subscriber list</h1>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.convertkit.com/v3/subscribers?api_secret<span class="o">=</span>&lt;your_secret_api_key&gt;&amp;from<span class="o">=</span>2016-02-01&amp;to<span class="o">=</span>2015-02-28
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"total_subscribers"</span>: 3,
+  <span class="s2">"page"</span>: 1,
+  <span class="s2">"total_pages"</span>: 1,
+  <span class="s2">"subscribers"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 1,
+      <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
+      <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
+      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+      <span class="s2">"fields"</span>: <span class="o">{</span>
+        <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 2,
+      <span class="s2">"first_name"</span>: <span class="s2">"Arya"</span>,
+      <span class="s2">"email_address"</span>: <span class="s2">"aryastark@example.com"</span>,
+      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+      <span class="s2">"fields"</span>: <span class="o">{</span>
+        <span class="s2">"last_name"</span>: <span class="s2">"Stark"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+<p>Returns a list of your subscribers. For unsubscribes only, use the <code>cancelled_at</code> value for <code>sort_field</code>param (currently the only supported extra sort field). Search subscribers by email address by providing the <code>email_address</code> param.</p>
+<h4 id='endpoint-13'>Endpoint</h4>
+<p>GET /v3/subscribers</p>
+<h4 id='required-parameters-13'>Required parameters</h4>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+</ul>
+<h4 id='optional-parameters-7'>Optional parameters</h4>
+<ul>
+<li>  <code>page</code> - Page for paginated results.</li>
+<li>  <code>from</code> - Filter subscribers added on or after this date (format yyyy-mm-dd).</li>
+<li>  <code>to</code> - Filter subscribers added on or before this date (format yyyy-mm-dd).</li>
+<li>  <code>updated_from</code> - Filter subscribers who have been updated after this date (format yyyy-mm-dd)</li>
+<li>  <code>updated_to</code> - Filter subscribers who have been updated before this date (format yyyy-mm-dd)</li>
+<li>  <code>sort_order</code> - Sort order for results (<code>asc</code> or <code>desc</code>).</li>
+<li>  <code>sort_field</code> - Field to sort by (<code>cancelled_at</code>).</li>
+<li>  <code>email_address</code> - Search subscribers by email address.</li>
+</ul>
+<h2 id='view-a-single-subscriber'>View a single subscriber</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl https://api.convertkit.com/v3/subscribers/1?api_secret<span class="o">=</span>&lt;your_secret_api_key&gt;
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"subscriber"</span>: <span class="o">{</span>
+    <span class="s2">"id"</span>: 1,
+    <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
+    <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
+    <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+    <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+    <span class="s2">"fields"</span>: <span class="o">{</span>
+      <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>Returns data for a single subscriber</p>
+<h4 id='endpoint-14'>Endpoint</h4>
+<p>GET /v3/subscribers/<subscriber_id></p>
+<h4 id='required-parameters-14'>Required parameters</h4>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+</ul>
+<h2 id='update-subscriber'>Update subscriber</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT https://api.convertkit.com/v3/subscribers/1<span class="se">\</span>
+     -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
+     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",\
+           "first_name": "Jon",\
+           "email_address": "jonsnow@example.com",\
+           "fields": {\
+             "last_name": "Snow"\
+           } }'</span>
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"subscriber"</span>: <span class="o">{</span>
+    <span class="s2">"id"</span>: 1,
+    <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
+    <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
+    <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+    <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+    <span class="s2">"fields"</span>: <span class="o">{</span>
+      <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>Updates the information for a single subscriber.</p>
+<h4 id='endpoint-15'>Endpoint</h4>
+<p>PUT /v3/subscribers/<subscriber_id></p>
+<h4 id='required-parameters-15'>Required parameters</h4>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+</ul>
+<h4 id='optional-parameters-8'>Optional parameters</h4>
+<ul>
+<li>  <code>first_name</code> - Updated first name for the subscriber.</li>
+<li>  <code>email_address</code> - Updated email address for the subscriber.</li>
+<li>  <code>fields</code> - Updated custom fields for your subscriber as object of key/value pairs (the custom field must exist before you can use it here).</li>
+</ul>
+<h2 id='unsubscribe-subscriber'>Unsubscribe subscriber</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -x PUT https://api.convertkit.com/v3/unsubscribe
+     -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
+     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",\
+           "email": "jonsnow@example.com" }'</span>
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"subscriber"</span>: <span class="o">{</span>
+    <span class="s2">"id"</span>: 1,
+    <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
+    <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
+    <span class="s2">"state"</span>: <span class="s2">"active"</span>,
+    <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
+    <span class="s2">"fields"</span>: <span class="o">{</span>
+      <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>Unsubscribe an email address from all your forms and sequences.</p>
+<h4 id='endpoint-16'>Endpoint</h4>
+<p>PUT /v3/unsubscribe</p>
+<h4 id='required-parameters-16'>Required parameters</h4>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+<li>  <code>email</code> - Subscriber email address.</li>
+</ul>
+<h2 id='list-tags-for-a-subscriber'>List tags for a subscriber</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://api.convertkit.com/v3/subscribers/1/tags<span class="se">\</span>
+     -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
+     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;" }'</span>
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"tags"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 1,
+      <span class="s2">"name"</span>: <span class="s2">"Email Newsletter"</span>,
+      <span class="s2">"created_at"</span>: <span class="s2">"2016-06-09T17:54:22Z"</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+<p>Lists all the tags for a subscriber.</p>
+<h4 id='endpoint-17'>Endpoint</h4>
+<p>GET /v3/subscribers/<code>&lt;subscriber_id&gt;</code>/tags</p>
+<h4 id='required-parameters-17'>Required parameters</h4>
+<ul>
+<li>  <code>api_key</code> - Your account API key.</li>
+</ul>
+<h1 id='webhooks'>Webhooks</h1>
+<p>Webhooks are automations that will receive subscriber data when a subscriber event is triggered, such as when a subscriber completes a sequence.</p>
+<h2 id='create-a-webhook'>Create a webhook</h2>
+<blockquote>
+<p>Example request: Create a webhook automation to receive subscriber data at <code>http://example.com/incoming</code> when a subscriber is activated.</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+curl -X POST https://api.convertkit.com/v3/automations/hooks
+     -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
+     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",\
+           "target_url": "http://example.com/incoming",\
+           "event": { "name": "subscriber.subscriber_activate" } }'</span>
+
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"rule"</span>: <span class="o">{</span>
+    <span class="s2">"id"</span>: 1,
+    <span class="s2">"account_id"</span>: 2,
+    <span class="s2">"event"</span>: <span class="o">{</span>
+      <span class="s2">"name"</span>: <span class="s2">"subscriber_activate"</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre>
+<blockquote>
+<p>Example request: Create a webhook automation to receive subscriber data at <code>http://example.com/incoming</code> when a sequence is completed.</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+curl -X POST https://api.convertkit.com/v3/automations/hooks
+     -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
+     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",\
+           "target_url": "http://example.com/incoming",\
+           "event": { "name": "subscriber.course_complete", "sequence_id": 18" } }'</span>
+
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"rule"</span>: <span class="o">{</span>
+    <span class="s2">"id"</span>: 43,
+    <span class="s2">"account_id"</span>:2,
+    <span class="s2">"event"</span>: <span class="o">{</span>
+      <span class="s2">"name"</span>: <span class="s2">"course_complete"</span>,
+      <span class="s2">"sequence_id"</span>: 18
+    <span class="o">}</span>,
+    <span class="s2">"target_url"</span>:<span class="s2">"http://example.com/"</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>Create a webhook that will be called when a subscriber event occurs.</p>
+<h4 id='endpoint-18'>Endpoint</h4>
+<p>POST /v3/automations/hooks</p>
+<h4 id='required-parameters-18'>Required parameters</h4>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+<li>  <code>target_url</code> - The URL that will receive subscriber data when the event is triggered.</li>
+<li>  <code>event</code> - JSON object that includes the trigger name and extra information when needed. For example:
+
+<ul>
+<li>  <code>{ &quot;name&quot;: &quot;subscriber.subscriber_activate&quot; }</code></li>
+<li>  <code>{ &quot;name&quot;: &quot;subscriber.tag_add&quot;, &quot;tag_id&quot;: 4 }</code></li>
+</ul></li>
+</ul>
+
+<p>These are the available event types:</p>
+
+<ul>
+<li>  <code>&quot;subscriber.form_subscribe&quot;</code></li>
+<li>  <code>&quot;subscriber.course_subscribe&quot;</code></li>
+<li>  <code>&quot;subscriber.course_complete&quot;</code></li>
+<li>  <code>&quot;subscriber.link_click&quot;</code></li>
+<li>  <code>&quot;subscriber.product_purchase&quot;</code></li>
+<li>  <code>&quot;subscriber.subscriber_activate&quot;</code></li>
+<li>  <code>&quot;subscriber.subscriber_unsubscribe&quot;</code></li>
+<li>  <code>&quot;subscriber.tag_add&quot;</code></li>
+<li>  <code>&quot;subscriber.tag_remove&quot;</code></li>
+</ul>
+<h2 id='destroy-webhook'>Destroy webhook</h2>
+<blockquote>
+<p>Example request: Delete webhook automation rule with ID #456.</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE https://api.convertkit.com/v3/automations/hooks/456
+     -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
+     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;" }'</span>
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"success"</span>: <span class="nb">true</span>
+<span class="o">}</span>
+</code></pre>
+<p>Deletes a webhook.</p>
+<h4 id='endpoint-19'>Endpoint</h4>
+<p>DELETE /v3/automations/hooks/<rule_id></p>
+<h4 id='required-parameters-19'>Required parameters</h4>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+</ul>
+<h1 id='custom-fields'>Custom fields</h1>
+<p>A custom field allows you to collect subscriber information beyond the standard fields of first name and email address. An example would be a custom field called last name so you can get the full names of your subscribers. You create a custom field, and then you&#39;re able to use that in your forms or with the API (see the subscribers endpoint for adding custom field values to a subscriber.)</p>
+
+<p>Note that you must create a custom field before you can use it with the subscribe methods on the forms, sequences, and tags endpoints.</p>
+<h2 id='list-fields'>List fields</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="s1">'https://api.convertkit.com/v3/custom_fields?api_key=&lt;your_public_api_key&gt;'</span>
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"custom_fields"</span>:
+  <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 1,
+      <span class="s2">"name"</span>: <span class="s2">"ck_field_1_last_name"</span>,
+      <span class="s2">"key"</span>: <span class="s2">"last_name"</span>,
+      <span class="s2">"label"</span>: <span class="s2">"Last Name"</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+      <span class="s2">"id"</span>: 2,
+      <span class="s2">"name"</span>: <span class="s2">"ck_field_2_occupation"</span>,
+      <span class="s2">"key"</span>: <span class="s2">"occupation"</span>,
+      <span class="s2">"label"</span>: <span class="s2">"Occupation"</span>
+    <span class="o">}</span>,
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+<p>List all of your account&#39;s custom fields.</p>
+<h4 id='endpoint-20'>Endpoint</h4>
+<p>GET /v3/custom_fields</p>
+<h4 id='required-parameters-20'>Required parameters</h4>
+<ul>
+<li>  <code>api_key</code> - Your account API key.</li>
+</ul>
+<h2 id='create-field'>Create field</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+Single label
+
+curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span>
+     -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
+     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",
+           "label": "Occupation" }'</span>
+
+Multiple labels
+
+curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span>
+     -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
+     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",
+           "label": ["Occupation", "Location"] }'</span>
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+Single custom field
+
+<span class="o">{</span>
+  <span class="s2">"id"</span>: 1,
+  <span class="s2">"name"</span>: <span class="s2">"ck_field_1_occupation"</span>,
+  <span class="s2">"key"</span>: <span class="s2">"occupation"</span>,
+  <span class="s2">"label"</span>: <span class="s2">"Occupation"</span>
+<span class="o">}</span>
+
+Multiple custom fields
+
+<span class="o">[{</span>
+  <span class="s2">"id"</span>: 1,
+  <span class="s2">"name"</span>: <span class="s2">"ck_field_1_occupation"</span>,
+  <span class="s2">"key"</span>: <span class="s2">"occupation"</span>,
+  <span class="s2">"label"</span>: <span class="s2">"Occupation"</span>
+<span class="o">}</span>,
+<span class="o">{</span>
+  <span class="s2">"id"</span>: 2,
+  <span class="s2">"name"</span>: <span class="s2">"ck_field_2_occupation"</span>,
+  <span class="s2">"key"</span>: <span class="s2">"location"</span>,
+  <span class="s2">"label"</span>: <span class="s2">"Location"</span>
+<span class="o">}]</span>
+</code></pre>
+<p>Create a custom field for your account. The label field must be unique to your account. Whitespace will be removed from the beginning and the end of your label.</p>
+
+<p>Additionally, a key field and a name field will be generated for you. The key is an ASCII-only, lowercased, underscored representation of your label. This key must be unique to your account. Keys are used in personalization tags in sequences and broadcasts. Names are unique identifiers for use in the HTML of custom forms. They are made up of a combination of ID and the key of the custom field prefixed with &quot;ck_field&quot;.</p>
+<h4 id='endpoint-21'>Endpoint</h4>
+<p>POST /v3/custom_fields</p>
+<h4 id='required-parameters-21'>Required parameters</h4>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+<li>  <code>label</code> or <code>labels</code>- The label(s) of the custom field.</li>
+</ul>
+<h2 id='update-field'>Update field</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT https://api.convertkit.com/v3/custom_fields/1<span class="se">\</span>
+     -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
+     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",
+           "label": "Profession" }'</span>
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>No content will be returned.
+</code></pre>
+<p>Updates a custom field label (see create field above for more information on labels). Note that the key and the name do not change even when the label is updated.</p>
+<h4 id='endpoint-22'>Endpoint</h4>
+<p>PUT /v3/custom_fields/<your custom field ID></p>
+<h4 id='required-parameters-22'>Required parameters</h4>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+<li>  <code>id</code> - The ID of your custom field.</li>
+<li>  <code>label</code> - The label of the custom field.</li>
+</ul>
+<h2 id='destroy-field'>Destroy field</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE https://api.convertkit.com/v3/custom_fields/1<span class="se">\</span>
+     -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
+     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;" }'</span>
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>No content will be returned.
+</code></pre>
+<p>Destroys a custom field. Note that this will remove all data in this field from your subscribers.</p>
+<h4 id='endpoint-23'>Endpoint</h4>
+<p>DELETE /v3/custom_fields/<your custom field ID></p>
+<h4 id='required-parameters-23'>Required parameters</h4>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+<li>  <code>id</code> - The ID of your custom field.</li>
+</ul>
+<h1 id='purchases'>Purchases</h1>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code> curl -X POST https://api.convertkit.com/v3/purchases<span class="se">\</span>
+     -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
+     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",
+           "purchase": {
+             "transaction_id": "123-abcd-456-efgh",
+             "email_address": "crashoverride@hackers.com",
+             "subtotal": 20.00,
+             "tax": 2.00,
+             "shipping": 2.00,
+             "discount": 3.00,
+             "total": 21.00,
+             "status": "paid",
+             "products": [{
+               "name": "Floppy Disk (512k)",
+               "sku": "7890-ijkl",
+               "unit_price": 5.00,
+               "quantity": 2
+              }, {
+               "name": "Telephone Cord (data)",
+               "sku": "mnop-1234",
+               "unit_price": 10.00,
+               "quantity": 1
+             }]
+           }
+         }'</span>
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>
+Success:
+
+ <span class="o">{</span> message: <span class="s2">"Purchase created successfully."</span> <span class="o">}</span>
+
+Failure:
+
+<span class="o">{</span>
+  <span class="s2">"error"</span>: <span class="s2">"Error creating purchase"</span>,
+  <span class="s2">"message"</span>: <span class="s2">"transaction_id can't be blank, Sku can't be blank for product: Floppy Disk (512k)"</span>
+ <span class="o">}</span>
+</code></pre>
+<p>Manage purchases made by a subscriber.</p>
+<h3 id='create-a-purchase'>Create a Purchase</h3><h4 id='endpoint-24'>Endpoint</h4>
+<p>POST /v3/purchases</p>
+<h4 id='required-parameters-24'>Required parameters</h4>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+<li>  <code>transaction_id</code> - A unique ID for the purchase</li>
+<li>  <code>email_address</code> - The subscriber that the purchase belongs to</li>
+<li>  <code>products.sku</code> - Each product provided in the &#39;products&#39; array must have a unique sku.</li>
+</ul>
+<h4 id='optional-parameters-9'>Optional parameters</h4>
+<ul>
+<li>  <code>subtotal</code> - The subtotal of the purchase</li>
+<li>  <code>tax</code> - Tax applied to purchase</li>
+<li>  <code>shipping</code> - Shipping amount applied to purchase</li>
+<li>  <code>discount</code> - Discount amount applied to purchase</li>
+<li>  <code>total</code> - Total cost of the purchase</li>
+<li>  <code>status</code> - Status of the purchase, i.e. &quot;paid&quot;, &quot;refund&quot;, etc.</li>
+<li>  <code>products</code> - Array of purchased products
+
+<ul>
+<li>  <code>name</code> - Product name</li>
+<li>  <code>sku</code> - Product sku</li>
+<li>  <code>unit_price</code> - Product price</li>
+<li>  <code>quantity</code> - Product quantity</li>
+</ul></li>
+</ul>
+<h1 id='errors'>Errors</h1>
+<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+
+<p>The Kittn API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request sucks.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone -- The kitten requested has been removed from our servers.</td>
+</tr>
+<tr>
+<td>418</td>
+<td>I&#39;m a teapot.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
