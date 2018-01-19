@@ -305,22 +305,17 @@ Sequences
 List sequences
 --------------
 
-Returns a list of sequences for the account.
+> Example request
 
-#### Endpoint
-
-GET /v3/courses
-
-#### Required parameters
-
--   `api_key` - Your account API key.
-
-#### Example request
+```shell
 
 curl https://api.convertkit.com/v3/sequences?api_key=<your_public_api_key>
 
-#### Example response
+```
 
+> Example response
+
+```shell
 {
   "courses": [
     {
@@ -335,38 +330,33 @@ curl https://api.convertkit.com/v3/sequences?api_key=<your_public_api_key>
     }
   ]
 }
+```
 
-Add subscriber to a sequence
-----------------------------
-
-Subscribe an email address to one of your sequences.
+Returns a list of sequences for the account.
 
 #### Endpoint
 
-POST /v3/courses/<course_id>/subscribe
+GET /v3/courses
 
 #### Required parameters
 
 -   `api_key` - Your account API key.
--   `email` - Subscriber email address.
 
-#### Optional parameters
 
--   `first_name` - Subscriber first name.
--   `fields` - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).
--   `name` - Subscriber first name. *legacy behavior, discouraged*
--   `tags` - Comma-separated list of tag ids to subscribe to.
--   `courses` - Comma-separated list of sequence ids to subscribe to. *discouraged*
--   `forms` - Comma-separated list of form ids to subscribe to. *strongly discouraged*
 
-#### Example request
+Add subscriber to a sequence
+----------------------------
 
+> Example request
+
+```shell
 curl -X POST https://api.convertkit.com/v3/courses/1/subscribe\
      -H "Content-Type: application/json; charset=utf-8"\
      -d
+```
+> Example response
 
-#### Example response
-
+```shell
 {
   "subscription": {
     "id": 2,
@@ -388,31 +378,40 @@ curl -X POST https://api.convertkit.com/v3/courses/1/subscribe\
     }
   }
 }
+```
+
+Subscribe an email address to one of your sequences.
+
+#### Endpoint
+
+POST /v3/courses/<course_id>/subscribe
+
+#### Required parameters
+
+-   `api_key` - Your account API key.
+-   `email` - Subscriber email address.
+
+#### Optional parameters
+
+-   `first_name` - Subscriber first name.
+-   `fields` - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).
+-   `name` - Subscriber first name. *legacy behavior, discouraged*
+-   `tags` - Comma-separated list of tag ids to subscribe to.
+-   `courses` - Comma-separated list of sequence ids to subscribe to. *discouraged*
+-   `forms` - Comma-separated list of form ids to subscribe to. *strongly discouraged*
 
 List subscriptions to a sequence
 --------------------------------
 
-List subscriptions to a sequence including subscriber data.
+> Example request
 
-#### Endpoint
-
-GET /v3/sequences/<sequence_id>/subscriptions
-
-#### Required parameters
-
--   `api_secret` - your api secret key
-
-#### Optional parameters
-
--   `sort_order` - `asc` or `desc`: `asc` to list subscribers added oldest to newest, `desc` to list subscribers added newest to oldest. `asc` is the default order.
--   `subscriber_state`?-?`active`?or??`cancelled`: receive only active subscribers or cancelled subscribers
-
-#### Example request
-
+```shell
 curl https://api.convertkit.com/v3/sequences/<sequence_id>/subscriptions?api_secret=<your_secret_api_key>
+```
 
-#### Example response
+> Example response
 
+```shell
 {
   "total_subscriptions": 2,
   "page": 1,
@@ -458,6 +457,23 @@ curl https://api.convertkit.com/v3/sequences/<sequence_id>/subscriptions?api_sec
     }
   ]
 }
+```
+
+
+List subscriptions to a sequence including subscriber data.
+
+#### Endpoint
+
+GET /v3/sequences/<sequence_id>/subscriptions
+
+#### Required parameters
+
+-   `api_secret` - your api secret key
+
+#### Optional parameters
+
+-   `sort_order` - `asc` or `desc`: `asc` to list subscribers added oldest to newest, `desc` to list subscribers added newest to oldest. `asc` is the default order.
+-   `subscriber_state`?-?`active`?or??`cancelled`: receive only active subscribers or cancelled subscribers
 
 Tags
 ====
@@ -465,22 +481,15 @@ Tags
 List tags
 ---------
 
-Returns a list of tags for the account.
+> Example request
 
-#### Endpoint
-
-GET /v3/tags
-
-#### Required parameters
-
--   `api_key` - Your account API key.
-
-#### Example request
-
+```shell
 curl https://api.convertkit.com/v3/tags?api_key=<your_public_api_key>
+```
 
-#### Example response
+> Example response
 
+```shell
 {
   "tags": [
     {
@@ -495,6 +504,18 @@ curl https://api.convertkit.com/v3/tags?api_key=<your_public_api_key>
     }
   ]
 }
+```
+
+Returns a list of tags for the account.
+
+#### Endpoint
+
+GET /v3/tags
+
+#### Required parameters
+
+-   `api_key` - Your account API key.
+
 
 Create a tag
 ------------
@@ -502,15 +523,9 @@ Create a tag
 Endpoint
 --------
 
-POST /v3/tags
+> Example request
 
-#### Required parameters
-
--   `api_key` - Your account API key.
--   `tag` - a JSON object or an array of JSON objects, respectively, that include the tag name
-    -   `{ "name": "Example Tag" }`
-
-#### Example request
+```shell
 
 Single tag
 
@@ -532,8 +547,11 @@ curl -X POST https://api.convertkit.com/v3/tags
              "name": "Example Tag 2"\
            }] }'
 
-#### Example response
+```
 
+> Example response
+
+```shell
 {
   "account_id": 1,
   "created_at": "2017-04-12T11:10:32Z"
@@ -564,38 +582,32 @@ A request to create multiple tags will receive a JSON array with the same type o
   "state": "available",
   "updated_at": "2017-04-12T11:11:566Z"
 }]
+```
 
-Tag a subscriber
-----------------
-
-Tags are handled as subscriptions. Subscribe an email address to a tag to have that tag applied to the subscriber with that email address.
-
-#### Endpoint
-
-POST /v3/tags/<tag_id>/subscribe
+POST /v3/tags
 
 #### Required parameters
 
 -   `api_key` - Your account API key.
--   `email` - Subscriber email address.
+-   `tag` - a JSON object or an array of JSON objects, respectively, that include the tag name
+    -   `{ "name": "Example Tag" }`
 
-#### Optional parameters
 
--   `first_name` - Subscriber first name.
--   `fields` - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).
--   `name` - Subscriber first name. *legacy behavior, deprecated*
--   `tags` - Comma-separated list of tag ids to subscribe to.
--   `courses` - Comma-separated list of sequence ids to subscribe to. *discouraged*
--   `forms` - Comma-separated list of form ids to subscribe to. *strongly discouraged*
 
-#### Example request
+Tag a subscriber
+----------------
 
+> Example request
+
+```shell
 curl -X POST https://api.convertkit.com/v3/tags/1/subscribe\
      -H "Content-Type: application/json; charset=utf-8"\
      -d
+```
 
-#### Example response
+> Example response
 
+```shell
 {
   "subscription": {
     "id": 3,
@@ -617,9 +629,49 @@ curl -X POST https://api.convertkit.com/v3/tags/1/subscribe\
     }
   }
 }
+```
+
+
+Tags are handled as subscriptions. Subscribe an email address to a tag to have that tag applied to the subscriber with that email address.
+
+#### Endpoint
+
+POST /v3/tags/<tag_id>/subscribe
+
+#### Required parameters
+
+-   `api_key` - Your account API key.
+-   `email` - Subscriber email address.
+
+#### Optional parameters
+
+-   `first_name` - Subscriber first name.
+-   `fields` - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).
+-   `name` - Subscriber first name. *legacy behavior, deprecated*
+-   `tags` - Comma-separated list of tag ids to subscribe to.
+-   `courses` - Comma-separated list of sequence ids to subscribe to. *discouraged*
+-   `forms` - Comma-separated list of form ids to subscribe to. *strongly discouraged*
+
+
 
 Remove tag from a subscriber
 ----------------------------
+
+> Example request
+
+```shell
+curl -X DELETE https://api.convertkit.com/v3/subscribers/1/tags/1?api_secret=<your_secret_api_key>
+```
+
+> Example response
+
+```shell
+{
+  "id": 1,
+  "name": "House Stark",
+  "created_at": "2016-02-28T08:07:00Z"
+}
+```
 
 #### Endpoint
 
@@ -629,42 +681,21 @@ DELETE /v3/subscribers/<subscriber_id>/tags/<tag_id>
 
 -   `api_secret` - Your api secret key.
 
-#### Example request
-
-curl -X DELETE https://api.convertkit.com/v3/subscribers/1/tags/1?api_secret=<your_secret_api_key>
-
-#### Example response
-
-{
-  "id": 1,
-  "name": "House Stark",
-  "created_at": "2016-02-28T08:07:00Z"
-}
 
 List subscriptions to a tag
 ---------------------------
 
-List subscriptions to a tag including subscriber data.
+> Example request
 
-#### Endpoint
-
-GET /v3/tags/<tag_id>/subscriptions
-
-#### Required parameters
-
--   `api_secret` - your api secret key
-
-#### Optional parameters
-
--   `sort_order` - `asc` or `desc`: `asc` to list subscribers added oldest to newest, `desc` to list subscribers added newest to oldest. `asc` is the default order.
--   `subscriber_state` - `active` or `cancelled`: receive only active subscribers or cancelled subscribers
-
-#### Example request
+```shell
 
 curl https://api.convertkit.com/v3/tags/<tag_id>/subscriptions?api_secret=<your_secret_api_key>
 
-#### Example response
+```
 
+> Example response
+
+```shell
 {
   "total_subscriptions": 2,
   "page": 1,
@@ -710,6 +741,23 @@ curl https://api.convertkit.com/v3/tags/<tag_id>/subscriptions?api_secret=<your_
     }
   ]
 }
+```
+
+List subscriptions to a tag including subscriber data.
+
+#### Endpoint
+
+GET /v3/tags/<tag_id>/subscriptions
+
+#### Required parameters
+
+-   `api_secret` - your api secret key
+
+#### Optional parameters
+
+-   `sort_order` - `asc` or `desc`: `asc` to list subscribers added oldest to newest, `desc` to list subscribers added newest to oldest. `asc` is the default order.
+-   `subscriber_state` - `active` or `cancelled`: receive only active subscribers or cancelled subscribers
+
 
 Subscriber
 ==========
@@ -717,33 +765,15 @@ Subscriber
 Subscriber list
 ===============
 
-Returns a list of your subscribers. For unsubscribes only, use the `cancelled_at` value for `sort_field`param (currently the only supported extra sort field). Search subscribers by email address by providing the `email_address` param.
+> Example request
 
-#### Endpoint
-
-GET /v3/subscribers
-
-#### Required parameters
-
--   `api_secret` - Your api secret key.
-
-#### Optional parameters
-
--   `page` - Page for paginated results.
--   `from` - Filter subscribers added on or after this date (format yyyy-mm-dd).
--   `to` - Filter subscribers added on or before this date (format yyyy-mm-dd).
--   `updated_from` - Filter subscribers who have been updated after this date (format yyyy-mm-dd)
--   `updated_to` - Filter subscribers who have been updated before this date (format yyyy-mm-dd)
--   `sort_order` - Sort order for results (`asc` or `desc`).
--   `sort_field` - Field to sort by (`cancelled_at`).
--   `email_address` - Search subscribers by email address.
-
-#### Example request
-
+```shell
 curl https://api.convertkit.com/v3/subscribers?api_secret=<your_secret_api_key>&from=2016-02-01&to=2015-02-28
+```
 
-#### Example response
+> Example response
 
+```shell
 {
   "total_subscribers": 3,
   "page": 1,
@@ -771,26 +801,42 @@ curl https://api.convertkit.com/v3/subscribers?api_secret=<your_secret_api_key>&
     }
   ]
 }
+```
 
-View a single subscriber
-------------------------
-
-Returns data for a single subscriber
+Returns a list of your subscribers. For unsubscribes only, use the `cancelled_at` value for `sort_field`param (currently the only supported extra sort field). Search subscribers by email address by providing the `email_address` param.
 
 #### Endpoint
 
-GET /v3/subscribers/<subscriber_id>
+GET /v3/subscribers
 
 #### Required parameters
 
 -   `api_secret` - Your api secret key.
 
-#### Example request
+#### Optional parameters
 
+-   `page` - Page for paginated results.
+-   `from` - Filter subscribers added on or after this date (format yyyy-mm-dd).
+-   `to` - Filter subscribers added on or before this date (format yyyy-mm-dd).
+-   `updated_from` - Filter subscribers who have been updated after this date (format yyyy-mm-dd)
+-   `updated_to` - Filter subscribers who have been updated before this date (format yyyy-mm-dd)
+-   `sort_order` - Sort order for results (`asc` or `desc`).
+-   `sort_field` - Field to sort by (`cancelled_at`).
+-   `email_address` - Search subscribers by email address.
+
+
+View a single subscriber
+------------------------
+
+> Example request
+
+```shell
 curl https://api.convertkit.com/v3/subscribers/1?api_secret=<your_secret_api_key>
+```
 
-#### Example response
+> Example response
 
+```shell
 {
   "subscriber": {
     "id": 1,
@@ -803,9 +849,52 @@ curl https://api.convertkit.com/v3/subscribers/1?api_secret=<your_secret_api_key
     }
   }
 }
+```
+
+Returns data for a single subscriber
+
+#### Endpoint
+
+GET /v3/subscribers/<subscriber_id>
+
+#### Required parameters
+
+-   `api_secret` - Your api secret key.
+
+
 
 Update subscriber
 -----------------
+
+> Example request
+
+```shell
+curl -X PUT https://api.convertkit.com/v3/subscribers/1\
+     -H 'Content-Type: application/json'\
+     -d '{ "api_secret": "<your_secret_api_key>",\
+           "first_name": "Jon",\
+           "email_address": "jonsnow@example.com",\
+           "fields": {\
+             "last_name": "Snow"\
+           } }'
+```
+
+> Example response
+
+```shell
+{
+  "subscriber": {
+    "id": 1,
+    "first_name": "Jon",
+    "email_address": "jonsnow@example.com",
+    "state": "active",
+    "created_at": "2016-02-28T08:07:00Z",
+    "fields": {
+      "last_name": "Snow"
+    }
+  }
+}
+```
 
 Updates the information for a single subscriber.
 
@@ -823,19 +912,22 @@ PUT /v3/subscribers/<subscriber_id>
 -   `email_address` - Updated email address for the subscriber.
 -   `fields` - Updated custom fields for your subscriber as object of key/value pairs (the custom field must exist before you can use it here).
 
-#### Example request
 
-curl -X PUT https://api.convertkit.com/v3/subscribers/1\
+Unsubscribe subscriber
+----------------------
+
+> Example request
+
+```shell
+curl -x PUT https://api.convertkit.com/v3/unsubscribe
      -H 'Content-Type: application/json'\
      -d '{ "api_secret": "<your_secret_api_key>",\
-           "first_name": "Jon",\
-           "email_address": "jonsnow@example.com",\
-           "fields": {\
-             "last_name": "Snow"\
-           } }'
+           "email": "jonsnow@example.com" }'
+```
 
-#### Example response
+> Example response
 
+```shell
 {
   "subscriber": {
     "id": 1,
@@ -848,9 +940,7 @@ curl -X PUT https://api.convertkit.com/v3/subscribers/1\
     }
   }
 }
-
-Unsubscribe subscriber
-----------------------
+```
 
 Unsubscribe an email address from all your forms and sequences.
 
@@ -863,30 +953,31 @@ PUT /v3/unsubscribe
 -   `api_secret` - Your api secret key.
 -   `email` - Subscriber email address.
 
-#### Example request
-
-curl -x PUT https://api.convertkit.com/v3/unsubscribe
-     -H 'Content-Type: application/json'\
-     -d '{ "api_secret": "<your_secret_api_key>",\
-           "email": "jonsnow@example.com" }'
-
-#### Example response
-
-{
-  "subscriber": {
-    "id": 1,
-    "first_name": "Jon",
-    "email_address": "jonsnow@example.com",
-    "state": "active",
-    "created_at": "2016-02-28T08:07:00Z",
-    "fields": {
-      "last_name": "Snow"
-    }
-  }
-}
 
 List tags for a subscriber
 --------------------------
+
+> Example request
+
+```shell
+curl -X GET https://api.convertkit.com/v3/subscribers/1/tags\
+     -H 'Content-Type: application/json'\
+     -d '{ "api_secret": "<your_secret_api_key>" }'
+```
+
+> Example response
+
+```shell
+{
+  "tags": [
+    {
+      "id": 1,
+      "name": "Email Newsletter",
+      "created_at": "2016-06-09T17:54:22Z"
+    }
+  ]
+}
+```
 
 Lists all the tags for a subscriber.
 
@@ -898,24 +989,6 @@ GET /v3/subscribers/`<subscriber_id>`/tags
 
 -   `api_key` - Your account API key.
 
-#### Example request
-
-curl -X GET https://api.convertkit.com/v3/subscribers/1/tags\
-     -H 'Content-Type: application/json'\
-     -d '{ "api_secret": "<your_secret_api_key>" }'
-
-#### Example response
-
-{
-  "tags": [
-    {
-      "id": 1,
-      "name": "Email Newsletter",
-      "created_at": "2016-06-09T17:54:22Z"
-    }
-  ]
-}
-
 Webhooks
 ========
 
@@ -923,6 +996,62 @@ Webhooks are automations that will receive subscriber data when a subscriber eve
 
 Create a webhook
 ----------------
+
+> Example request: Create a webhook automation to receive subscriber data at `http://example.com/incoming` when a subscriber is activated.
+
+```shell
+
+curl -X POST https://api.convertkit.com/v3/automations/hooks
+     -H 'Content-Type: application/json'\
+     -d '{ "api_secret": "<your_secret_api_key>",\
+           "target_url": "http://example.com/incoming",\
+           "event": { "name": "subscriber.subscriber_activate" } }'
+
+```
+
+> Example response
+
+
+```shell
+{
+  "rule": {
+    "id": 1,
+    "account_id": 2,
+    "event": {
+      "name": "subscriber_activate"
+    }
+  }
+}
+
+```
+
+> Example request: Create a webhook automation to receive subscriber data at `http://example.com/incoming` when a sequence is completed.
+
+```shell
+
+curl -X POST https://api.convertkit.com/v3/automations/hooks
+     -H 'Content-Type: application/json'\
+     -d '{ "api_secret": "<your_secret_api_key>",\
+           "target_url": "http://example.com/incoming",\
+           "event": { "name": "subscriber.course_complete", "sequence_id": 18" } }'
+
+```
+
+> Example response
+
+```shell
+{
+  "rule": {
+    "id": 43,
+    "account_id":2,
+    "event": {
+      "name": "course_complete",
+      "sequence_id": 18
+    },
+    "target_url":"http://example.com/"
+  }
+}
+```
 
 Create a webhook that will be called when a subscriber event occurs.
 
@@ -950,50 +1079,25 @@ These are the available event types:
 -   `"subscriber.tag_add"`
 -   `"subscriber.tag_remove"`
 
-#### Example request: Create a webhook automation to receive subscriber data at `http://example.com/incoming` when a subscriber is activated.
-
-curl -X POST https://api.convertkit.com/v3/automations/hooks
-     -H 'Content-Type: application/json'\
-     -d '{ "api_secret": "<your_secret_api_key>",\
-           "target_url": "http://example.com/incoming",\
-           "event": { "name": "subscriber.subscriber_activate" } }'
-
-#### Example response
-
-{
-  "rule": {
-    "id": 1,
-    "account_id": 2,
-    "event": {
-      "name": "subscriber_activate"
-    }
-  }
-}
-
-#### Example request: Create a webhook automation to receive subscriber data at `http://example.com/incoming` when a sequence is completed.
-
-curl -X POST https://api.convertkit.com/v3/automations/hooks
-     -H 'Content-Type: application/json'\
-     -d '{ "api_secret": "<your_secret_api_key>",\
-           "target_url": "http://example.com/incoming",\
-           "event": { "name": "subscriber.course_complete", "sequence_id": 18" } }'
-
-#### Example response
-
-{
-  "rule": {
-    "id": 43,
-    "account_id":2,
-    "event": {
-      "name": "course_complete",
-      "sequence_id": 18
-    },
-    "target_url":"http://example.com/"
-  }
-}
 
 Destroy webhook
 ---------------
+
+> Example request: Delete webhook automation rule with ID #456.
+
+```shell
+curl -X DELETE https://api.convertkit.com/v3/automations/hooks/456
+     -H 'Content-Type: application/json'\
+     -d '{ "api_secret": "<your_secret_api_key>" }'
+```
+
+> Example response
+
+```shell
+{
+  "success": true
+}
+```
 
 Deletes a webhook.
 
@@ -1005,17 +1109,6 @@ DELETE /v3/automations/hooks/<rule_id>
 
 -   `api_secret` - Your api secret key.
 
-#### Example request: Delete webhook automation rule with ID #456.
-
-curl -X DELETE https://api.convertkit.com/v3/automations/hooks/456
-     -H 'Content-Type: application/json'\
-     -d '{ "api_secret": "<your_secret_api_key>" }'
-
-#### Example response
-
-{
-  "success": true
-}
 
 Custom fields
 =============
@@ -1027,22 +1120,15 @@ Note that you must create a custom field before you can use it with the subscrib
 List fields
 -----------
 
-List all of your account's custom fields.
+> Example request
 
-#### Endpoint
-
-GET /v3/custom_fields
-
-#### Required parameters
-
--   `api_key` - Your account API key.
-
-#### Example request
-
+```shell
 curl -X GET 'https://api.convertkit.com/v3/custom_fields?api_key=<your_public_api_key>'
+```
 
-#### Example response
+> Example response
 
+```shell
 {
   "custom_fields":
   [
@@ -1060,24 +1146,26 @@ curl -X GET 'https://api.convertkit.com/v3/custom_fields?api_key=<your_public_ap
     },
   ]
 }
+```
+
+List all of your account's custom fields.
+
+#### Endpoint
+
+GET /v3/custom_fields
+
+#### Required parameters
+
+-   `api_key` - Your account API key.
+
+
 
 Create field
 ------------
 
-Create a custom field for your account. The label field must be unique to your account. Whitespace will be removed from the beginning and the end of your label.
+> Example request
 
-Additionally, a key field and a name field will be generated for you. The key is an ASCII-only, lowercased, underscored representation of your label. This key must be unique to your account. Keys are used in personalization tags in sequences and broadcasts. Names are unique identifiers for use in the HTML of custom forms. They are made up of a combination of ID and the key of the custom field prefixed with "ck_field".
-
-#### Endpoint
-
-POST /v3/custom_fields
-
-#### Required parameters
-
--   `api_secret` - Your api secret key.
--   `label` or `labels`- The label(s) of the custom field.
-
-#### Example request
+```shell
 
 Single label
 
@@ -1092,8 +1180,11 @@ curl -X POST https://api.convertkit.com/v3/custom_fields\
      -H 'Content-Type: application/json'\
      -d '{ "api_secret": "<your_secret_api_key>",
            "label": ["Occupation", "Location"] }'
+```           
 
-#### Example response
+> Example response
+
+```shell
 
 Single custom field
 
@@ -1118,9 +1209,39 @@ Multiple custom fields
   "key": "location",
   "label": "Location"
 }]
+```
+
+
+Create a custom field for your account. The label field must be unique to your account. Whitespace will be removed from the beginning and the end of your label.
+
+Additionally, a key field and a name field will be generated for you. The key is an ASCII-only, lowercased, underscored representation of your label. This key must be unique to your account. Keys are used in personalization tags in sequences and broadcasts. Names are unique identifiers for use in the HTML of custom forms. They are made up of a combination of ID and the key of the custom field prefixed with "ck_field".
+
+#### Endpoint
+
+POST /v3/custom_fields
+
+#### Required parameters
+
+-   `api_secret` - Your api secret key.
+-   `label` or `labels`- The label(s) of the custom field.
+
 
 Update field
 ------------
+
+> Example request
+
+```shell
+curl -X PUT https://api.convertkit.com/v3/custom_fields/1\
+     -H 'Content-Type: application/json'\
+     -d '{ "api_secret": "<your_secret_api_key>",
+           "label": "Profession" }'
+```
+> Example response
+
+```shell
+No content will be returned.
+```
 
 Updates a custom field label (see create field above for more information on labels). Note that the key and the name do not change even when the label is updated.
 
@@ -1134,19 +1255,23 @@ PUT /v3/custom_fields/<your custom field ID>
 -   `id` - The ID of your custom field.
 -   `label` - The label of the custom field.
 
-#### Example request
-
-curl -X PUT https://api.convertkit.com/v3/custom_fields/1\
-     -H 'Content-Type: application/json'\
-     -d '{ "api_secret": "<your_secret_api_key>",
-           "label": "Profession" }'
-
-#### Example response
-
-No content will be returned.
 
 Destroy field
 -------------
+
+> Example request
+
+```shell
+curl -X DELETE https://api.convertkit.com/v3/custom_fields/1\
+     -H 'Content-Type: application/json'\
+     -d '{ "api_secret": "<your_secret_api_key>" }'
+```
+
+> Example response
+
+```shell
+No content will be returned.
+```
 
 Destroys a custom field. Note that this will remove all data in this field from your subscribers.
 
@@ -1159,18 +1284,54 @@ DELETE /v3/custom_fields/<your custom field ID>
 -   `api_secret` - Your api secret key.
 -   `id` - The ID of your custom field.
 
-#### Example request
-
-curl -X DELETE https://api.convertkit.com/v3/custom_fields/1\
-     -H 'Content-Type: application/json'\
-     -d '{ "api_secret": "<your_secret_api_key>" }'
-
-#### Example response
-
-No content will be returned.
 
 Purchases
----------
+=========================
+
+> Example request
+
+```shell
+ curl -X POST https://api.convertkit.com/v3/purchases\
+     -H 'Content-Type: application/json'\
+     -d '{ "api_secret": "<your_secret_api_key>",
+           "purchase": {
+             "transaction_id": "123-abcd-456-efgh",
+             "email_address": "crashoverride@hackers.com",
+             "subtotal": 20.00,
+             "tax": 2.00,
+             "shipping": 2.00,
+             "discount": 3.00,
+             "total": 21.00,
+             "status": "paid",
+             "products": [{
+               "name": "Floppy Disk (512k)",
+               "sku": "7890-ijkl",
+               "unit_price": 5.00,
+               "quantity": 2
+              }, {
+               "name": "Telephone Cord (data)",
+               "sku": "mnop-1234",
+               "unit_price": 10.00,
+               "quantity": 1
+             }]
+           }
+         }'
+```
+> Example response
+
+```shell
+
+Success:
+
+ { message: "Purchase created successfully." }
+
+Failure:
+
+{
+  "error": "Error creating purchase",
+  "message": "transaction_id can't be blank, Sku can't be blank for product: Floppy Disk (512k)"
+ }
+```
 
 Manage purchases made by a subscriber.
 
@@ -1200,256 +1361,3 @@ Manage purchases made by a subscriber.
     -   `sku` - Product sku
     -   `unit_price` - Product price
     -   `quantity` - Product quantity
-
-#### Example request
-
- curl -X POST https://api.convertkit.com/v3/purchases\
-     -H 'Content-Type: application/json'\
-     -d '{ "api_secret": "<your_secret_api_key>",
-           "purchase": {
-             "transaction_id": "123-abcd-456-efgh",
-             "email_address": "crashoverride@hackers.com",
-             "subtotal": 20.00,
-             "tax": 2.00,
-             "shipping": 2.00,
-             "discount": 3.00,
-             "total": 21.00,
-             "status": "paid",
-             "products": [{
-               "name": "Floppy Disk (512k)",
-               "sku": "7890-ijkl",
-               "unit_price": 5.00,
-               "quantity": 2
-              }, {
-               "name": "Telephone Cord (data)",
-               "sku": "mnop-1234",
-               "unit_price": 10.00,
-               "quantity": 1
-             }]
-           }
-         }'
-
-#### Example response
-
-##### Success:
-
- { message: "Purchase created successfully." }
-
-##### Failure:
-
-{
-  "error": "Error creating purchase",
-  "message": "transaction_id can't be blank, Sku can't be blank for product: Floppy Disk (512k)"
- }
-
-# Authentication
-
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
