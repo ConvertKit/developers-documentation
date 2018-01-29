@@ -8,7 +8,6 @@ toc_footers:
   - <a href='https://convertkit.com'>Visit ConvertKit.com</a>
 
 includes:
-  - errors
 
 search: true
 ---
