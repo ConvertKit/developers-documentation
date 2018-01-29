@@ -295,6 +295,15 @@
             <a href="#subscribers" class="toc-h1 toc-link" data-title="Subscribers">Subscribers</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#endpoint" class="toc-h2 toc-link" data-title="Endpoint">Endpoint</a>
+                  </li>
+                  <li>
+                    <a href="#required-parameters" class="toc-h2 toc-link" data-title="Required parameters">Required parameters</a>
+                  </li>
+                  <li>
+                    <a href="#optional-parameters" class="toc-h2 toc-link" data-title="Optional parameters">Optional parameters</a>
+                  </li>
+                  <li>
                     <a href="#view-a-single-subscriber" class="toc-h2 toc-link" data-title="View a single subscriber">View a single subscriber</a>
                   </li>
                   <li>
@@ -342,6 +351,15 @@
                   <li>
                     <a href="#create-a-purchase" class="toc-h2 toc-link" data-title="Create a Purchase">Create a Purchase</a>
                   </li>
+                  <li>
+                    <a href="#endpoint" class="toc-h2 toc-link" data-title="Endpoint">Endpoint</a>
+                  </li>
+                  <li>
+                    <a href="#required-parameters" class="toc-h2 toc-link" data-title="Required parameters">Required parameters</a>
+                  </li>
+                  <li>
+                    <a href="#optional-parameters" class="toc-h2 toc-link" data-title="Optional parameters">Optional parameters</a>
+                  </li>
               </ul>
           </li>
       </div>
@@ -378,25 +396,25 @@
 </ul>
 
 <p>If you aren&#39;t sure how best to structure your integration, just reach out to our team, we&#39;ll be happy to help you design it.</p>
-<h2 id='api-basics'>API Basics</h2><h4 id='api-key'>API Key</h4>
+<h2 id='api-basics'>API Basics</h2><h3 id='api-key'>API Key</h3>
 <p>All API calls require the <code>api_key</code> parameter. You can find your API Key in the ConvertKit Account page.</p>
-<h4 id='api-secret'>API Secret</h4>
+<h3 id='api-secret'>API Secret</h3>
 <p>Some API calls require the <code>api_secret</code> parameter. All calls that require <code>api_key</code> also work with <code>api_secret</code>, there&#39;s no need to use both. This key grants access to sensitive data and actions on your subscribers, so you should treat it as your password, and do not use it in any client-side code (usually that means JavaScript).</p>
-<h4 id='responses'>Responses</h4>
+<h3 id='responses'>Responses</h3>
 <p>When an API call goes well the API will return a 200 or 201 HTTP response, along with a JSON response body.</p>
 
 <p>If there&#39;s some error the API will return an HTTP response in the 400 or 500 range, and a response body indicating what the error was, for example:</p>
 
 <p><code>{ &quot;error&quot;: &quot;Authorization Failed&quot;, &quot;message&quot;: &quot;API Key not present&quot; }</code> with a 401 error.</p>
-<h5 id='bad-data'>Bad data</h5>
+<h4 id='bad-data'>Bad data</h4>
 <p>When you create or update a field, you may receive an HTTP 422 if any fields contain bad data or required fields are missing.</p>
-<h5 id='rate-limiting'>Rate limiting</h5>
+<h4 id='rate-limiting'>Rate limiting</h4>
 <p>If your request rate exceeds our limits, you will receive an HTTP status of 429 with the message &quot;Too Many Requests&quot;.</p>
 
 <ul>
 <li>  For the subscribe endpoints for forms, sequences, and tags, the rate is no more than 600 requests over any 5 minute period.</li>
 </ul>
-<h5 id='internal-server-errors'>Internal server errors</h5>
+<h4 id='internal-server-errors'>Internal server errors</h4>
 <p>If the server is overloaded or you encounter a bug, you will get a 500 error. Try again after a short period, and if you continue to encounter an error, please raise the issue with support.</p>
 <h1 id='account'>Account</h1><h2 id='show-the-current-account'>Show the current account</h2>
 <blockquote>
@@ -411,9 +429,9 @@
     <span class="s2">"name"</span>:<span class="s2">"Acme Corp."</span>,
     <span class="s2">"primary_email_address"</span>:<span class="s2">"you@example.com"</span>
 <span class="o">}</span>
-</code></pre><h4 id='endpoint'>Endpoint</h4>
+</code></pre><h3 id='endpoint'>Endpoint</h3>
 <p>GET /v3/account</p>
-<h4 id='required-parameters'>Required parameters</h4>
+<h3 id='required-parameters'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your account API key.</li>
 </ul>
@@ -460,9 +478,9 @@ curl https://api.convertkit.com/v3/forms?api_key<span class="o">=</span>&lt;your
 <span class="o">}</span>
 </code></pre>
 <p>Get a list of all the forms for your account.</p>
-<h4 id='endpoint'>Endpoint</h4>
+<h3 id='endpoint'>Endpoint</h3>
 <p>GET /v3/forms</p>
-<h4 id='required-parameters'>Required parameters</h4>
+<h3 id='required-parameters'>Required parameters</h3>
 <ul>
 <li>  <code>api_key</code> - Your account API key.</li>
 </ul>
@@ -502,14 +520,14 @@ curl -X POST https://api.convertkit.com/v3/forms/1/subscribe<span class="se">\</
 <span class="o">}</span>
 </code></pre>
 <p>Subscribe an email address to one of your forms.</p>
-<h4 id='endpoint-2'>Endpoint</h4>
+<h3 id='endpoint-2'>Endpoint</h3>
 <p>POST /v3/forms/<form_id>/subscribe</p>
-<h4 id='required-parameters-2'>Required parameters</h4>
+<h3 id='required-parameters-2'>Required parameters</h3>
 <ul>
 <li>  <code>api_key</code> - Your account API key.</li>
 <li>  <code>email</code> - Subscriber email address.</li>
 </ul>
-<h4 id='optional-parameters'>Optional parameters</h4>
+<h3 id='optional-parameters'>Optional parameters</h3>
 <ul>
 <li>  <code>first_name</code> - Subscriber first name.</li>
 <li>  <code>fields</code> - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).</li>
@@ -575,19 +593,19 @@ curl https://api.convertkit.com/v3/forms/&lt;form_id&gt;/subscriptions?api_secre
 <span class="o">}</span>
 </code></pre>
 <p>List subscriptions to a form including subscriber data.</p>
-<h4 id='endpoint-3'>Endpoint</h4>
+<h3 id='endpoint-3'>Endpoint</h3>
 <p>GET /v3/forms/<form_id>/subscriptions</p>
-<h4 id='required-parameters-3'>Required parameters</h4>
+<h3 id='required-parameters-3'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - your api secret key</li>
 </ul>
-<h4 id='optional-parameters-2'>Optional parameters</h4>
+<h3 id='optional-parameters-2'>Optional parameters</h3>
 <ul>
 <li>  <code>sort_order</code> - <code>asc</code> or <code>desc</code>: <code>asc</code> to list subscribers added oldest to newest, <code>desc</code> to list subscribers added newest to oldest. <code>asc</code> is the default order.</li>
 <li>  <code>subscriber_state</code> - <code>active</code> or <code>cancelled</code>: receive only active subscribers or cancelled subscribers</li>
 </ul>
 <h1 id='sequences'>Sequences</h1>
-<p><em>NOTE: *Sequences</em> were formerly referred to as <em>Courses</em> API v3 retains the previous naming conventions, but will accept requests to <code>sequences</code> as the endpoint as well.*</p>
+<p><em>NOTE: <strong>Sequences</strong> were formerly referred to as <strong>Courses</strong> API v3 retains the previous naming conventions, but will accept requests to <code>sequences</code> as the endpoint as well.</em></p>
 <h2 id='list-sequences'>List sequences</h2>
 <blockquote>
 <p>Example request</p>
@@ -615,9 +633,9 @@ curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;
 <span class="o">}</span>
 </code></pre>
 <p>Returns a list of sequences for the account.</p>
-<h4 id='endpoint'>Endpoint</h4>
+<h3 id='endpoint'>Endpoint</h3>
 <p>GET /v3/courses</p>
-<h4 id='required-parameters'>Required parameters</h4>
+<h3 id='required-parameters'>Required parameters</h3>
 <ul>
 <li>  <code>api_key</code> - Your account API key.</li>
 </ul>
@@ -655,14 +673,14 @@ curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;
 <span class="o">}</span>
 </code></pre>
 <p>Subscribe an email address to one of your sequences.</p>
-<h4 id='endpoint-2'>Endpoint</h4>
+<h3 id='endpoint-2'>Endpoint</h3>
 <p>POST /v3/courses/<course_id>/subscribe</p>
-<h4 id='required-parameters-2'>Required parameters</h4>
+<h3 id='required-parameters-2'>Required parameters</h3>
 <ul>
 <li>  <code>api_key</code> - Your account API key.</li>
 <li>  <code>email</code> - Subscriber email address.</li>
 </ul>
-<h4 id='optional-parameters'>Optional parameters</h4>
+<h3 id='optional-parameters'>Optional parameters</h3>
 <ul>
 <li>  <code>first_name</code> - Subscriber first name.</li>
 <li>  <code>fields</code> - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).</li>
@@ -727,13 +745,13 @@ curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;
 <span class="o">}</span>
 </code></pre>
 <p>List subscriptions to a sequence including subscriber data.</p>
-<h4 id='endpoint-3'>Endpoint</h4>
+<h3 id='endpoint-3'>Endpoint</h3>
 <p>GET /v3/sequences/<sequence_id>/subscriptions</p>
-<h4 id='required-parameters-3'>Required parameters</h4>
+<h3 id='required-parameters-3'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - your api secret key</li>
 </ul>
-<h4 id='optional-parameters-2'>Optional parameters</h4>
+<h3 id='optional-parameters-2'>Optional parameters</h3>
 <ul>
 <li>  <code>sort_order</code> - <code>asc</code> or <code>desc</code>: <code>asc</code> to list subscribers added oldest to newest, <code>desc</code> to list subscribers added newest to oldest. <code>asc</code> is the default order.</li>
 <li>  <code>subscriber_state</code>?-?<code>active</code>?or??<code>cancelled</code>: receive only active subscribers or cancelled subscribers</li>
@@ -763,9 +781,9 @@ curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;
 <span class="o">}</span>
 </code></pre>
 <p>Returns a list of tags for the account.</p>
-<h4 id='endpoint'>Endpoint</h4>
+<h3 id='endpoint'>Endpoint</h3>
 <p>GET /v3/tags</p>
-<h4 id='required-parameters'>Required parameters</h4>
+<h3 id='required-parameters'>Required parameters</h3>
 <ul>
 <li>  <code>api_key</code> - Your account API key.</li>
 </ul>
@@ -830,7 +848,7 @@ A request to create multiple tags will receive a JSON array with the same <span 
 <span class="o">}]</span>
 </code></pre>
 <p>POST /v3/tags</p>
-<h4 id='required-parameters-2'>Required parameters</h4>
+<h3 id='required-parameters-2'>Required parameters</h3>
 <ul>
 <li>  <code>api_key</code> - Your account API key.</li>
 <li>  <code>tag</code> - a JSON object or an array of JSON objects, respectively, that include the tag name
@@ -873,14 +891,14 @@ A request to create multiple tags will receive a JSON array with the same <span 
 <span class="o">}</span>
 </code></pre>
 <p>Tags are handled as subscriptions. Subscribe an email address to a tag to have that tag applied to the subscriber with that email address.</p>
-<h4 id='endpoint-3'>Endpoint</h4>
+<h3 id='endpoint-3'>Endpoint</h3>
 <p>POST /v3/tags/<tag_id>/subscribe</p>
-<h4 id='required-parameters-3'>Required parameters</h4>
+<h3 id='required-parameters-3'>Required parameters</h3>
 <ul>
 <li>  <code>api_key</code> - Your account API key.</li>
 <li>  <code>email</code> - Subscriber email address.</li>
 </ul>
-<h4 id='optional-parameters'>Optional parameters</h4>
+<h3 id='optional-parameters'>Optional parameters</h3>
 <ul>
 <li>  <code>first_name</code> - Subscriber first name.</li>
 <li>  <code>fields</code> - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).</li>
@@ -903,9 +921,9 @@ A request to create multiple tags will receive a JSON array with the same <span 
   <span class="s2">"name"</span>: <span class="s2">"House Stark"</span>,
   <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>
 <span class="o">}</span>
-</code></pre><h4 id='endpoint-4'>Endpoint</h4>
+</code></pre><h3 id='endpoint-4'>Endpoint</h3>
 <p>DELETE /v3/subscribers/<subscriber_id>/tags/<tag_id></p>
-<h4 id='required-parameters-4'>Required parameters</h4>
+<h3 id='required-parameters-4'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
 </ul>
@@ -967,13 +985,13 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <span class="o">}</span>
 </code></pre>
 <p>List subscriptions to a tag including subscriber data.</p>
-<h4 id='endpoint-5'>Endpoint</h4>
+<h3 id='endpoint-5'>Endpoint</h3>
 <p>GET /v3/tags/<tag_id>/subscriptions</p>
-<h4 id='required-parameters-5'>Required parameters</h4>
+<h3 id='required-parameters-5'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - your api secret key</li>
 </ul>
-<h4 id='optional-parameters-2'>Optional parameters</h4>
+<h3 id='optional-parameters-2'>Optional parameters</h3>
 <ul>
 <li>  <code>sort_order</code> - <code>asc</code> or <code>desc</code>: <code>asc</code> to list subscribers added oldest to newest, <code>desc</code> to list subscribers added newest to oldest. <code>asc</code> is the default order.</li>
 <li>  <code>subscriber_state</code> - <code>active</code> or <code>cancelled</code>: receive only active subscribers or cancelled subscribers</li>
@@ -1016,13 +1034,13 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <span class="o">}</span>
 </code></pre>
 <p>Returns a list of your subscribers. For unsubscribes only, use the <code>cancelled_at</code> value for <code>sort_field</code>param (currently the only supported extra sort field). Search subscribers by email address by providing the <code>email_address</code> param.</p>
-<h4 id='endpoint'>Endpoint</h4>
+<h3 id='endpoint'>Endpoint</h3>
 <p>GET /v3/subscribers</p>
-<h4 id='required-parameters'>Required parameters</h4>
+<h3 id='required-parameters'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
 </ul>
-<h4 id='optional-parameters'>Optional parameters</h4>
+<h3 id='optional-parameters'>Optional parameters</h3>
 <ul>
 <li>  <code>page</code> - Page for paginated results.</li>
 <li>  <code>from</code> - Filter subscribers added on or after this date (format yyyy-mm-dd).</li>
@@ -1056,9 +1074,9 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <span class="o">}</span>
 </code></pre>
 <p>Returns data for a single subscriber</p>
-<h4 id='endpoint-2'>Endpoint</h4>
+<h3 id='endpoint-2'>Endpoint</h3>
 <p>GET /v3/subscribers/<subscriber_id></p>
-<h4 id='required-parameters-2'>Required parameters</h4>
+<h3 id='required-parameters-2'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
 </ul>
@@ -1092,13 +1110,13 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <span class="o">}</span>
 </code></pre>
 <p>Updates the information for a single subscriber.</p>
-<h4 id='endpoint-3'>Endpoint</h4>
+<h3 id='endpoint-3'>Endpoint</h3>
 <p>PUT /v3/subscribers/<subscriber_id></p>
-<h4 id='required-parameters-3'>Required parameters</h4>
+<h3 id='required-parameters-3'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
 </ul>
-<h4 id='optional-parameters-2'>Optional parameters</h4>
+<h3 id='optional-parameters-2'>Optional parameters</h3>
 <ul>
 <li>  <code>first_name</code> - Updated first name for the subscriber.</li>
 <li>  <code>email_address</code> - Updated email address for the subscriber.</li>
@@ -1130,9 +1148,9 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <span class="o">}</span>
 </code></pre>
 <p>Unsubscribe an email address from all your forms and sequences.</p>
-<h4 id='endpoint-4'>Endpoint</h4>
+<h3 id='endpoint-4'>Endpoint</h3>
 <p>PUT /v3/unsubscribe</p>
-<h4 id='required-parameters-4'>Required parameters</h4>
+<h3 id='required-parameters-4'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
 <li>  <code>email</code> - Subscriber email address.</li>
@@ -1159,9 +1177,9 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <span class="o">}</span>
 </code></pre>
 <p>Lists all the tags for a subscriber.</p>
-<h4 id='endpoint-5'>Endpoint</h4>
+<h3 id='endpoint-5'>Endpoint</h3>
 <p>GET /v3/subscribers/<code>&lt;subscriber_id&gt;</code>/tags</p>
-<h4 id='required-parameters-5'>Required parameters</h4>
+<h3 id='required-parameters-5'>Required parameters</h3>
 <ul>
 <li>  <code>api_key</code> - Your account API key.</li>
 </ul>
@@ -1220,9 +1238,9 @@ curl -X POST https://api.convertkit.com/v3/automations/hooks
 <span class="o">}</span>
 </code></pre>
 <p>Create a webhook that will be called when a subscriber event occurs.</p>
-<h4 id='endpoint'>Endpoint</h4>
+<h3 id='endpoint'>Endpoint</h3>
 <p>POST /v3/automations/hooks</p>
-<h4 id='required-parameters'>Required parameters</h4>
+<h3 id='required-parameters'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
 <li>  <code>target_url</code> - The URL that will receive subscriber data when the event is triggered.</li>
@@ -1263,9 +1281,9 @@ curl -X POST https://api.convertkit.com/v3/automations/hooks
 <span class="o">}</span>
 </code></pre>
 <p>Deletes a webhook.</p>
-<h4 id='endpoint-2'>Endpoint</h4>
+<h3 id='endpoint-2'>Endpoint</h3>
 <p>DELETE /v3/automations/hooks/<rule_id></p>
-<h4 id='required-parameters-2'>Required parameters</h4>
+<h3 id='required-parameters-2'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
 </ul>
@@ -1301,9 +1319,9 @@ curl -X POST https://api.convertkit.com/v3/automations/hooks
 <span class="o">}</span>
 </code></pre>
 <p>List all of your account&#39;s custom fields.</p>
-<h4 id='endpoint'>Endpoint</h4>
+<h3 id='endpoint'>Endpoint</h3>
 <p>GET /v3/custom_fields</p>
-<h4 id='required-parameters'>Required parameters</h4>
+<h3 id='required-parameters'>Required parameters</h3>
 <ul>
 <li>  <code>api_key</code> - Your account API key.</li>
 </ul>
@@ -1357,9 +1375,9 @@ Multiple custom fields
 <p>Create a custom field for your account. The label field must be unique to your account. Whitespace will be removed from the beginning and the end of your label.</p>
 
 <p>Additionally, a key field and a name field will be generated for you. The key is an ASCII-only, lowercased, underscored representation of your label. This key must be unique to your account. Keys are used in personalization tags in sequences and broadcasts. Names are unique identifiers for use in the HTML of custom forms. They are made up of a combination of ID and the key of the custom field prefixed with &quot;ck_field&quot;.</p>
-<h4 id='endpoint-2'>Endpoint</h4>
+<h3 id='endpoint-2'>Endpoint</h3>
 <p>POST /v3/custom_fields</p>
-<h4 id='required-parameters-2'>Required parameters</h4>
+<h3 id='required-parameters-2'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
 <li>  <code>label</code> or <code>labels</code>- The label(s) of the custom field.</li>
@@ -1379,9 +1397,9 @@ Multiple custom fields
 <pre class="highlight shell tab-shell"><code>No content will be returned.
 </code></pre>
 <p>Updates a custom field label (see create field above for more information on labels). Note that the key and the name do not change even when the label is updated.</p>
-<h4 id='endpoint-3'>Endpoint</h4>
+<h3 id='endpoint-3'>Endpoint</h3>
 <p>PUT /v3/custom_fields/<your custom field ID></p>
-<h4 id='required-parameters-3'>Required parameters</h4>
+<h3 id='required-parameters-3'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
 <li>  <code>id</code> - The ID of your custom field.</li>
@@ -1401,9 +1419,9 @@ Multiple custom fields
 <pre class="highlight shell tab-shell"><code>No content will be returned.
 </code></pre>
 <p>Destroys a custom field. Note that this will remove all data in this field from your subscribers.</p>
-<h4 id='endpoint-4'>Endpoint</h4>
+<h3 id='endpoint-4'>Endpoint</h3>
 <p>DELETE /v3/custom_fields/<your custom field ID></p>
-<h4 id='required-parameters-4'>Required parameters</h4>
+<h3 id='required-parameters-4'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
 <li>  <code>id</code> - The ID of your custom field.</li>
@@ -1454,16 +1472,16 @@ Failure:
  <span class="o">}</span>
 </code></pre>
 <p>Manage purchases made by a subscriber.</p>
-<h3 id='create-a-purchase'>Create a Purchase</h3><h4 id='endpoint'>Endpoint</h4>
+<h3 id='create-a-purchase'>Create a Purchase</h3><h3 id='endpoint'>Endpoint</h3>
 <p>POST /v3/purchases</p>
-<h4 id='required-parameters'>Required parameters</h4>
+<h3 id='required-parameters'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
 <li>  <code>transaction_id</code> - A unique ID for the purchase</li>
 <li>  <code>email_address</code> - The subscriber that the purchase belongs to</li>
 <li>  <code>products.sku</code> - Each product provided in the &#39;products&#39; array must have a unique sku.</li>
 </ul>
-<h4 id='optional-parameters'>Optional parameters</h4>
+<h3 id='optional-parameters'>Optional parameters</h3>
 <ul>
 <li>  <code>subtotal</code> - The subtotal of the purchase</li>
 <li>  <code>tax</code> - Tax applied to purchase</li>
