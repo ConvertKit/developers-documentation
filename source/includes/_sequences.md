@@ -1,7 +1,7 @@
 Sequences
 =========
 
-*NOTE: *Sequences* were formerly referred to as *Courses* API v3 retains the previous naming conventions, but will accept requests to `sequences` as the endpoint as well.*
+_NOTE: **Sequences** were formerly referred to as **Courses** API v3 retains the previous naming conventions, but will accept requests to `sequences` as the endpoint as well._
 
 List sequences
 --------------
@@ -35,11 +35,11 @@ curl https://api.convertkit.com/v3/sequences?api_key=<your_public_api_key>
 
 Returns a list of sequences for the account.
 
-#### Endpoint
+### Endpoint
 
 GET /v3/courses
 
-#### Required parameters
+### Required parameters
 
 -   `api_key` - Your account API key.
 
@@ -83,16 +83,16 @@ curl -X POST https://api.convertkit.com/v3/courses/1/subscribe\
 
 Subscribe an email address to one of your sequences.
 
-#### Endpoint
+### Endpoint
 
 POST /v3/courses/<course_id>/subscribe
 
-#### Required parameters
+### Required parameters
 
 -   `api_key` - Your account API key.
 -   `email` - Subscriber email address.
 
-#### Optional parameters
+### Optional parameters
 
 -   `first_name` - Subscriber first name.
 -   `fields` - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).
@@ -163,15 +163,15 @@ curl https://api.convertkit.com/v3/sequences/<sequence_id>/subscriptions?api_sec
 
 List subscriptions to a sequence including subscriber data.
 
-#### Endpoint
+### Endpoint
 
 GET /v3/sequences/<sequence_id>/subscriptions
 
-#### Required parameters
+### Required parameters
 
 -   `api_secret` - your api secret key
 
-#### Optional parameters
+### Optional parameters
 
 -   `sort_order` - `asc` or `desc`: `asc` to list subscribers added oldest to newest, `desc` to list subscribers added newest to oldest. `asc` is the default order.
 -   `subscriber_state`?-?`active`?or??`cancelled`: receive only active subscribers or cancelled subscribers

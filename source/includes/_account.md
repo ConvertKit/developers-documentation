@@ -19,10 +19,10 @@ curl https://api.convertkit.com/v3/account?api_secret=<your_secret_api_key>
 }
 ```
 
-#### Endpoint
+### Endpoint
 
 GET /v3/account
 
-#### Required parameters
+### Required parameters
 
 -   `api_secret` - Your account API key.

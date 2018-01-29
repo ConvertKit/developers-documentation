@@ -48,11 +48,11 @@ curl https://api.convertkit.com/v3/forms?api_key=<your_public_api_key>
 ```
 Get a list of all the forms for your account.
 
-#### Endpoint
+### Endpoint
 
 GET /v3/forms
 
-#### Required parameters
+### Required parameters
 
 -   `api_key` - Your account API key.
 
@@ -94,16 +94,16 @@ curl -X POST https://api.convertkit.com/v3/forms/1/subscribe\
 ```
 Subscribe an email address to one of your forms.
 
-#### Endpoint
+### Endpoint
 
 POST /v3/forms/<form_id>/subscribe
 
-#### Required parameters
+### Required parameters
 
 -   `api_key` - Your account API key.
 -   `email` - Subscriber email address.
 
-#### Optional parameters
+### Optional parameters
 
 -   `first_name` - Subscriber first name.
 -   `fields` - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).
@@ -175,15 +175,15 @@ curl https://api.convertkit.com/v3/forms/<form_id>/subscriptions?api_secret=<you
 
 List subscriptions to a form including subscriber data.
 
-#### Endpoint
+### Endpoint
 
 GET /v3/forms/<form_id>/subscriptions
 
-#### Required parameters
+### Required parameters
 
 -   `api_secret` - your api secret key
 
-#### Optional parameters
+### Optional parameters
 
 -   `sort_order` - `asc` or `desc`: `asc` to list subscribers added oldest to newest, `desc` to list subscribers added newest to oldest. `asc` is the default order.
 -   `subscriber_state` - `active` or `cancelled`: receive only active subscribers or cancelled subscribers

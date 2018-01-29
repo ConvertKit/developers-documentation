@@ -50,18 +50,18 @@ Manage purchases made by a subscriber.
 
 ### Create a Purchase
 
-#### Endpoint
+### Endpoint
 
  POST /v3/purchases
 
-#### Required parameters
+### Required parameters
 
 -   `api_secret` - Your api secret key.
 -   `transaction_id` - A unique ID for the purchase
 -   `email_address` - The subscriber that the purchase belongs to
 -   `products.sku` - Each product provided in the 'products' array must have a unique sku.
 
-#### Optional parameters
+### Optional parameters
 
 -   `subtotal` - The subtotal of the purchase
 -   `tax` - Tax applied to purchase

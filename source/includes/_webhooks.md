@@ -64,11 +64,11 @@ curl -X POST https://api.convertkit.com/v3/automations/hooks
 
 Create a webhook that will be called when a subscriber event occurs.
 
-#### Endpoint
+### Endpoint
 
 POST /v3/automations/hooks
 
-#### Required parameters
+### Required parameters
 
 -   `api_secret` - Your api secret key.
 -   `target_url` - The URL that will receive subscriber data when the event is triggered.
@@ -110,10 +110,10 @@ curl -X DELETE https://api.convertkit.com/v3/automations/hooks/456
 
 Deletes a webhook.
 
-#### Endpoint
+### Endpoint
 
 DELETE /v3/automations/hooks/<rule_id>
 
-#### Required parameters
+### Required parameters
 
 -   `api_secret` - Your api secret key.

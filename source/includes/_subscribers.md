@@ -41,15 +41,15 @@ curl https://api.convertkit.com/v3/subscribers?api_secret=<your_secret_api_key>&
 
 Returns a list of your subscribers. For unsubscribes only, use the `cancelled_at` value for `sort_field`param (currently the only supported extra sort field). Search subscribers by email address by providing the `email_address` param.
 
-#### Endpoint
+### Endpoint
 
 GET /v3/subscribers
 
-#### Required parameters
+### Required parameters
 
 -   `api_secret` - Your api secret key.
 
-#### Optional parameters
+### Optional parameters
 
 -   `page` - Page for paginated results.
 -   `from` - Filter subscribers added on or after this date (format yyyy-mm-dd).
@@ -89,11 +89,11 @@ curl https://api.convertkit.com/v3/subscribers/1?api_secret=<your_secret_api_key
 
 Returns data for a single subscriber
 
-#### Endpoint
+### Endpoint
 
 GET /v3/subscribers/<subscriber_id>
 
-#### Required parameters
+### Required parameters
 
 -   `api_secret` - Your api secret key.
 
@@ -134,15 +134,15 @@ curl -X PUT https://api.convertkit.com/v3/subscribers/1\
 
 Updates the information for a single subscriber.
 
-#### Endpoint
+### Endpoint
 
 PUT /v3/subscribers/<subscriber_id>
 
-#### Required parameters
+### Required parameters
 
 -   `api_secret` - Your api secret key.
 
-#### Optional parameters
+### Optional parameters
 
 -   `first_name` - Updated first name for the subscriber.
 -   `email_address` - Updated email address for the subscriber.
@@ -180,11 +180,11 @@ curl -x PUT https://api.convertkit.com/v3/unsubscribe
 
 Unsubscribe an email address from all your forms and sequences.
 
-#### Endpoint
+### Endpoint
 
 PUT /v3/unsubscribe
 
-#### Required parameters
+### Required parameters
 
 -   `api_secret` - Your api secret key.
 -   `email` - Subscriber email address.
@@ -217,10 +217,10 @@ curl -X GET https://api.convertkit.com/v3/subscribers/1/tags\
 
 Lists all the tags for a subscriber.
 
-#### Endpoint
+### Endpoint
 
 GET /v3/subscribers/`<subscriber_id>`/tags
 
-#### Required parameters
+### Required parameters
 
 -   `api_key` - Your account API key.

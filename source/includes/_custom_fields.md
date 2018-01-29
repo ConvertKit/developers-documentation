@@ -38,11 +38,11 @@ curl -X GET 'https://api.convertkit.com/v3/custom_fields?api_key=<your_public_ap
 
 List all of your account's custom fields.
 
-#### Endpoint
+### Endpoint
 
 GET /v3/custom_fields
 
-#### Required parameters
+### Required parameters
 
 -   `api_key` - Your account API key.
 
@@ -104,11 +104,11 @@ Create a custom field for your account. The label field must be unique to your a
 
 Additionally, a key field and a name field will be generated for you. The key is an ASCII-only, lowercased, underscored representation of your label. This key must be unique to your account. Keys are used in personalization tags in sequences and broadcasts. Names are unique identifiers for use in the HTML of custom forms. They are made up of a combination of ID and the key of the custom field prefixed with "ck_field".
 
-#### Endpoint
+### Endpoint
 
 POST /v3/custom_fields
 
-#### Required parameters
+### Required parameters
 
 -   `api_secret` - Your api secret key.
 -   `label` or `labels`- The label(s) of the custom field.
@@ -133,11 +133,11 @@ No content will be returned.
 
 Updates a custom field label (see create field above for more information on labels). Note that the key and the name do not change even when the label is updated.
 
-#### Endpoint
+### Endpoint
 
 PUT /v3/custom_fields/<your custom field ID>
 
-#### Required parameters
+### Required parameters
 
 -   `api_secret` - Your api secret key.
 -   `id` - The ID of your custom field.
@@ -163,11 +163,11 @@ No content will be returned.
 
 Destroys a custom field. Note that this will remove all data in this field from your subscribers.
 
-#### Endpoint
+### Endpoint
 
 DELETE /v3/custom_fields/<your custom field ID>
 
-#### Required parameters
+### Required parameters
 
 -   `api_secret` - Your api secret key.
 -   `id` - The ID of your custom field.

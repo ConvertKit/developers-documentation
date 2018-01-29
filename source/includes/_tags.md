@@ -31,11 +31,11 @@ curl https://api.convertkit.com/v3/tags?api_key=<your_public_api_key>
 
 Returns a list of tags for the account.
 
-#### Endpoint
+### Endpoint
 
 GET /v3/tags
 
-#### Required parameters
+### Required parameters
 
 -   `api_key` - Your account API key.
 
@@ -109,7 +109,7 @@ A request to create multiple tags will receive a JSON array with the same type o
 
 POST /v3/tags
 
-#### Required parameters
+### Required parameters
 
 -   `api_key` - Your account API key.
 -   `tag` - a JSON object or an array of JSON objects, respectively, that include the tag name
@@ -157,16 +157,16 @@ curl -X POST https://api.convertkit.com/v3/tags/1/subscribe\
 
 Tags are handled as subscriptions. Subscribe an email address to a tag to have that tag applied to the subscriber with that email address.
 
-#### Endpoint
+### Endpoint
 
 POST /v3/tags/<tag_id>/subscribe
 
-#### Required parameters
+### Required parameters
 
 -   `api_key` - Your account API key.
 -   `email` - Subscriber email address.
 
-#### Optional parameters
+### Optional parameters
 
 -   `first_name` - Subscriber first name.
 -   `fields` - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).
@@ -196,11 +196,11 @@ curl -X DELETE https://api.convertkit.com/v3/subscribers/1/tags/1?api_secret=<yo
 }
 ```
 
-#### Endpoint
+### Endpoint
 
 DELETE /v3/subscribers/<subscriber_id>/tags/<tag_id>
 
-#### Required parameters
+### Required parameters
 
 -   `api_secret` - Your api secret key.
 
@@ -268,15 +268,15 @@ curl https://api.convertkit.com/v3/tags/<tag_id>/subscriptions?api_secret=<your_
 
 List subscriptions to a tag including subscriber data.
 
-#### Endpoint
+### Endpoint
 
 GET /v3/tags/<tag_id>/subscriptions
 
-#### Required parameters
+### Required parameters
 
 -   `api_secret` - your api secret key
 
-#### Optional parameters
+### Optional parameters
 
 -   `sort_order` - `asc` or `desc`: `asc` to list subscribers added oldest to newest, `desc` to list subscribers added newest to oldest. `asc` is the default order.
 -   `subscriber_state` - `active` or `cancelled`: receive only active subscribers or cancelled subscribers
