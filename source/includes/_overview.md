@@ -1,18 +1,7 @@
-Planning your integration
+Getting started
 =========================
 
-Sweet! You're building an integration with ConvertKit. We're thrilled that you want to add-on to our platform. But before you dive in and start slinging code, let's talk about the best way to integrate with ConvertKit.
-
-How you setup your integration depends on what type of provider you are. Let's run through a few examples:
-
--   **Email Capture.** If your product is mostly for capturing new subscribers then you should integrate with forms in ConvertKit. So in OptinMonster when a subscriber opts-in they are subscriber to a form in ConvertKit.
--   **E-Commerce.** The most important thing for e-commerce customers is the ability to add a tag when a purchase is made. So when SamCart wrote their integration they have the ability to add or remove a subscriber from a tag after a purchase or refund.
--   **Full Integration.** If you want a more full integration with ConvertKit you can add support for forms, courses, and tags.
-
-If you aren't sure how best to structure your integration, just reach out to our team, we'll be happy to help you design it.
-
-Overview
-========
+## Overview
 
 Calls for ConvertKit API v3 are relative to the url <https://api.convertkit.com/v3/>
 
@@ -26,8 +15,19 @@ API v3 is in active development. Currently it allows you to:
 -   Remove tags from a subscriber
 -   Add, update, and list custom fields
 
-API Basics
-==========
+## Planning your integration
+
+Sweet! You're building an integration with ConvertKit. We're thrilled that you want to add-on to our platform. But before you dive in and start slinging code, let's talk about the best way to integrate with ConvertKit.
+
+How you setup your integration depends on what type of provider you are. Let's run through a few examples:
+
+-   **Email Capture.** If your product is mostly for capturing new subscribers then you should integrate with forms in ConvertKit. So in OptinMonster when a subscriber opts-in they are subscriber to a form in ConvertKit.
+-   **E-Commerce.** The most important thing for e-commerce customers is the ability to add a tag when a purchase is made. So when SamCart wrote their integration they have the ability to add or remove a subscriber from a tag after a purchase or refund.
+-   **Full Integration.** If you want a more full integration with ConvertKit you can add support for forms, courses, and tags.
+
+If you aren't sure how best to structure your integration, just reach out to our team, we'll be happy to help you design it.
+
+## API Basics
 
 #### API Key
 
