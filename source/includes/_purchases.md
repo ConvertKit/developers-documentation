@@ -43,7 +43,7 @@ Failure:
 {
   "error": "Error creating purchase",
   "message": "transaction_id can't be blank, Sku can't be blank for product: Floppy Disk (512k)"
- }
+}
 ```
 
 Manage purchases made by a subscriber.
@@ -74,3 +74,92 @@ Manage purchases made by a subscriber.
     -   `sku` - Product sku
     -   `unit_price` - Product price
     -   `quantity` - Product quantity
+
+> Example request
+
+```shell
+curl -X POST https://api.convertkit.com/v3/purchases \
+     -H 'Content-Type: application/json' \
+     -d '{ "api_secret": "<your_secret_api_key>", "page": 1 }'
+```
+> Example response
+
+```shell
+
+Success:
+
+{
+  "total_purchases":2,
+  "page":1,
+  "total_pages":1,
+  "purchases":[
+    {
+      "transaction_id":"123-abcd-456-efgh",
+      "status":"paid",
+      "email_address":"x@example.com",
+      "subtotal":"20.0",
+      "discount":"3.0",
+      "tax":"2.0",
+      "total":"21.0",
+      "products":[
+        {
+          "unit_price":"5.0",
+          "quantity":2,
+          "sku":"7890-ijkl",
+          "name":"Floppy Disk (512k)"
+        },
+        {
+          "unit_price":"10.0",
+          "quantity":1,
+          "sku":"mnop-1234",
+          "name":"Telephone Cord (data)"
+        }
+      ]
+    },
+    {
+      "transaction_id":"123-abcd-456-efgh",
+      "status":"paid",
+      "email_address":"x@example.com",
+      "subtotal":"20.0",
+      "discount":"3.0",
+      "tax":"2.0",
+      "total":"21.0",
+      "products":[
+        {
+          "unit_price":"5.0",
+          "quantity":2,
+          "sku":"7890-ijkl",
+          "name":"Floppy Disk (512k)"
+        },
+        {
+          "unit_price":"10.0",
+          "quantity":1,
+          "sku":"mnop-1234",
+          "name":"Telephone Cord (data)"
+        }
+      ]
+    }
+  ]
+}
+
+Failure: i.e., when "api_secret" is not provided.
+
+{
+  "error":"Authorization Failed",
+  "message":"You do not have sufficient permissions to access this resource"
+}
+```
+
+### List purchases
+
+### Endpoint
+
+GET /v3/purchases
+
+### Required parameters
+
+-  `api_secret` - Your api secret key.
+
+### Optional parameters
+
+-  `page` - The page of results being requested. Default value is `1`. Each page of results will contain up to 50 purchases.
