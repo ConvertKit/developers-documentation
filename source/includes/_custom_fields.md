@@ -16,7 +16,7 @@ curl -X GET 'https://api.convertkit.com/v3/custom_fields?api_key=<your_public_ap
 
 > Example response
 
-```shell
+```json
 {
   "custom_fields":
   [
@@ -68,23 +68,22 @@ curl -X POST https://api.convertkit.com/v3/custom_fields\
      -H 'Content-Type: application/json'\
      -d '{ "api_secret": "<your_secret_api_key>",
            "label": ["Occupation", "Location"] }'
-```           
+```
 
-> Example response
+> Response: Single custom field
 
-```shell
-
-Single custom field
-
+```json
 {
   "id": 1,
   "name": "ck_field_1_occupation",
   "key": "occupation",
   "label": "Occupation"
 }
+```
 
-Multiple custom fields
+> Response: Multiple custom fields
 
+```json
 [{
   "id": 1,
   "name": "ck_field_1_occupation",
@@ -98,7 +97,6 @@ Multiple custom fields
   "label": "Location"
 }]
 ```
-
 
 Create a custom field for your account. The label field must be unique to your account. Whitespace will be removed from the beginning and the end of your label.
 
