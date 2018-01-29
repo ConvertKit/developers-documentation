@@ -349,16 +349,10 @@
             <a href="#purchases" class="toc-h1 toc-link" data-title="Purchases">Purchases</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#list-purchases" class="toc-h2 toc-link" data-title="List Purchases">List Purchases</a>
+                  </li>
+                  <li>
                     <a href="#create-a-purchase" class="toc-h2 toc-link" data-title="Create a Purchase">Create a Purchase</a>
-                  </li>
-                  <li>
-                    <a href="#endpoint" class="toc-h2 toc-link" data-title="Endpoint">Endpoint</a>
-                  </li>
-                  <li>
-                    <a href="#required-parameters" class="toc-h2 toc-link" data-title="Required parameters">Required parameters</a>
-                  </li>
-                  <li>
-                    <a href="#optional-parameters" class="toc-h2 toc-link" data-title="Optional parameters">Optional parameters</a>
                   </li>
               </ul>
           </li>
@@ -425,11 +419,11 @@
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-    <span class="s2">"name"</span>:<span class="s2">"Acme Corp."</span>,
-    <span class="s2">"primary_email_address"</span>:<span class="s2">"you@example.com"</span>
-<span class="o">}</span>
-</code></pre><h3 id='endpoint'>Endpoint</h3>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Acme Corp."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"primary_email_address"</span><span class="p">:</span><span class="s2">"you@example.com"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='endpoint'>Endpoint</h3>
 <p>GET /v3/account</p>
 <h3 id='required-parameters'>Required parameters</h3>
 <ul>
@@ -445,38 +439,38 @@ curl https://api.convertkit.com/v3/forms?api_key<span class="o">=</span>&lt;your
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>
-<span class="o">{</span>
-  <span class="s2">"forms"</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">"id"</span>: 1,
-      <span class="s2">"name"</span>: <span class="s2">"A Form"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-      <span class="s2">"type"</span>: <span class="s2">"embed"</span>,
-      <span class="s2">"url"</span>: <span class="s2">"https://app.convertkit.com/landing_pages/1"</span>,
-      <span class="s2">"embed_js"</span>: <span class="s2">"http://api.convertkit.dev/v3/forms/1.js?api_key=&lt;your_public_api_key&gt;"</span>,
-      <span class="s2">"embed_url"</span>: <span class="s2">"http://api.convertkit.dev/v3/forms/1.html?api_key=&lt;your_public_api_key&gt;"</span>,
-      <span class="s2">"title"</span>: <span class="s2">"Join the newsletter"</span>,
-      <span class="s2">"description"</span>: <span class="s2">"Form description text."</span>,
-      <span class="s2">"sign_up_button_text"</span>: <span class="s2">"Subscribe"</span>,
-      <span class="s2">"success_message"</span>: <span class="s2">"Success! Now check your email to confirm your subscription."</span>
-    <span class="o">}</span>,
-    <span class="o">{</span>
-      <span class="s2">"id"</span>: 2,
-      <span class="s2">"name"</span>: <span class="s2">"A Landing Page"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-      <span class="s2">"type"</span>: <span class="s2">"hosted"</span>,
-      <span class="s2">"url"</span>: <span class="s2">"https://app.convertkit.com/r4ndom_url/TWWDNTHT"</span>,
-      <span class="s2">"embed_js"</span>: <span class="s2">"http://api.convertkit.dev/v3/forms/2.js?api_key=&lt;your_public_api_key&gt;"</span>,
-      <span class="s2">"embed_url"</span>: <span class="s2">"http://api.convertkit.dev/v3/forms/2.html?api_key=&lt;your_public_api_key&gt;"</span>,
-      <span class="s2">"title"</span>: <span class="s2">"Join the newsletter"</span>,
-      <span class="s2">"description"</span>: <span class="s2">"&lt;p&gt;Landing page description text.&lt;/p&gt;"</span>,
-      <span class="s2">"sign_up_button_text"</span>: <span class="s2">"Subscribe"</span>,
-      <span class="s2">"success_message"</span>: <span class="s2">"Success! Now check your email to confirm your subscription."</span>
-    <span class="o">}</span>
-  <span class="o">]</span>
-<span class="o">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"forms"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A Form"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"embed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.convertkit.com/landing_pages/1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"embed_js"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.convertkit.dev/v3/forms/1.js?api_key=&lt;your_public_api_key&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"embed_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.convertkit.dev/v3/forms/1.html?api_key=&lt;your_public_api_key&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Join the newsletter"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Form description text."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sign_up_button_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subscribe"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"success_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success! Now check your email to confirm your subscription."</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A Landing Page"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hosted"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://app.convertkit.com/r4ndom_url/TWWDNTHT"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"embed_js"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.convertkit.dev/v3/forms/2.js?api_key=&lt;your_public_api_key&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"embed_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.convertkit.dev/v3/forms/2.html?api_key=&lt;your_public_api_key&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Join the newsletter"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Landing page description text.&lt;/p&gt;"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sign_up_button_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subscribe"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"success_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success! Now check your email to confirm your subscription."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Get a list of all the forms for your account.</p>
 <h3 id='endpoint'>Endpoint</h3>
 <p>GET /v3/forms</p>
@@ -496,29 +490,29 @@ curl -X POST https://api.convertkit.com/v3/forms/1/subscribe<span class="se">\</
 <blockquote>
 <p>Example Response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>
-<span class="o">{</span>
-  <span class="s2">"subscription"</span>: <span class="o">{</span>
-    <span class="s2">"id"</span>: 1,
-    <span class="s2">"state"</span>: <span class="s2">"inactive"</span>,
-    <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-    <span class="s2">"source"</span>: null,
-    <span class="s2">"referrer"</span>: null,
-    <span class="s2">"subscribable_id"</span>: 1,
-    <span class="s2">"subscribable_type"</span>: <span class="s2">"form"</span>,
-    <span class="s2">"subscriber"</span>: <span class="o">{</span>
-      <span class="s2">"id"</span>: 1,
-      <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
-      <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
-      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-      <span class="s2">"fields"</span>: <span class="o">{</span>
-        <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
-      <span class="o">}</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"subscription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inactive"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"referrer"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subscribable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subscribable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"form"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jon"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jonsnow@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snow"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Subscribe an email address to one of your forms.</p>
 <h3 id='endpoint-2'>Endpoint</h3>
 <p>POST /v3/forms/<form_id>/subscribe</p>
@@ -546,52 +540,52 @@ curl https://api.convertkit.com/v3/forms/&lt;form_id&gt;/subscriptions?api_secre
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"total_subscriptions"</span>: 2,
-  <span class="s2">"page"</span>: 1,
-  <span class="s2">"total_pages"</span>: 1,
-  <span class="s2">"subscriptions"</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">"id"</span>: 1,
-      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-      <span class="s2">"source"</span>: null,
-      <span class="s2">"referrer"</span>: null,
-      <span class="s2">"subscribable_id"</span>: 1,
-      <span class="s2">"subscribable_type"</span>: <span class="s2">"form"</span>,
-      <span class="s2">"subscriber"</span>: <span class="o">{</span>
-        <span class="s2">"id"</span>: 1,
-        <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
-        <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
-        <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-        <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-        <span class="s2">"fields"</span>: <span class="o">{</span>
-          <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
-        <span class="o">}</span>
-      <span class="o">}</span>,
-    <span class="o">}</span>,
-    <span class="o">{</span>
-      <span class="s2">"id"</span>: 2,
-      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-27T08:07:00Z"</span>,
-      <span class="s2">"source"</span>: null,
-      <span class="s2">"referrer"</span>: null,
-      <span class="s2">"subscribable_id"</span>: 1,
-      <span class="s2">"subscribable_type"</span>: <span class="s2">"form"</span>,
-      <span class="s2">"subscriber"</span>: <span class="o">{</span>
-        <span class="s2">"id"</span>: 2,
-        <span class="s2">"first_name"</span>: <span class="s2">"Arya"</span>,
-        <span class="s2">"email_address"</span>: <span class="s2">"arya@example.com"</span>,
-        <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-        <span class="s2">"created_at"</span>: <span class="s2">"2016-02-27T08:07:00Z"</span>,
-        <span class="s2">"fields"</span>: <span class="o">{</span>
-          <span class="s2">"last_name"</span>: <span class="s2">"Stark"</span>
-        <span class="o">}</span>
-      <span class="o">}</span>,
-    <span class="o">}</span>
-  <span class="o">]</span>
-<span class="o">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"total_subscriptions"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"subscriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"referrer"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscribable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscribable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"form"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jon"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jonsnow@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snow"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-27T08:07:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"referrer"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscribable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscribable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"form"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arya"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arya@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-27T08:07:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stark"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>List subscriptions to a form including subscriber data.</p>
 <h3 id='endpoint-3'>Endpoint</h3>
 <p>GET /v3/forms/<form_id>/subscriptions</p>
@@ -617,21 +611,21 @@ curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"courses"</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">"id"</span>: 1,
-      <span class="s2">"name"</span>: <span class="s2">"My First Sequence"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>
-    <span class="o">}</span>,
-    <span class="o">{</span>
-      <span class="s2">"id"</span>: 2,
-      <span class="s2">"name"</span>: <span class="s2">"My Second Sequence"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>
-    <span class="o">}</span>
-  <span class="o">]</span>
-<span class="o">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"courses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My First Sequence"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Second Sequence"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Returns a list of sequences for the account.</p>
 <h3 id='endpoint'>Endpoint</h3>
 <p>GET /v3/courses</p>
@@ -650,28 +644,28 @@ curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"subscription"</span>: <span class="o">{</span>
-    <span class="s2">"id"</span>: 2,
-    <span class="s2">"state"</span>: <span class="s2">"inactive"</span>,
-    <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-    <span class="s2">"source"</span>: null,
-    <span class="s2">"referrer"</span>: null,
-    <span class="s2">"subscribable_id"</span>: 1,
-    <span class="s2">"subscribable_type"</span>: <span class="s2">"course"</span>,
-    <span class="s2">"subscriber"</span>: <span class="o">{</span>
-      <span class="s2">"id"</span>: 1,
-      <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
-      <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
-      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-      <span class="s2">"fields"</span>: <span class="o">{</span>
-        <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
-      <span class="o">}</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"subscription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inactive"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"referrer"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subscribable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subscribable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"course"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jon"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jonsnow@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snow"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Subscribe an email address to one of your sequences.</p>
 <h3 id='endpoint-2'>Endpoint</h3>
 <p>POST /v3/courses/<course_id>/subscribe</p>
@@ -698,52 +692,52 @@ curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"total_subscriptions"</span>: 2,
-  <span class="s2">"page"</span>: 1,
-  <span class="s2">"total_pages"</span>: 1,
-  <span class="s2">"subscriptions"</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">"id"</span>: 1,
-      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-      <span class="s2">"source"</span>: null,
-      <span class="s2">"referrer"</span>: null,
-      <span class="s2">"subscribable_id"</span>: 1,
-      <span class="s2">"subscribable_type"</span>: <span class="s2">"course"</span>,
-      <span class="s2">"subscriber"</span>: <span class="o">{</span>
-        <span class="s2">"id"</span>: 1,
-        <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
-        <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
-        <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-        <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-        <span class="s2">"fields"</span>: <span class="o">{</span>
-          <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
-        <span class="o">}</span>
-      <span class="o">}</span>,
-    <span class="o">}</span>,
-    <span class="o">{</span>
-      <span class="s2">"id"</span>: 2,
-      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-27T08:07:00Z"</span>,
-      <span class="s2">"source"</span>: null,
-      <span class="s2">"referrer"</span>: null,
-      <span class="s2">"subscribable_id"</span>: 1,
-      <span class="s2">"subscribable_type"</span>: <span class="s2">"course"</span>,
-      <span class="s2">"subscriber"</span>: <span class="o">{</span>
-        <span class="s2">"id"</span>: 2,
-        <span class="s2">"first_name"</span>: <span class="s2">"Arya"</span>,
-        <span class="s2">"email_address"</span>: <span class="s2">"arya@example.com"</span>,
-        <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-        <span class="s2">"created_at"</span>: <span class="s2">"2016-02-27T08:07:00Z"</span>,
-        <span class="s2">"fields"</span>: <span class="o">{</span>
-          <span class="s2">"last_name"</span>: <span class="s2">"Stark"</span>
-        <span class="o">}</span>
-      <span class="o">}</span>,
-    <span class="o">}</span>
-  <span class="o">]</span>
-<span class="o">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"total_subscriptions"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"subscriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"referrer"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscribable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscribable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"course"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jon"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jonsnow@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snow"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-27T08:07:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"referrer"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscribable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscribable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"course"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arya"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arya@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-27T08:07:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stark"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>List subscriptions to a sequence including subscriber data.</p>
 <h3 id='endpoint-3'>Endpoint</h3>
 <p>GET /v3/sequences/<sequence_id>/subscriptions</p>
@@ -765,21 +759,21 @@ curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"tags"</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">"id"</span>: 1,
-      <span class="s2">"name"</span>: <span class="s2">"House Stark"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>
-    <span class="o">}</span>,
-    <span class="o">{</span>
-      <span class="s2">"id"</span>: 2,
-      <span class="s2">"name"</span>: <span class="s2">"House Lannister"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>
-    <span class="o">}</span>
-  <span class="o">]</span>
-<span class="o">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"House Stark"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"House Lannister"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Returns a list of tags for the account.</p>
 <h3 id='endpoint'>Endpoint</h3>
 <p>GET /v3/tags</p>
@@ -816,37 +810,37 @@ curl -X POST https://api.convertkit.com/v3/tags
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"account_id"</span>: 1,
-  <span class="s2">"created_at"</span>: <span class="s2">"2017-04-12T11:10:32Z"</span>
-  <span class="s2">"deleted_at"</span>: null,
-  <span class="s2">"id"</span>: 1,
-  <span class="s2">"name"</span>: <span class="s2">"Example Tag"</span>,
-  <span class="s2">"state"</span>: <span class="s2">"available"</span>,
-  <span class="s2">"updated_at"</span>: <span class="s2">"2017-04-12T11:10:32Z"</span>
-<span class="o">}</span>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-12T11:10:32Z"</span><span class="w">
+  </span><span class="s2">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Tag"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-12T11:10:32Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
-A request to create multiple tags will receive a JSON array with the same <span class="nb">type </span>of objects:
+</span><span class="err">A</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">create</span><span class="w"> </span><span class="err">multiple</span><span class="w"> </span><span class="err">tags</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">receive</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">JSON</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">same</span><span class="w"> </span><span class="err">type</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">objects</span><span class="p">:</span><span class="w">
 
-<span class="o">[{</span>
-  <span class="s2">"account_id"</span>: 1,
-  <span class="s2">"created_at"</span>: <span class="s2">"2017-04-12T11:10:32Z"</span>
-  <span class="s2">"deleted_at"</span>: null,
-  <span class="s2">"id"</span>: 1,
-  <span class="s2">"name"</span>: <span class="s2">"Example Tag"</span>,
-  <span class="s2">"state"</span>: <span class="s2">"available"</span>,
-  <span class="s2">"updated_at"</span>: <span class="s2">"2017-04-12T11:10:32Z"</span>
-<span class="o">}</span>,
-<span class="o">{</span>
-  <span class="s2">"account_id"</span>: 1,
-  <span class="s2">"created_at"</span>: <span class="s2">"2017-04-12T11:11:566Z"</span>
-  <span class="s2">"deleted_at"</span>: null,
-  <span class="s2">"id"</span>: 1,
-  <span class="s2">"name"</span>: <span class="s2">"Example Tag 2"</span>,
-  <span class="s2">"state"</span>: <span class="s2">"available"</span>,
-  <span class="s2">"updated_at"</span>: <span class="s2">"2017-04-12T11:11:566Z"</span>
-<span class="o">}]</span>
-</code></pre>
+</span><span class="p">[{</span><span class="w">
+  </span><span class="s2">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-12T11:10:32Z"</span><span class="w">
+  </span><span class="s2">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Tag"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-12T11:10:32Z"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-12T11:11:566Z"</span><span class="w">
+  </span><span class="s2">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Tag 2"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-12T11:11:566Z"</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre>
 <p>POST /v3/tags</p>
 <h3 id='required-parameters-2'>Required parameters</h3>
 <ul>
@@ -868,28 +862,28 @@ A request to create multiple tags will receive a JSON array with the same <span 
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"subscription"</span>: <span class="o">{</span>
-    <span class="s2">"id"</span>: 3,
-    <span class="s2">"state"</span>: <span class="s2">"inactive"</span>,
-    <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-    <span class="s2">"source"</span>: null,
-    <span class="s2">"referrer"</span>: null,
-    <span class="s2">"subscribable_id"</span>: 1,
-    <span class="s2">"subscribable_type"</span>: <span class="s2">"tag"</span>,
-    <span class="s2">"subscriber"</span>: <span class="o">{</span>
-      <span class="s2">"id"</span>: 1,
-      <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
-      <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
-      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-      <span class="s2">"fields"</span>: <span class="o">{</span>
-        <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
-      <span class="o">}</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"subscription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"inactive"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"referrer"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subscribable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subscribable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tag"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jon"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jonsnow@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snow"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Tags are handled as subscriptions. Subscribe an email address to a tag to have that tag applied to the subscriber with that email address.</p>
 <h3 id='endpoint-3'>Endpoint</h3>
 <p>POST /v3/tags/<tag_id>/subscribe</p>
@@ -916,12 +910,12 @@ A request to create multiple tags will receive a JSON array with the same <span 
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"id"</span>: 1,
-  <span class="s2">"name"</span>: <span class="s2">"House Stark"</span>,
-  <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>
-<span class="o">}</span>
-</code></pre><h3 id='endpoint-4'>Endpoint</h3>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"House Stark"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='endpoint-4'>Endpoint</h3>
 <p>DELETE /v3/subscribers/<subscriber_id>/tags/<tag_id></p>
 <h3 id='required-parameters-4'>Required parameters</h3>
 <ul>
@@ -938,52 +932,52 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"total_subscriptions"</span>: 2,
-  <span class="s2">"page"</span>: 1,
-  <span class="s2">"total_pages"</span>: 1,
-  <span class="s2">"subscriptions"</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">"id"</span>: 1,
-      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-      <span class="s2">"source"</span>: null,
-      <span class="s2">"referrer"</span>: null,
-      <span class="s2">"subscribable_id"</span>: 1,
-      <span class="s2">"subscribable_type"</span>: <span class="s2">"tag"</span>,
-      <span class="s2">"subscriber"</span>: <span class="o">{</span>
-        <span class="s2">"id"</span>: 1,
-        <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
-        <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
-        <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-        <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-        <span class="s2">"fields"</span>: <span class="o">{</span>
-          <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
-        <span class="o">}</span>
-      <span class="o">}</span>,
-    <span class="o">}</span>,
-    <span class="o">{</span>
-      <span class="s2">"id"</span>: 2,
-      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-27T08:07:00Z"</span>,
-      <span class="s2">"source"</span>: null,
-      <span class="s2">"referrer"</span>: null,
-      <span class="s2">"subscribable_id"</span>: 1,
-      <span class="s2">"subscribable_type"</span>: <span class="s2">"tag"</span>,
-      <span class="s2">"subscriber"</span>: <span class="o">{</span>
-        <span class="s2">"id"</span>: 2,
-        <span class="s2">"first_name"</span>: <span class="s2">"Arya"</span>,
-        <span class="s2">"email_address"</span>: <span class="s2">"arya@example.com"</span>,
-        <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-        <span class="s2">"created_at"</span>: <span class="s2">"2016-02-27T08:07:00Z"</span>,
-        <span class="s2">"fields"</span>: <span class="o">{</span>
-          <span class="s2">"last_name"</span>: <span class="s2">"Stark"</span>
-        <span class="o">}</span>
-      <span class="o">}</span>,
-    <span class="o">}</span>
-  <span class="o">]</span>
-<span class="o">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"total_subscriptions"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"subscriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"referrer"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscribable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscribable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tag"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jon"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jonsnow@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snow"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-27T08:07:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"referrer"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscribable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscribable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tag"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arya"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arya@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-27T08:07:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stark"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>List subscriptions to a tag including subscriber data.</p>
 <h3 id='endpoint-5'>Endpoint</h3>
 <p>GET /v3/tags/<tag_id>/subscriptions</p>
@@ -1005,34 +999,34 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"total_subscribers"</span>: 3,
-  <span class="s2">"page"</span>: 1,
-  <span class="s2">"total_pages"</span>: 1,
-  <span class="s2">"subscribers"</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">"id"</span>: 1,
-      <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
-      <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
-      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-      <span class="s2">"fields"</span>: <span class="o">{</span>
-        <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
-      <span class="o">}</span>
-    <span class="o">}</span>,
-    <span class="o">{</span>
-      <span class="s2">"id"</span>: 2,
-      <span class="s2">"first_name"</span>: <span class="s2">"Arya"</span>,
-      <span class="s2">"email_address"</span>: <span class="s2">"aryastark@example.com"</span>,
-      <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-      <span class="s2">"fields"</span>: <span class="o">{</span>
-        <span class="s2">"last_name"</span>: <span class="s2">"Stark"</span>
-      <span class="o">}</span>
-    <span class="o">}</span>
-  <span class="o">]</span>
-<span class="o">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"total_subscribers"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"subscribers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jon"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jonsnow@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snow"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Arya"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aryastark@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stark"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Returns a list of your subscribers. For unsubscribes only, use the <code>cancelled_at</code> value for <code>sort_field</code>param (currently the only supported extra sort field). Search subscribers by email address by providing the <code>email_address</code> param.</p>
 <h3 id='endpoint'>Endpoint</h3>
 <p>GET /v3/subscribers</p>
@@ -1060,19 +1054,19 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"subscriber"</span>: <span class="o">{</span>
-    <span class="s2">"id"</span>: 1,
-    <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
-    <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
-    <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-    <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-    <span class="s2">"fields"</span>: <span class="o">{</span>
-      <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jon"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jonsnow@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snow"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Returns data for a single subscriber</p>
 <h3 id='endpoint-2'>Endpoint</h3>
 <p>GET /v3/subscribers/<subscriber_id></p>
@@ -1096,19 +1090,19 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"subscriber"</span>: <span class="o">{</span>
-    <span class="s2">"id"</span>: 1,
-    <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
-    <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
-    <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-    <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-    <span class="s2">"fields"</span>: <span class="o">{</span>
-      <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jon"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jonsnow@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snow"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Updates the information for a single subscriber.</p>
 <h3 id='endpoint-3'>Endpoint</h3>
 <p>PUT /v3/subscribers/<subscriber_id></p>
@@ -1134,19 +1128,19 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"subscriber"</span>: <span class="o">{</span>
-    <span class="s2">"id"</span>: 1,
-    <span class="s2">"first_name"</span>: <span class="s2">"Jon"</span>,
-    <span class="s2">"email_address"</span>: <span class="s2">"jonsnow@example.com"</span>,
-    <span class="s2">"state"</span>: <span class="s2">"active"</span>,
-    <span class="s2">"created_at"</span>: <span class="s2">"2016-02-28T08:07:00Z"</span>,
-    <span class="s2">"fields"</span>: <span class="o">{</span>
-      <span class="s2">"last_name"</span>: <span class="s2">"Snow"</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jon"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jonsnow@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snow"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Unsubscribe an email address from all your forms and sequences.</p>
 <h3 id='endpoint-4'>Endpoint</h3>
 <p>PUT /v3/unsubscribe</p>
@@ -1166,16 +1160,16 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"tags"</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">"id"</span>: 1,
-      <span class="s2">"name"</span>: <span class="s2">"Email Newsletter"</span>,
-      <span class="s2">"created_at"</span>: <span class="s2">"2016-06-09T17:54:22Z"</span>
-    <span class="o">}</span>
-  <span class="o">]</span>
-<span class="o">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email Newsletter"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-06-09T17:54:22Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Lists all the tags for a subscriber.</p>
 <h3 id='endpoint-5'>Endpoint</h3>
 <p>GET /v3/subscribers/<code>&lt;subscriber_id&gt;</code>/tags</p>
@@ -1200,17 +1194,17 @@ curl -X POST https://api.convertkit.com/v3/automations/hooks
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"rule"</span>: <span class="o">{</span>
-    <span class="s2">"id"</span>: 1,
-    <span class="s2">"account_id"</span>: 2,
-    <span class="s2">"event"</span>: <span class="o">{</span>
-      <span class="s2">"name"</span>: <span class="s2">"subscriber_activate"</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"rule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscriber_activate"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 
-</code></pre>
+</span></code></pre>
 <blockquote>
 <p>Example request: Create a webhook automation to receive subscriber data at <code>http://example.com/incoming</code> when a sequence is completed.</p>
 </blockquote>
@@ -1225,18 +1219,18 @@ curl -X POST https://api.convertkit.com/v3/automations/hooks
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"rule"</span>: <span class="o">{</span>
-    <span class="s2">"id"</span>: 43,
-    <span class="s2">"account_id"</span>:2,
-    <span class="s2">"event"</span>: <span class="o">{</span>
-      <span class="s2">"name"</span>: <span class="s2">"course_complete"</span>,
-      <span class="s2">"sequence_id"</span>: 18
-    <span class="o">}</span>,
-    <span class="s2">"target_url"</span>:<span class="s2">"http://example.com/"</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"rule"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account_id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"course_complete"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sequence_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"target_url"</span><span class="p">:</span><span class="s2">"http://example.com/"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Create a webhook that will be called when a subscriber event occurs.</p>
 <h3 id='endpoint'>Endpoint</h3>
 <p>POST /v3/automations/hooks</p>
@@ -1276,10 +1270,10 @@ curl -X POST https://api.convertkit.com/v3/automations/hooks
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"success"</span>: <span class="nb">true</span>
-<span class="o">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Deletes a webhook.</p>
 <h3 id='endpoint-2'>Endpoint</h3>
 <p>DELETE /v3/automations/hooks/<rule_id></p>
@@ -1300,24 +1294,24 @@ curl -X POST https://api.convertkit.com/v3/automations/hooks
 <blockquote>
 <p>Example response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="o">{</span>
-  <span class="s2">"custom_fields"</span>:
-  <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">"id"</span>: 1,
-      <span class="s2">"name"</span>: <span class="s2">"ck_field_1_last_name"</span>,
-      <span class="s2">"key"</span>: <span class="s2">"last_name"</span>,
-      <span class="s2">"label"</span>: <span class="s2">"Last Name"</span>
-    <span class="o">}</span>,
-    <span class="o">{</span>
-      <span class="s2">"id"</span>: 2,
-      <span class="s2">"name"</span>: <span class="s2">"ck_field_2_occupation"</span>,
-      <span class="s2">"key"</span>: <span class="s2">"occupation"</span>,
-      <span class="s2">"label"</span>: <span class="s2">"Occupation"</span>
-    <span class="o">}</span>,
-  <span class="o">]</span>
-<span class="o">}</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"custom_fields"</span><span class="p">:</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ck_field_1_last_name"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"last_name"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Last Name"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ck_field_2_occupation"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"occupation"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Occupation"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>List all of your account&#39;s custom fields.</p>
 <h3 id='endpoint'>Endpoint</h3>
 <p>GET /v3/custom_fields</p>
@@ -1345,33 +1339,31 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
            "label": ["Occupation", "Location"] }'</span>
 </code></pre>
 <blockquote>
-<p>Example response</p>
+<p>Response: Single custom field</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>
-Single custom field
-
-<span class="o">{</span>
-  <span class="s2">"id"</span>: 1,
-  <span class="s2">"name"</span>: <span class="s2">"ck_field_1_occupation"</span>,
-  <span class="s2">"key"</span>: <span class="s2">"occupation"</span>,
-  <span class="s2">"label"</span>: <span class="s2">"Occupation"</span>
-<span class="o">}</span>
-
-Multiple custom fields
-
-<span class="o">[{</span>
-  <span class="s2">"id"</span>: 1,
-  <span class="s2">"name"</span>: <span class="s2">"ck_field_1_occupation"</span>,
-  <span class="s2">"key"</span>: <span class="s2">"occupation"</span>,
-  <span class="s2">"label"</span>: <span class="s2">"Occupation"</span>
-<span class="o">}</span>,
-<span class="o">{</span>
-  <span class="s2">"id"</span>: 2,
-  <span class="s2">"name"</span>: <span class="s2">"ck_field_2_occupation"</span>,
-  <span class="s2">"key"</span>: <span class="s2">"location"</span>,
-  <span class="s2">"label"</span>: <span class="s2">"Location"</span>
-<span class="o">}]</span>
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ck_field_1_occupation"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"occupation"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Occupation"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Response: Multiple custom fields</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ck_field_1_occupation"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"occupation"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Occupation"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ck_field_2_occupation"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"location"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Location"</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre>
 <p>Create a custom field for your account. The label field must be unique to your account. Whitespace will be removed from the beginning and the end of your label.</p>
 
 <p>Additionally, a key field and a name field will be generated for you. The key is an ASCII-only, lowercased, underscored representation of your label. This key must be unique to your account. Keys are used in personalization tags in sequences and broadcasts. Names are unique identifiers for use in the HTML of custom forms. They are made up of a combination of ID and the key of the custom field prefixed with &quot;ck_field&quot;.</p>
@@ -1426,15 +1418,122 @@ Multiple custom fields
 <li>  <code>api_secret</code> - Your api secret key.</li>
 <li>  <code>id</code> - The ID of your custom field.</li>
 </ul>
-<h1 id='purchases'>Purchases</h1>
+<h1 id='purchases'>Purchases</h1><h2 id='list-purchases'>List Purchases</h2>
+<p>Show all purchases for an account</p>
+<h3 id='endpoint'>Endpoint</h3>
+<p>GET /v3/purchases</p>
+<h3 id='required-parameters'>Required parameters</h3>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+</ul>
+<h3 id='optional-parameters'>Optional parameters</h3>
+<ul>
+<li>  <code>page</code> - The page of results being requested. Default value is <code>1</code>. Each page of results will contain up to 50 purchases.</li>
+</ul>
+
 <blockquote>
-<p>Example request</p>
+<p>Example request: Retrieve all purchases for an account</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code> curl -X POST https://api.convertkit.com/v3/purchases<span class="se">\</span>
-     -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
-     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",
-           "purchase": {
-             "transaction_id": "123-abcd-456-efgh",
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.convertkit.com/v3/purchases <span class="se">\</span>
+      -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+      -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;", "page": 1 }'</span>
+</code></pre>
+<blockquote>
+<p>Success response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="s2">"total_purchases"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"page"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"purchases"</span><span class="p">:[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="s2">"123-abcd-456-efgh"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_address"</span><span class="p">:</span><span class="s2">"x@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="s2">"20.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discount"</span><span class="p">:</span><span class="s2">"3.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="s2">"21.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"products"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="s2">"5.0"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"quantity"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"sku"</span><span class="p">:</span><span class="s2">"7890-ijkl"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Floppy Disk (512k)"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="s2">"10.0"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"sku"</span><span class="p">:</span><span class="s2">"mnop-1234"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Telephone Cord (data)"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="s2">"123-abcd-456-efgh"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email_address"</span><span class="p">:</span><span class="s2">"x@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="s2">"20.0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"discount"</span><span class="p">:</span><span class="s2">"3.0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"tax"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"total"</span><span class="p">:</span><span class="s2">"21.0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"products"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="s2">"5.0"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"quantity"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"sku"</span><span class="p">:</span><span class="s2">"7890-ijkl"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Floppy Disk (512k)"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="s2">"10.0"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"sku"</span><span class="p">:</span><span class="s2">"mnop-1234"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Telephone Cord (data)"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Failure response.  For example, when <code>api_secret</code> is not provided.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="s2">"Authorization Failed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"You do not have sufficient permissions to access this resource"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='create-a-purchase'>Create a Purchase</h2><h3 id='endpoint-2'>Endpoint</h3>
+<p>POST /v3/purchases</p>
+<h3 id='required-parameters-2'>Required parameters</h3>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+<li>  <code>transaction_id</code> - A unique ID for the purchase</li>
+<li>  <code>email_address</code> - The subscriber that the purchase belongs to</li>
+<li>  <code>products.sku</code> - Each product provided in the &#39;products&#39; array must have a unique sku.</li>
+</ul>
+<h3 id='optional-parameters-2'>Optional parameters</h3>
+<ul>
+<li>  <code>subtotal</code> - The subtotal of the purchase</li>
+<li>  <code>tax</code> - Tax applied to purchase</li>
+<li>  <code>shipping</code> - Shipping amount applied to purchase</li>
+<li>  <code>discount</code> - Discount amount applied to purchase</li>
+<li>  <code>total</code> - Total cost of the purchase</li>
+<li>  <code>status</code> - Status of the purchase, i.e. &quot;paid&quot;, &quot;refund&quot;, etc.</li>
+<li>  <code>products</code> - Array of purchased products</li>
+<li>  <code>name</code> - Product name</li>
+<li>  <code>sku</code> - Product sku</li>
+<li>  <code>unit_price</code> - Product price</li>
+<li>  <code>quantity</code> - Product quantity</li>
+</ul>
+
+<blockquote>
+<p>Example request: get all purchases</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.convertkit.com/v3/purchases<span class="se">\</span>
+-H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
+-d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",
+                "purchase": {
+                        "transaction_id": "123-abcd-456-efgh",
              "email_address": "crashoverride@hackers.com",
              "subtotal": 20.00,
              "tax": 2.00,
@@ -1457,48 +1556,18 @@ Multiple custom fields
          }'</span>
 </code></pre>
 <blockquote>
-<p>Example response</p>
+<p>Success response</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>
-Success:
-
- <span class="o">{</span> message: <span class="s2">"Purchase created successfully."</span> <span class="o">}</span>
-
-Failure:
-
-<span class="o">{</span>
-  <span class="s2">"error"</span>: <span class="s2">"Error creating purchase"</span>,
-  <span class="s2">"message"</span>: <span class="s2">"transaction_id can't be blank, Sku can't be blank for product: Floppy Disk (512k)"</span>
- <span class="o">}</span>
-</code></pre>
-<p>Manage purchases made by a subscriber.</p>
-<h3 id='create-a-purchase'>Create a Purchase</h3><h3 id='endpoint'>Endpoint</h3>
-<p>POST /v3/purchases</p>
-<h3 id='required-parameters'>Required parameters</h3>
-<ul>
-<li>  <code>api_secret</code> - Your api secret key.</li>
-<li>  <code>transaction_id</code> - A unique ID for the purchase</li>
-<li>  <code>email_address</code> - The subscriber that the purchase belongs to</li>
-<li>  <code>products.sku</code> - Each product provided in the &#39;products&#39; array must have a unique sku.</li>
-</ul>
-<h3 id='optional-parameters'>Optional parameters</h3>
-<ul>
-<li>  <code>subtotal</code> - The subtotal of the purchase</li>
-<li>  <code>tax</code> - Tax applied to purchase</li>
-<li>  <code>shipping</code> - Shipping amount applied to purchase</li>
-<li>  <code>discount</code> - Discount amount applied to purchase</li>
-<li>  <code>total</code> - Total cost of the purchase</li>
-<li>  <code>status</code> - Status of the purchase, i.e. &quot;paid&quot;, &quot;refund&quot;, etc.</li>
-<li>  <code>products</code> - Array of purchased products
-
-<ul>
-<li>  <code>name</code> - Product name</li>
-<li>  <code>sku</code> - Product sku</li>
-<li>  <code>unit_price</code> - Product price</li>
-<li>  <code>quantity</code> - Product quantity</li>
-</ul></li>
-</ul>
-
+<pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">message</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purchase created successfully."</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Failure response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error creating purchase"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transaction_id can't be blank, Sku can't be blank for product: Floppy Disk (512k)"</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
