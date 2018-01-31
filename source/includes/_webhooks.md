@@ -21,7 +21,7 @@ curl -X POST https://api.convertkit.com/v3/automations/hooks
 > Example response
 
 
-```shell
+```json
 {
   "rule": {
     "id": 1,
@@ -48,7 +48,7 @@ curl -X POST https://api.convertkit.com/v3/automations/hooks
 
 > Example response
 
-```shell
+```json
 {
   "rule": {
     "id": 43,
@@ -102,7 +102,7 @@ curl -X DELETE https://api.convertkit.com/v3/automations/hooks/456
 
 > Example response
 
-```shell
+```json
 {
   "success": true
 }

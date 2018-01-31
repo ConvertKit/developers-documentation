@@ -9,7 +9,7 @@ curl https://api.convertkit.com/v3/subscribers?api_secret=<your_secret_api_key>&
 
 > Example response
 
-```shell
+```json
 {
   "total_subscribers": 3,
   "page": 1,
@@ -72,7 +72,7 @@ curl https://api.convertkit.com/v3/subscribers/1?api_secret=<your_secret_api_key
 
 > Example response
 
-```shell
+```json
 {
   "subscriber": {
     "id": 1,
@@ -117,7 +117,7 @@ curl -X PUT https://api.convertkit.com/v3/subscribers/1\
 
 > Example response
 
-```shell
+```json
 {
   "subscriber": {
     "id": 1,
@@ -163,7 +163,7 @@ curl -x PUT https://api.convertkit.com/v3/unsubscribe
 
 > Example response
 
-```shell
+```json
 {
   "subscriber": {
     "id": 1,
@@ -203,7 +203,7 @@ curl -X GET https://api.convertkit.com/v3/subscribers/1/tags\
 
 > Example response
 
-```shell
+```json
 {
   "tags": [
     {

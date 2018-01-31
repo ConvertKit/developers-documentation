@@ -12,7 +12,7 @@ curl https://api.convertkit.com/v3/tags?api_key=<your_public_api_key>
 
 > Example response
 
-```shell
+```json
 {
   "tags": [
     {
@@ -74,7 +74,7 @@ curl -X POST https://api.convertkit.com/v3/tags
 
 > Example response
 
-```shell
+```json
 {
   "account_id": 1,
   "created_at": "2017-04-12T11:10:32Z"
@@ -130,7 +130,7 @@ curl -X POST https://api.convertkit.com/v3/tags/1/subscribe\
 
 > Example response
 
-```shell
+```json
 {
   "subscription": {
     "id": 3,
@@ -188,7 +188,7 @@ curl -X DELETE https://api.convertkit.com/v3/subscribers/1/tags/1?api_secret=<yo
 
 > Example response
 
-```shell
+```json
 {
   "id": 1,
   "name": "House Stark",
@@ -218,7 +218,7 @@ curl https://api.convertkit.com/v3/tags/<tag_id>/subscriptions?api_secret=<your_
 
 > Example response
 
-```shell
+```json
 {
   "total_subscriptions": 2,
   "page": 1,

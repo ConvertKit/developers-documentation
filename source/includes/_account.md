@@ -12,7 +12,7 @@ curl https://api.convertkit.com/v3/account?api_secret=<your_secret_api_key>
 
 > Example response
 
-```shell
+```json
 {
     "name":"Acme Corp.",
     "primary_email_address":"you@example.com"

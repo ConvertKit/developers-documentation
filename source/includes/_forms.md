@@ -13,7 +13,7 @@ curl https://api.convertkit.com/v3/forms?api_key=<your_public_api_key>
 
 > Example Response
 
-```shell
+```json
 
 {
   "forms": [
@@ -68,7 +68,7 @@ curl -X POST https://api.convertkit.com/v3/forms/1/subscribe\
 ```
 > Example Response
 
-```shell
+```json
 
 {
   "subscription": {
@@ -125,7 +125,7 @@ curl https://api.convertkit.com/v3/forms/<form_id>/subscriptions?api_secret=<you
 
 > Example response
 
-```shell
+```json
 {
   "total_subscriptions": 2,
   "page": 1,

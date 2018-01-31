@@ -16,7 +16,7 @@ curl https://api.convertkit.com/v3/sequences?api_key=<your_public_api_key>
 
 > Example response
 
-```shell
+```json
 {
   "courses": [
     {
@@ -57,7 +57,7 @@ curl -X POST https://api.convertkit.com/v3/courses/1/subscribe\
 ```
 > Example response
 
-```shell
+```json
 {
   "subscription": {
     "id": 2,
@@ -112,7 +112,7 @@ curl https://api.convertkit.com/v3/sequences/<sequence_id>/subscriptions?api_sec
 
 > Example response
 
-```shell
+```json
 {
   "total_subscriptions": 2,
   "page": 1,
