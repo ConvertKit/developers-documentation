@@ -1,7 +1,27 @@
 Webhooks
 ========
 
+> Example JSON Payload
+
+```json
+{
+  "subscriber": {
+    "id": 1,
+    "first_name": "John",
+    "email_address": "John@example.com",
+    "state": "active",
+    "created_at": "2018-02-15T19:40:24.913Z",
+    "fields": {
+      "My Custom Field": "Value"
+    }
+  }
+}
+
+```
+
 Webhooks are automations that will receive subscriber data when a subscriber event is triggered, such as when a subscriber completes a sequence.
+
+When a webhook is triggered, a `POST` request will be made to your url with a JSON payload.
 
 Create a webhook
 ----------------
