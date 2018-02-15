@@ -1178,7 +1178,26 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <li>  <code>api_key</code> - Your account API key.</li>
 </ul>
 <h1 id='webhooks'>Webhooks</h1>
+<blockquote>
+<p>Example JSON Payload</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-15T19:40:24.913Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"My Custom Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Value"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
 <p>Webhooks are automations that will receive subscriber data when a subscriber event is triggered, such as when a subscriber completes a sequence.</p>
+
+<p>When a webhook is triggered, a <code>POST</code> request will be made to your url with a JSON payload.</p>
 <h2 id='create-a-webhook'>Create a webhook</h2>
 <blockquote>
 <p>Example request: Create a webhook automation to receive subscriber data at <code>http://example.com/incoming</code> when a subscriber is activated.</p>
