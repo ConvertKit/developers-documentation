@@ -21,7 +21,7 @@ Show all purchases for an account
 > Example request: Retrieve all purchases for an account
 
 ```shell
-curl -X POST https://api.convertkit.com/v3/purchases \
+curl -X GET https://api.convertkit.com/v3/purchases \
       -H 'Content-Type: application/json' \
       -d '{ "api_secret": "<your_secret_api_key>", "page": 1 }'
 ```
