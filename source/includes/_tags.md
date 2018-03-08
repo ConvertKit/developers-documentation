@@ -123,7 +123,7 @@ Tag a subscriber
 > Example request
 
 ```shell
-curl -X POST https://api.convertkit.com/v3/tags/1/subscribe\
+curl -X POST https://api.convertkit.com/v3/tags/<tag_id>/subscribe\
      -H "Content-Type: application/json; charset=utf-8"\
      -d
 ```
@@ -183,7 +183,7 @@ Remove tag from a subscriber
 > Example request
 
 ```shell
-curl -X DELETE https://api.convertkit.com/v3/subscribers/1/tags/1?api_secret=<your_secret_api_key>
+curl -X DELETE https://api.convertkit.com/v3/subscribers/<subscriber_id>/tags/<tag_id>?api_secret=<your_secret_api_key>
 ```
 
 > Example response

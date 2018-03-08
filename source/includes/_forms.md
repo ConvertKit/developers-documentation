@@ -62,7 +62,7 @@ Add subscriber to a form
 
 ```shell
 
-curl -X POST https://api.convertkit.com/v3/forms/1/subscribe\
+curl -X POST https://api.convertkit.com/v3/forms/<form_id>/subscribe\
      -H "Content-Type: application/json; charset=utf-8"\
      -d
 ```

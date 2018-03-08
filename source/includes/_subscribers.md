@@ -196,7 +196,7 @@ List tags for a subscriber
 > Example request
 
 ```shell
-curl -X GET https://api.convertkit.com/v3/subscribers/1/tags\
+curl -X GET https://api.convertkit.com/v3/subscribers/<tag_id>/tags\
      -H 'Content-Type: application/json'\
      -d '{ "api_secret": "<your_secret_api_key>" }'
 ```

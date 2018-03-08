@@ -51,7 +51,7 @@ Add subscriber to a sequence
 > Example request
 
 ```shell
-curl -X POST https://api.convertkit.com/v3/courses/1/subscribe\
+curl -X POST https://api.convertkit.com/v3/courses/<course_id>/subscribe\
      -H "Content-Type: application/json; charset=utf-8"\
      -d
 ```
