@@ -483,7 +483,7 @@ curl https://api.convertkit.com/v3/forms?api_key<span class="o">=</span>&lt;your
 <p>Example Request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>
-curl -X POST https://api.convertkit.com/v3/forms/1/subscribe<span class="se">\</span>
+curl -X POST https://api.convertkit.com/v3/forms/&lt;form_id&gt;/subscribe<span class="se">\</span>
      -H <span class="s2">"Content-Type: application/json; charset=utf-8"</span><span class="se">\</span>
      -d
 </code></pre>
@@ -637,7 +637,7 @@ curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;
 <blockquote>
 <p>Example request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST https://api.convertkit.com/v3/courses/1/subscribe<span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.convertkit.com/v3/courses/&lt;course_id&gt;/subscribe<span class="se">\</span>
      -H <span class="s2">"Content-Type: application/json; charset=utf-8"</span><span class="se">\</span>
      -d
 </code></pre>
@@ -855,7 +855,7 @@ curl -X POST https://api.convertkit.com/v3/tags
 <blockquote>
 <p>Example request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST https://api.convertkit.com/v3/tags/1/subscribe<span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscribe<span class="se">\</span>
      -H <span class="s2">"Content-Type: application/json; charset=utf-8"</span><span class="se">\</span>
      -d
 </code></pre>
@@ -905,7 +905,7 @@ curl -X POST https://api.convertkit.com/v3/tags
 <blockquote>
 <p>Example request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X DELETE https://api.convertkit.com/v3/subscribers/1/tags/1?api_secret<span class="o">=</span>&lt;your_secret_api_key&gt;
+<pre class="highlight shell tab-shell"><code>curl -X DELETE https://api.convertkit.com/v3/subscribers/&lt;subscriber_id&gt;/tags/&lt;tag_id&gt;?api_secret<span class="o">=</span>&lt;your_secret_api_key&gt;
 </code></pre>
 <blockquote>
 <p>Example response</p>
@@ -1153,7 +1153,7 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <blockquote>
 <p>Example request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api.convertkit.com/v3/subscribers/1/tags<span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://api.convertkit.com/v3/subscribers/&lt;tag_id&gt;/tags<span class="se">\</span>
      -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
      -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;" }'</span>
 </code></pre>
