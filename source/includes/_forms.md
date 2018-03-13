@@ -108,9 +108,9 @@ POST /v3/forms/<form_id>/subscribe
 -   `first_name` - Subscriber first name.
 -   `fields` - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).
 -   `name` - Subscriber first name. *legacy behavior, discouraged*
--   `tags` - Comma-separated list of tag ids to subscribe to.
--   `courses` - Comma-separated list of sequence ids to subscribe to. *discouraged*
--   `forms` - Comma-separated list of form ids to subscribe to. *strongly discouraged*
+-   `tags` - Array of tag ids to subscribe to.
+-   `courses` - Array of sequence ids to subscribe to. *discouraged*
+-   `forms` - Array of form ids to subscribe to. *strongly discouraged*
 
 
 List subscriptions to a form
