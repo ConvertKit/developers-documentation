@@ -352,7 +352,16 @@
                     <a href="#list-purchases" class="toc-h2 toc-link" data-title="List Purchases">List Purchases</a>
                   </li>
                   <li>
+                    <a href="#retrieve-a-specific-purchase" class="toc-h2 toc-link" data-title="Retrieve a specific Purchase">Retrieve a specific Purchase</a>
+                  </li>
+                  <li>
                     <a href="#create-a-purchase" class="toc-h2 toc-link" data-title="Create a Purchase">Create a Purchase</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-specific-purchase" class="toc-h2 toc-link" data-title="Update a specific Purchase">Update a specific Purchase</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-specific-purchase" class="toc-h2 toc-link" data-title="Delete a specific Purchase">Delete a specific Purchase</a>
                   </li>
               </ul>
           </li>
@@ -1460,55 +1469,59 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 <blockquote>
 <p>Success response:</p>
 </blockquote>
+
+<p>HTTP/1.1 200 OK</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-</span><span class="s2">"total_purchases"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"page"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"purchases"</span><span class="p">:[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="s2">"123-abcd-456-efgh"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email_address"</span><span class="p">:</span><span class="s2">"x@example.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="s2">"20.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"discount"</span><span class="p">:</span><span class="s2">"3.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"tax"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total"</span><span class="p">:</span><span class="s2">"21.0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"products"</span><span class="p">:[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="s2">"5.0"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"quantity"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"sku"</span><span class="p">:</span><span class="s2">"7890-ijkl"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Floppy Disk (512k)"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="s2">"10.0"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"sku"</span><span class="p">:</span><span class="s2">"mnop-1234"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Telephone Cord (data)"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"total_purchases"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"purchases"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-abcd-456-efgh"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7890-ijkl"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Floppy Disk (512k)"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"sku"</span><span class="p">:</span><span class="s2">"mnop-1234"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Telephone Cord (data)"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="s2">"123-abcd-456-efgh"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"email_address"</span><span class="p">:</span><span class="s2">"x@example.com"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="s2">"20.0"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"discount"</span><span class="p">:</span><span class="s2">"3.0"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"tax"</span><span class="p">:</span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"total"</span><span class="p">:</span><span class="s2">"21.0"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"products"</span><span class="p">:[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="s2">"5.0"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"quantity"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"sku"</span><span class="p">:</span><span class="s2">"7890-ijkl"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Floppy Disk (512k)"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="s2">"10.0"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"sku"</span><span class="p">:</span><span class="s2">"mnop-1234"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Telephone Cord (data)"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-abcd-456-efgh"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7890-ijkl"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Floppy Disk (512k)"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mnop-1234"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telephone Cord (data)"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -1517,13 +1530,69 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 <blockquote>
 <p>Failure response.  For example, when <code>api_secret</code> is not provided.</p>
 </blockquote>
+
+<p>HTTP/1.1 401 Unauthorized</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"error"</span><span class="p">:</span><span class="s2">"Authorization Failed"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"You do not have sufficient permissions to access this resource"</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"You do not have sufficient permissions to access this resource"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='create-a-purchase'>Create a Purchase</h2><h3 id='endpoint-2'>Endpoint</h3>
-<p>POST /v3/purchases</p>
+</span></code></pre><h2 id='retrieve-a-specific-purchase'>Retrieve a specific Purchase</h2><h3 id='endpoint-2'>Endpoint</h3>
+<p>GET /v3/purchases/#{id}</p>
 <h3 id='required-parameters-2'>Required parameters</h3>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+<li>  <code>id</code> - A purchase ID</li>
+</ul>
+
+<blockquote>
+<p>Example request: get purchases with ID <code>8</code></p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://api.convertkit.com/v3/purchases/8 <span class="se">\</span>
+     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;" }
+</span></code></pre>
+<blockquote>
+<p>Success response</p>
+</blockquote>
+
+<p>HTTP/1.1 200 OK</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-abcd-456-efgh"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crashoverride@hackers.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7890-ijkl"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Floppy Disk (512k)"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mnop-1234"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telephone Cord (data)"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Failure response. For example, when <code>api_secret</code> is not provided.</p>
+</blockquote>
+
+<p>HTTP/1.1 401 Unauthorized</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="s2">"Authorization Failed"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"You do not have sufficient permissions to access this resource"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='create-a-purchase'>Create a Purchase</h2><h3 id='endpoint-3'>Endpoint</h3>
+<p>POST /v3/purchases</p>
+<h3 id='required-parameters-3'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
 <li>  <code>transaction_id</code> - A unique ID for the purchase</li>
@@ -1548,44 +1617,195 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 <blockquote>
 <p>Example request: get all purchases</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST https://api.convertkit.com/v3/purchases<span class="se">\</span>
--H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
--d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",
-                "purchase": {
-                        "transaction_id": "123-abcd-456-efgh",
-             "email_address": "crashoverride@hackers.com",
-             "subtotal": 20.00,
-             "tax": 2.00,
-             "shipping": 2.00,
-             "discount": 3.00,
-             "total": 21.00,
-             "status": "paid",
-             "products": [{
-               "name": "Floppy Disk (512k)",
-               "sku": "7890-ijkl",
-               "unit_price": 5.00,
-               "quantity": 2
-              }, {
-               "name": "Telephone Cord (data)",
-               "sku": "mnop-1234",
-               "unit_price": 10.00,
-               "quantity": 1
-             }]
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.convertkit.com/v3/purchases <span class="se">\</span>
+     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",
+           "purchase": {
+                "transaction_id": "123-abcd-456-efgh",
+                "email_address": "crashoverride@hackers.com",
+                "subtotal": 20.00,
+                "tax": 2.00,
+                "shipping": 2.00,
+                "discount": 3.00,
+                "total": 21.00,
+                "status": "paid",
+                "products": [{
+                    "name": "Floppy Disk (512k)",
+                    "sku": "7890-ijkl",
+                    "unit_price": 5.00,
+                    "quantity": 2
+                }, {
+                    "name": "Telephone Cord (data)",
+                    "sku": "mnop-1234",
+                    "unit_price": 10.00,
+                    "quantity": 1
+                }]
            }
-         }'</span>
+     }'</span>
 </code></pre>
 <blockquote>
 <p>Success response</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">message</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purchase created successfully."</span><span class="w"> </span><span class="p">}</span><span class="w">
+
+<p>HTTP/1.1 201 Created</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-abcd-456-efgh"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crashoverride@hackers.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7890-ijkl"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Floppy Disk (512k)"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mnop-1234"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telephone Cord (data)"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>Failure response</p>
 </blockquote>
+
+<p>HTTP/1.1 400 Bad Request</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error creating purchase"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transaction_id can't be blank, Sku can't be blank for product: Floppy Disk (512k)"</span><span class="w">
- </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your request is missing parameters"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transaction_id can't be blank, Sku can't be blank for product: Floppy Disk (512k)"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='update-a-specific-purchase'>Update a specific Purchase</h2><h3 id='endpoint-4'>Endpoint</h3>
+<p>PUT /v3/purchases/#{id}</p>
+<h3 id='required-parameters-4'>Required parameters</h3>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+<li>  <code>id</code> - A purchase ID</li>
+</ul>
+<h4 id='optional-parameters-3'>Optional parameters</h4>
+<ul>
+<li>  <code>transaction_id</code> - A unique ID for the purchase</li>
+<li>  <code>email_address</code> - The subscriber that the purchase belongs to</li>
+<li>  <code>subtotal</code> - The subtotal of the purchase</li>
+<li>  <code>tax</code> - Tax applied to purchase</li>
+<li>  <code>shipping</code> - Shipping amount applied to purchase</li>
+<li>  <code>discount</code> - Discount amount applied to purchase</li>
+<li>  <code>total</code> - Total cost of the purchase</li>
+<li>  <code>status</code> - Status of the purchase, i.e. &quot;paid&quot;, &quot;refund&quot;, etc.</li>
+<li>  <code>products</code> - Array of purchased products
+
+<ul>
+<li><code>name</code> - Product name</li>
+<li><code>sku</code> - Product sku. Each product provided in the &#39;products&#39; array must have a unique sku.</li>
+<li><code>unit_price</code> - Product price</li>
+<li><code>quantity</code> - Product quantity</li>
+</ul></li>
+</ul>
+
+<blockquote>
+<p>Example request: update purchases with ID <code>8</code></p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X PUT https://api.convertkit.com/v3/purchases/8 <span class="se">\</span>
+     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",
+           "purchase": {
+                "subtotal": 35.00,
+                "tax": 3.00,
+                "shipping": 2.00,
+                "discount": 3.00,
+                "total": 36.00,
+                "products": [{
+                    "name": "Floppy Disk (512k)",
+                    "sku": "7890-ijkl",
+                    "unit_price": 5.00,
+                    "quantity": 3
+                }, {
+                    "name": "Telephone Cord (data)",
+                    "sku": "mnop-1234",
+                    "unit_price": 10.00,
+                    "quantity": 2
+                }]
+           }
+        }'</span>
+
+</code></pre>
+<blockquote>
+<p>Success response</p>
+</blockquote>
+
+<p>HTTP/1.1 200 OK</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-abcd-456-efgh"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crashoverride@hackers.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">35.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.00</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">36.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7890-ijkl"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Floppy Disk (512k)"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mnop-1234"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telephone Cord (data)"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Failure response.</p>
+</blockquote>
+
+<p>HTTP/1.1 400 Bad Request</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your request is missing parameters"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transaction_id can't be blank, Sku can't be blank for product: Floppy Disk (512k)"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='delete-a-specific-purchase'>Delete a specific Purchase</h2><h3 id='endpoint-5'>Endpoint</h3>
+<p>DELETE /v3/purchases/#{id}</p>
+<h3 id='required-parameters-5'>Required parameters</h3>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+<li>  <code>id</code> - A purchase ID</li>
+</ul>
+
+<blockquote>
+<p>Example request: delete purchases with ID <code>8</code></p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE https://api.convertkit.com/v3/purchases/8 <span class="se">\</span>
+     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;" }
+</span></code></pre>
+<blockquote>
+<p>Success response</p>
+</blockquote>
+
+<p>HTTP/1.1 200 OK</p>
+
+<blockquote>
+<p>Failure response. For example, when <code>api_secret</code> is not provided.</p>
+</blockquote>
+
+<p>HTTP/1.1 401 Unauthorized</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="s2">"Authorization Failed"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"You do not have sufficient permissions to access this resource"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
       </div>
       <div class="dark-box">
