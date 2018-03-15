@@ -526,9 +526,9 @@ curl -X POST https://api.convertkit.com/v3/forms/&lt;form_id&gt;/subscribe<span 
 <li>  <code>first_name</code> - Subscriber first name.</li>
 <li>  <code>fields</code> - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).</li>
 <li>  <code>name</code> - Subscriber first name. <em>legacy behavior, discouraged</em></li>
-<li>  <code>tags</code> - Comma-separated list of tag ids to subscribe to.</li>
-<li>  <code>courses</code> - Comma-separated list of sequence ids to subscribe to. <em>discouraged</em></li>
-<li>  <code>forms</code> - Comma-separated list of form ids to subscribe to. <em>strongly discouraged</em></li>
+<li>  <code>tags</code> - Array of tag ids to subscribe to.</li>
+<li>  <code>courses</code> - Array of sequence ids to subscribe to. <em>discouraged</em></li>
+<li>  <code>forms</code> - Array of form ids to subscribe to. <em>strongly discouraged</em></li>
 </ul>
 <h2 id='list-subscriptions-to-a-form'>List subscriptions to a form</h2>
 <blockquote>
@@ -679,9 +679,9 @@ curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;
 <li>  <code>first_name</code> - Subscriber first name.</li>
 <li>  <code>fields</code> - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).</li>
 <li>  <code>name</code> - Subscriber first name. <em>legacy behavior, discouraged</em></li>
-<li>  <code>tags</code> - Comma-separated list of tag ids to subscribe to.</li>
-<li>  <code>courses</code> - Comma-separated list of sequence ids to subscribe to. <em>discouraged</em></li>
-<li>  <code>forms</code> - Comma-separated list of form ids to subscribe to. <em>strongly discouraged</em></li>
+<li>  <code>tags</code> - Array of tag ids to subscribe to.</li>
+<li>  <code>courses</code> - Array of sequence ids to subscribe to. <em>discouraged</em></li>
+<li>  <code>forms</code> - Array of form ids to subscribe to. <em>strongly discouraged</em></li>
 </ul>
 <h2 id='list-subscriptions-to-a-sequence'>List subscriptions to a sequence</h2>
 <blockquote>
@@ -897,9 +897,9 @@ curl -X POST https://api.convertkit.com/v3/tags
 <li>  <code>first_name</code> - Subscriber first name.</li>
 <li>  <code>fields</code> - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).</li>
 <li>  <code>name</code> - Subscriber first name. <em>legacy behavior, deprecated</em></li>
-<li>  <code>tags</code> - Comma-separated list of tag ids to subscribe to.</li>
-<li>  <code>courses</code> - Comma-separated list of sequence ids to subscribe to. <em>discouraged</em></li>
-<li>  <code>forms</code> - Comma-separated list of form ids to subscribe to. <em>strongly discouraged</em></li>
+<li>  <code>tags</code> - Array of tag ids to subscribe to.</li>
+<li>  <code>courses</code> - Array of sequence ids to subscribe to. <em>discouraged</em></li>
+<li>  <code>forms</code> - Array of form ids to subscribe to. <em>strongly discouraged</em></li>
 </ul>
 <h2 id='remove-tag-from-a-subscriber'>Remove tag from a subscriber</h2>
 <blockquote>
