@@ -41,6 +41,8 @@ curl -X GET https://api.convertkit.com/v3/purchases \
             "transaction_id": "123-abcd-456-efgh",
             "status": "paid",
             "email_address": "x@example.com",
+            "currency": "JPY",
+            "transaction_time": "2018-03-20 12:38",
             "subtotal": 20.0,
             "discount": 3.0,
             "tax": 2.0,
@@ -62,9 +64,11 @@ curl -X GET https://api.convertkit.com/v3/purchases \
         },
         {
             "id": 4,
-            "transaction_id": "123-abcd-456-efgh",
+            "transaction_id": "123-abcd-457-efgh",
             "status": "paid",
             "email_address": "x@example.com",
+            "currency": "USD",
+            "transaction_time": "2018-03-20 13:38",
             "subtotal": 20.0,
             "discount": 3.0,
             "tax": 2.0,
@@ -129,6 +133,8 @@ curl -X GET https://api.convertkit.com/v3/purchases/8 \
     "transaction_id": "123-abcd-456-efgh",
     "status": "paid",
     "email_address": "crashoverride@hackers.com",
+    "currency": "JPY",
+    "transaction_time": "2018-03-20 14:31",
     "subtotal": 20.0,
     "discount": 3.0,
     "tax": 2.0,
@@ -183,12 +189,14 @@ POST /v3/purchases
 -   `shipping` - Shipping amount applied to purchase
 -   `discount` - Discount amount applied to purchase
 -   `total` - Total cost of the purchase
+-   `currency` - 3 letter currency code, default **USD**
+-   `transaction_time` - date and time of purchase as ISO string, default **CURRENT_TIMESTAMP**
 -   `status` - Status of the purchase, i.e. "paid", "refund", etc.
 -   `products` - Array of purchased products
--   `name` - Product name
--   `sku` - Product sku
--   `unit_price` - Product price
--   `quantity` - Product quantity
+    -   `name` - Product name
+    -   `sku` - Product sku
+    -   `unit_price` - Product price
+    -   `quantity` - Product quantity
 
 > Example request: get all purchases
 
@@ -199,6 +207,8 @@ curl -X POST https://api.convertkit.com/v3/purchases \
            "purchase": {
                 "transaction_id": "123-abcd-456-efgh",
                 "email_address": "crashoverride@hackers.com",
+                "currency": "jpy",
+                "transaction_time": "2018-03-20 14:31:10",
                 "subtotal": 20.00,
                 "tax": 2.00,
                 "shipping": 2.00,
@@ -230,6 +240,8 @@ curl -X POST https://api.convertkit.com/v3/purchases \
     "transaction_id": "123-abcd-456-efgh",
     "status": "paid",
     "email_address": "crashoverride@hackers.com",
+    "currency": "JPY",
+    "transaction_time": "2018-03-20 14:31",
     "subtotal": 20.0,
     "discount": 3.0,
     "tax": 2.0,
@@ -283,6 +295,8 @@ PUT /v3/purchases/#{id}
 -   `shipping` - Shipping amount applied to purchase
 -   `discount` - Discount amount applied to purchase
 -   `total` - Total cost of the purchase
+-   `currency` - 3 letter currency code, default **USD**
+-   `transaction_time` - date and time of purchase as ISO string, default **CURRENT_TIMESTAMP**
 -   `status` - Status of the purchase, i.e. "paid", "refund", etc.
 -   `products` - Array of purchased products
     - `name` - Product name
@@ -302,6 +316,7 @@ curl -X PUT https://api.convertkit.com/v3/purchases/8 \
                 "shipping": 2.00,
                 "discount": 3.00,
                 "total": 36.00,
+                "currency": "JPY",
                 "products": [{
                     "name": "Floppy Disk (512k)",
                     "sku": "7890-ijkl",
@@ -327,6 +342,8 @@ curl -X PUT https://api.convertkit.com/v3/purchases/8 \
     "transaction_id": "123-abcd-456-efgh",
     "status": "paid",
     "email_address": "crashoverride@hackers.com",
+    "currency": "JPY",
+    "transaction_time": "2018-03-20 14:31",
     "subtotal": 35.0,
     "discount": 3.0,
     "tax": 3.0,
