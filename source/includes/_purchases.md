@@ -44,6 +44,7 @@ curl -X GET https://api.convertkit.com/v3/purchases \
             "currency": "JPY",
             "transaction_time": "2018-03-20 12:38",
             "subtotal": 20.0,
+            "shipping": 2.0,
             "discount": 3.0,
             "tax": 2.0,
             "total": 21.0,
@@ -70,6 +71,7 @@ curl -X GET https://api.convertkit.com/v3/purchases \
             "currency": "USD",
             "transaction_time": "2018-03-20 13:38",
             "subtotal": 20.0,
+            "shipping": 2.0,
             "discount": 3.0,
             "tax": 2.0,
             "total": 21.0,
@@ -136,6 +138,7 @@ curl -X GET https://api.convertkit.com/v3/purchases/8 \
     "currency": "JPY",
     "transaction_time": "2018-03-20 14:31",
     "subtotal": 20.0,
+    "shipping": 2.0,
     "discount": 3.0,
     "tax": 2.0,
     "total": 21.0,
@@ -245,6 +248,7 @@ curl -X POST https://api.convertkit.com/v3/purchases \
     "subtotal": 20.0,
     "discount": 3.0,
     "tax": 2.0,
+    "shipping": 2.00,
     "total": 21.0,
     "products": [
         {
@@ -288,21 +292,9 @@ PUT /v3/purchases/#{id}
 
 #### Optional parameters
 
--   `transaction_id` - A unique ID for the purchase
--   `email_address` - The subscriber that the purchase belongs to
--   `subtotal` - The subtotal of the purchase
--   `tax` - Tax applied to purchase
--   `shipping` - Shipping amount applied to purchase
--   `discount` - Discount amount applied to purchase
--   `total` - Total cost of the purchase
--   `currency` - 3 letter currency code, default **USD**
--   `transaction_time` - date and time of purchase as ISO string, default **CURRENT_TIMESTAMP**
 -   `status` - Status of the purchase, i.e. "paid", "refund", etc.
--   `products` - Array of purchased products
-    - `name` - Product name
-    - `sku` - Product sku. Each product provided in the 'products' array must have a unique sku.
-    - `unit_price` - Product price
-    - `quantity` - Product quantity
+
+Note: `status` is only changeable field
 
 > Example request: update purchases with ID `8`
 
@@ -311,23 +303,7 @@ curl -X PUT https://api.convertkit.com/v3/purchases/8 \
      -H 'Content-Type: application/json' \
      -d '{ "api_secret": "<your_secret_api_key>",
            "purchase": {
-                "subtotal": 35.00,
-                "tax": 3.00,
-                "shipping": 2.00,
-                "discount": 3.00,
-                "total": 36.00,
-                "currency": "JPY",
-                "products": [{
-                    "name": "Floppy Disk (512k)",
-                    "sku": "7890-ijkl",
-                    "unit_price": 5.00,
-                    "quantity": 3
-                }, {
-                    "name": "Telephone Cord (data)",
-                    "sku": "mnop-1234",
-                    "unit_price": 10.00,
-                    "quantity": 2
-                }]
+                "status": "refund"
            }
         }'
 
@@ -340,25 +316,25 @@ curl -X PUT https://api.convertkit.com/v3/purchases/8 \
 {
     "id": 8,
     "transaction_id": "123-abcd-456-efgh",
-    "status": "paid",
+    "status": "refund",
     "email_address": "crashoverride@hackers.com",
     "currency": "JPY",
     "transaction_time": "2018-03-20 14:31",
-    "subtotal": 35.0,
+    "subtotal": 20.0,
     "discount": 3.0,
-    "tax": 3.0,
+    "tax": 2.0,
     "shipping": 2.00,
-    "total": 36.0,
+    "total": 21.0,
     "products": [
         {
             "unit_price": 5.0,
-            "quantity": 3,
+            "quantity": 2,
             "sku": "7890-ijkl",
             "name": "Floppy Disk (512k)"
         },
         {
             "unit_price": 10.0,
-            "quantity": 2,
+            "quantity": 1,
             "sku": "mnop-1234",
             "name": "Telephone Cord (data)"
         }
@@ -374,39 +350,5 @@ curl -X PUT https://api.convertkit.com/v3/purchases/8 \
 {
     "error": "Your request is missing parameters",
     "message": "transaction_id can't be blank, Sku can't be blank for product: Floppy Disk (512k)"
-}
-```
-
-Delete a specific Purchase
---------------------------
-
-### Endpoint
-
-DELETE /v3/purchases/#{id}
-
-### Required parameters
-
--   `api_secret` - Your api secret key.
--   `id` - A purchase ID
-
-> Example request: delete purchases with ID `8`
-
-```shell
-curl -X DELETE https://api.convertkit.com/v3/purchases/8 \
-     -H 'Content-Type: application/json' \
-     -d '{ "api_secret": "<your_secret_api_key>" }
-```
-> Success response
-
-    HTTP/1.1 200 OK
-
-> Failure response. For example, when `api_secret` is not provided.
-
-    HTTP/1.1 401 Unauthorized
-
-```json
-{
-    "error":"Authorization Failed",
-    "message":"You do not have sufficient permissions to access this resource"
 }
 ```
