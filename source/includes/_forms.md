@@ -96,7 +96,7 @@ Subscribe an email address to one of your forms.
 
 ### Endpoint
 
-POST /v3/forms/<form_id>/subscribe
+POST /v3/forms/#{form_id}/subscribe
 
 ### Required parameters
 
@@ -177,7 +177,7 @@ List subscriptions to a form including subscriber data.
 
 ### Endpoint
 
-GET /v3/forms/<form_id>/subscriptions
+GET /v3/forms/#{form_id}/subscriptions
 
 ### Required parameters
 

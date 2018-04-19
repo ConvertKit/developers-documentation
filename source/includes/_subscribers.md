@@ -91,7 +91,7 @@ Returns data for a single subscriber
 
 ### Endpoint
 
-GET /v3/subscribers/<subscriber_id>
+GET /v3/subscribers/#{subscriber_id}
 
 ### Required parameters
 
@@ -136,7 +136,7 @@ Updates the information for a single subscriber.
 
 ### Endpoint
 
-PUT /v3/subscribers/<subscriber_id>
+PUT /v3/subscribers/#{subscriber_id}
 
 ### Required parameters
 
@@ -219,7 +219,7 @@ Lists all the tags for a subscriber.
 
 ### Endpoint
 
-GET /v3/subscribers/`<subscriber_id>`/tags
+GET /v3/subscribers/#{subscriber_id}/tags
 
 ### Required parameters
 

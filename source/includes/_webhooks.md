@@ -132,7 +132,7 @@ Deletes a webhook.
 
 ### Endpoint
 
-DELETE /v3/automations/hooks/<rule_id>
+DELETE /v3/automations/hooks/#{rule_id}
 
 ### Required parameters
 

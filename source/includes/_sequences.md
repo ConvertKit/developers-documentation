@@ -85,7 +85,7 @@ Subscribe an email address to one of your sequences.
 
 ### Endpoint
 
-POST /v3/courses/<course_id>/subscribe
+POST /v3/courses/#{course_id}/subscribe
 
 ### Required parameters
 
@@ -165,7 +165,7 @@ List subscriptions to a sequence including subscriber data.
 
 ### Endpoint
 
-GET /v3/sequences/<sequence_id>/subscriptions
+GET /v3/sequences/#{sequence_id}/subscriptions
 
 ### Required parameters
 
