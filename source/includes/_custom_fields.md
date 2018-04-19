@@ -133,7 +133,7 @@ Updates a custom field label (see create field above for more information on lab
 
 ### Endpoint
 
-PUT /v3/custom_fields/<your custom field ID>
+PUT /v3/custom_fields/#{your custom field ID}
 
 ### Required parameters
 
@@ -163,7 +163,7 @@ Destroys a custom field. Note that this will remove all data in this field from 
 
 ### Endpoint
 
-DELETE /v3/custom_fields/<your custom field ID>
+DELETE /v3/custom_fields/#{your custom field ID}
 
 ### Required parameters
 

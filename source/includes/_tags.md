@@ -159,7 +159,7 @@ Tags are handled as subscriptions. Subscribe an email address to a tag to have t
 
 ### Endpoint
 
-POST /v3/tags/<tag_id>/subscribe
+POST /v3/tags/#{tag_id}/subscribe
 
 ### Required parameters
 
@@ -198,7 +198,7 @@ curl -X DELETE https://api.convertkit.com/v3/subscribers/<subscriber_id>/tags/<t
 
 ### Endpoint
 
-DELETE /v3/subscribers/<subscriber_id>/tags/<tag_id>
+DELETE /v3/subscribers/#{subscriber_id}/tags/#{tag_id}
 
 ### Required parameters
 
@@ -270,7 +270,7 @@ List subscriptions to a tag including subscriber data.
 
 ### Endpoint
 
-GET /v3/tags/<tag_id>/subscriptions
+GET /v3/tags/#{tag_id}/subscriptions
 
 ### Required parameters
 
