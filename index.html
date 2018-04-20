@@ -360,9 +360,6 @@
                   <li>
                     <a href="#update-a-specific-purchase" class="toc-h2 toc-link" data-title="Update a specific Purchase">Update a specific Purchase</a>
                   </li>
-                  <li>
-                    <a href="#delete-a-specific-purchase" class="toc-h2 toc-link" data-title="Delete a specific Purchase">Delete a specific Purchase</a>
-                  </li>
               </ul>
           </li>
       </div>
@@ -524,7 +521,7 @@ curl -X POST https://api.convertkit.com/v3/forms/&lt;form_id&gt;/subscribe<span 
 </span></code></pre>
 <p>Subscribe an email address to one of your forms.</p>
 <h3 id='endpoint-2'>Endpoint</h3>
-<p>POST /v3/forms/<form_id>/subscribe</p>
+<p>POST /v3/forms/#{form_id}/subscribe</p>
 <h3 id='required-parameters-2'>Required parameters</h3>
 <ul>
 <li>  <code>api_key</code> - Your account API key.</li>
@@ -597,7 +594,7 @@ curl https://api.convertkit.com/v3/forms/&lt;form_id&gt;/subscriptions?api_secre
 </span></code></pre>
 <p>List subscriptions to a form including subscriber data.</p>
 <h3 id='endpoint-3'>Endpoint</h3>
-<p>GET /v3/forms/<form_id>/subscriptions</p>
+<p>GET /v3/forms/#{form_id}/subscriptions</p>
 <h3 id='required-parameters-3'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - your api secret key</li>
@@ -677,7 +674,7 @@ curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;
 </span></code></pre>
 <p>Subscribe an email address to one of your sequences.</p>
 <h3 id='endpoint-2'>Endpoint</h3>
-<p>POST /v3/courses/<course_id>/subscribe</p>
+<p>POST /v3/courses/#{course_id}/subscribe</p>
 <h3 id='required-parameters-2'>Required parameters</h3>
 <ul>
 <li>  <code>api_key</code> - Your account API key.</li>
@@ -749,7 +746,7 @@ curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;
 </span></code></pre>
 <p>List subscriptions to a sequence including subscriber data.</p>
 <h3 id='endpoint-3'>Endpoint</h3>
-<p>GET /v3/sequences/<sequence_id>/subscriptions</p>
+<p>GET /v3/sequences/#{sequence_id}/subscriptions</p>
 <h3 id='required-parameters-3'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - your api secret key</li>
@@ -895,7 +892,7 @@ curl -X POST https://api.convertkit.com/v3/tags
 </span></code></pre>
 <p>Tags are handled as subscriptions. Subscribe an email address to a tag to have that tag applied to the subscriber with that email address.</p>
 <h3 id='endpoint-3'>Endpoint</h3>
-<p>POST /v3/tags/<tag_id>/subscribe</p>
+<p>POST /v3/tags/#{tag_id}/subscribe</p>
 <h3 id='required-parameters-3'>Required parameters</h3>
 <ul>
 <li>  <code>api_key</code> - Your account API key.</li>
@@ -925,7 +922,7 @@ curl -X POST https://api.convertkit.com/v3/tags
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='endpoint-4'>Endpoint</h3>
-<p>DELETE /v3/subscribers/<subscriber_id>/tags/<tag_id></p>
+<p>DELETE /v3/subscribers/#{subscriber_id}/tags/#{tag_id}</p>
 <h3 id='required-parameters-4'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
@@ -989,7 +986,7 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 </span></code></pre>
 <p>List subscriptions to a tag including subscriber data.</p>
 <h3 id='endpoint-5'>Endpoint</h3>
-<p>GET /v3/tags/<tag_id>/subscriptions</p>
+<p>GET /v3/tags/#{tag_id}/subscriptions</p>
 <h3 id='required-parameters-5'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - your api secret key</li>
@@ -1078,7 +1075,7 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 </span></code></pre>
 <p>Returns data for a single subscriber</p>
 <h3 id='endpoint-2'>Endpoint</h3>
-<p>GET /v3/subscribers/<subscriber_id></p>
+<p>GET /v3/subscribers/#{subscriber_id}</p>
 <h3 id='required-parameters-2'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
@@ -1114,7 +1111,7 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 </span></code></pre>
 <p>Updates the information for a single subscriber.</p>
 <h3 id='endpoint-3'>Endpoint</h3>
-<p>PUT /v3/subscribers/<subscriber_id></p>
+<p>PUT /v3/subscribers/#{subscriber_id}</p>
 <h3 id='required-parameters-3'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
@@ -1181,7 +1178,7 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 </span></code></pre>
 <p>Lists all the tags for a subscriber.</p>
 <h3 id='endpoint-5'>Endpoint</h3>
-<p>GET /v3/subscribers/<code>&lt;subscriber_id&gt;</code>/tags</p>
+<p>GET /v3/subscribers/#{subscriber_id}/tags</p>
 <h3 id='required-parameters-5'>Required parameters</h3>
 <ul>
 <li>  <code>api_key</code> - Your account API key.</li>
@@ -1304,7 +1301,7 @@ curl -X POST https://api.convertkit.com/v3/automations/hooks
 </span></code></pre>
 <p>Deletes a webhook.</p>
 <h3 id='endpoint-2'>Endpoint</h3>
-<p>DELETE /v3/automations/hooks/<rule_id></p>
+<p>DELETE /v3/automations/hooks/#{rule_id}</p>
 <h3 id='required-parameters-2'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
@@ -1418,7 +1415,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 </code></pre>
 <p>Updates a custom field label (see create field above for more information on labels). Note that the key and the name do not change even when the label is updated.</p>
 <h3 id='endpoint-3'>Endpoint</h3>
-<p>PUT /v3/custom_fields/<your custom field ID></p>
+<p>PUT /v3/custom_fields/#{your custom field ID}</p>
 <h3 id='required-parameters-3'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
@@ -1440,7 +1437,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 </code></pre>
 <p>Destroys a custom field. Note that this will remove all data in this field from your subscribers.</p>
 <h3 id='endpoint-4'>Endpoint</h3>
-<p>DELETE /v3/custom_fields/<your custom field ID></p>
+<p>DELETE /v3/custom_fields/#{your custom field ID}</p>
 <h3 id='required-parameters-4'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
@@ -1481,7 +1478,10 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
             </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-abcd-456-efgh"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-20 12:38"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.0</span><span class="p">,</span><span class="w">
@@ -1502,10 +1502,13 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-abcd-456-efgh"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-abcd-457-efgh"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-20 13:38"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.0</span><span class="p">,</span><span class="w">
@@ -1561,7 +1564,10 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
     </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-abcd-456-efgh"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crashoverride@hackers.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-20 14:31"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.0</span><span class="p">,</span><span class="w">
@@ -1606,12 +1612,17 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 <li>  <code>shipping</code> - Shipping amount applied to purchase</li>
 <li>  <code>discount</code> - Discount amount applied to purchase</li>
 <li>  <code>total</code> - Total cost of the purchase</li>
+<li>  <code>currency</code> - 3 letter currency code, default <strong>USD</strong></li>
+<li>  <code>transaction_time</code> - date and time of purchase as ISO string, default <strong>CURRENT_TIMESTAMP</strong></li>
 <li>  <code>status</code> - Status of the purchase, i.e. &quot;paid&quot;, &quot;refund&quot;, etc.</li>
-<li>  <code>products</code> - Array of purchased products</li>
+<li>  <code>products</code> - Array of purchased products
+
+<ul>
 <li>  <code>name</code> - Product name</li>
 <li>  <code>sku</code> - Product sku</li>
 <li>  <code>unit_price</code> - Product price</li>
 <li>  <code>quantity</code> - Product quantity</li>
+</ul></li>
 </ul>
 
 <blockquote>
@@ -1623,6 +1634,8 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
            "purchase": {
                 "transaction_id": "123-abcd-456-efgh",
                 "email_address": "crashoverride@hackers.com",
+                "currency": "jpy",
+                "transaction_time": "2018-03-20 14:31:10",
                 "subtotal": 20.00,
                 "tax": 2.00,
                 "shipping": 2.00,
@@ -1653,9 +1666,12 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
     </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-abcd-456-efgh"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crashoverride@hackers.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-20 14:31"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.00</span><span class="p">,</span><span class="w">
     </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -1691,23 +1707,10 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 </ul>
 <h4 id='optional-parameters-3'>Optional parameters</h4>
 <ul>
-<li>  <code>transaction_id</code> - A unique ID for the purchase</li>
-<li>  <code>email_address</code> - The subscriber that the purchase belongs to</li>
-<li>  <code>subtotal</code> - The subtotal of the purchase</li>
-<li>  <code>tax</code> - Tax applied to purchase</li>
-<li>  <code>shipping</code> - Shipping amount applied to purchase</li>
-<li>  <code>discount</code> - Discount amount applied to purchase</li>
-<li>  <code>total</code> - Total cost of the purchase</li>
 <li>  <code>status</code> - Status of the purchase, i.e. &quot;paid&quot;, &quot;refund&quot;, etc.</li>
-<li>  <code>products</code> - Array of purchased products
-
-<ul>
-<li><code>name</code> - Product name</li>
-<li><code>sku</code> - Product sku. Each product provided in the &#39;products&#39; array must have a unique sku.</li>
-<li><code>unit_price</code> - Product price</li>
-<li><code>quantity</code> - Product quantity</li>
-</ul></li>
 </ul>
+
+<p>Note: <code>status</code> is only changeable field</p>
 
 <blockquote>
 <p>Example request: update purchases with ID <code>8</code></p>
@@ -1716,22 +1719,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
      -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
      -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",
            "purchase": {
-                "subtotal": 35.00,
-                "tax": 3.00,
-                "shipping": 2.00,
-                "discount": 3.00,
-                "total": 36.00,
-                "products": [{
-                    "name": "Floppy Disk (512k)",
-                    "sku": "7890-ijkl",
-                    "unit_price": 5.00,
-                    "quantity": 3
-                }, {
-                    "name": "Telephone Cord (data)",
-                    "sku": "mnop-1234",
-                    "unit_price": 10.00,
-                    "quantity": 2
-                }]
+                "status": "refund"
            }
         }'</span>
 
@@ -1744,23 +1732,25 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
     </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-abcd-456-efgh"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refund"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crashoverride@hackers.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">35.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-20 14:31"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.00</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">36.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
             </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7890-ijkl"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Floppy Disk (512k)"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mnop-1234"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telephone Cord (data)"</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -1775,36 +1765,6 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your request is missing parameters"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transaction_id can't be blank, Sku can't be blank for product: Floppy Disk (512k)"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='delete-a-specific-purchase'>Delete a specific Purchase</h2><h3 id='endpoint-5'>Endpoint</h3>
-<p>DELETE /v3/purchases/#{id}</p>
-<h3 id='required-parameters-5'>Required parameters</h3>
-<ul>
-<li>  <code>api_secret</code> - Your api secret key.</li>
-<li>  <code>id</code> - A purchase ID</li>
-</ul>
-
-<blockquote>
-<p>Example request: delete purchases with ID <code>8</code></p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X DELETE https://api.convertkit.com/v3/purchases/8 <span class="se">\</span>
-     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;" }
-</span></code></pre>
-<blockquote>
-<p>Success response</p>
-</blockquote>
-
-<p>HTTP/1.1 200 OK</p>
-
-<blockquote>
-<p>Failure response. For example, when <code>api_secret</code> is not provided.</p>
-</blockquote>
-
-<p>HTTP/1.1 401 Unauthorized</p>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"error"</span><span class="p">:</span><span class="s2">"Authorization Failed"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"You do not have sufficient permissions to access this resource"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
       </div>
