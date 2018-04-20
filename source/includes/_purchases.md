@@ -27,8 +27,7 @@ curl -X GET https://api.convertkit.com/v3/purchases \
 ```
 
 > Success response:
-
-    HTTP/1.1 200 OK
+    `HTTP/1.1 200 OK`
 
 ```json
 {
@@ -94,9 +93,8 @@ curl -X GET https://api.convertkit.com/v3/purchases \
 }
 ```
 
-> Failure response.  For example, when `api_secret` is not provided.
-
-    HTTP/1.1 401 Unauthorized
+> Failure response. For example, when `api_secret` is not provided:
+    `HTTP/1.1 401 Unauthorized`
 
 ```json
 {
@@ -125,9 +123,8 @@ curl -X GET https://api.convertkit.com/v3/purchases/8 \
      -d '{ "api_secret": "<your_secret_api_key>" }
 ```
 
-> Success response
-
-    HTTP/1.1 200 OK
+> Success response:
+    `HTTP/1.1 200 OK`
 
 ```json
 {
@@ -159,10 +156,8 @@ curl -X GET https://api.convertkit.com/v3/purchases/8 \
 }
 ```
 
-> Failure response. For example, when `api_secret` is not provided.
-
-
-    HTTP/1.1 401 Unauthorized
+> Failure response. For example, when `api_secret` is not provided:
+    `HTTP/1.1 401 Unauthorized`
 
 ```json
 {
@@ -233,9 +228,8 @@ curl -X POST https://api.convertkit.com/v3/purchases \
      }'
 ```
 
-> Success response
-
-    HTTP/1.1 201 Created
+> Success response:
+    `HTTP/1.1 201 Created`
 
 ```json
 {
@@ -267,9 +261,8 @@ curl -X POST https://api.convertkit.com/v3/purchases \
 }
 ```
 
-> Failure response
-
-    HTTP/1.1 400 Bad Request
+> Failure response:
+    `HTTP/1.1 400 Bad Request`
 
 ```json
 {
@@ -308,9 +301,8 @@ curl -X PUT https://api.convertkit.com/v3/purchases/8 \
         }'
 
 ```
-> Success response
-
-    HTTP/1.1 200 OK
+> Success response:
+    `HTTP/1.1 200 OK`
 
 ```json
 {
@@ -342,9 +334,8 @@ curl -X PUT https://api.convertkit.com/v3/purchases/8 \
 }
 ```
 
-> Failure response.
-
-    HTTP/1.1 400 Bad Request
+> Failure response:
+    `HTTP/1.1 400 Bad Request`
 
 ```json
 {
