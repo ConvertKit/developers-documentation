@@ -1,5 +1,8 @@
 Subscribers
-===============
+===========
+
+List subscribers
+----------------
 
 > Example request
 

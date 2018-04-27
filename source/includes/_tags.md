@@ -43,9 +43,6 @@ GET /v3/tags
 Create a tag
 ------------
 
-Endpoint
---------
-
 > Example request
 
 ```shell
@@ -106,6 +103,8 @@ A request to create multiple tags will receive a JSON array with the same type o
   "updated_at": "2017-04-12T11:11:566Z"
 }]
 ```
+
+### Endpoint
 
 POST /v3/tags
 
