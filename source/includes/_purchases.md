@@ -4,20 +4,6 @@ Purchases
 List Purchases
 --------------
 
-Show all purchases for an account
-
-### Endpoint
-
-    GET /v3/purchases
-
-### Required parameters
-
--   `api_secret` - Your api secret key.
-
-### Optional parameters
-
--   `page` - The page of results being requested. Default value is `1`. Each page of results will contain up to 50 purchases.
-
 > Example request: Retrieve all purchases for an account
 
 ```shell
@@ -103,17 +89,22 @@ curl -X GET https://api.convertkit.com/v3/purchases \
 }
 ```
 
-Retrieve a specific Purchase
-----------------------------
+Show all purchases for an account
 
 ### Endpoint
 
-GET /v3/purchases/#{id}
+    GET /v3/purchases
 
 ### Required parameters
 
 -   `api_secret` - Your api secret key.
--   `id` - A purchase ID
+
+### Optional parameters
+
+-   `page` - The page of results being requested. Default value is `1`. Each page of results will contain up to 50 purchases.
+
+Retrieve a specific Purchase
+----------------------------
 
 > Example request: get purchases with ID `8`
 
@@ -166,35 +157,19 @@ curl -X GET https://api.convertkit.com/v3/purchases/8 \
 }
 ```
 
-Create a Purchase
------------------
+Show specific purchase by ID
 
 ### Endpoint
 
-POST /v3/purchases
+GET /v3/purchases/#{id}
 
 ### Required parameters
 
--   `api_secret` - Your api secret key.
--   `transaction_id` - A unique ID for the purchase
--   `email_address` - The subscriber that the purchase belongs to
--   `products.sku` - Each product provided in the 'products' array must have a unique sku.
+-   `api_secret` - Your api secret key.
+-   `id` - A purchase ID
 
-### Optional parameters
-
--   `subtotal` - The subtotal of the purchase
--   `tax` - Tax applied to purchase
--   `shipping` - Shipping amount applied to purchase
--   `discount` - Discount amount applied to purchase
--   `total` - Total cost of the purchase
--   `currency` - 3 letter currency code, default **USD**
--   `transaction_time` - date and time of purchase as ISO string, default **CURRENT_TIMESTAMP**
--   `status` - Status of the purchase, i.e. "paid", "refund", etc.
--   `products` - Array of purchased products
-    -   `name` - Product name
-    -   `sku` - Product sku
-    -   `unit_price` - Product price
-    -   `quantity` - Product quantity
+Create a Purchase
+-----------------
 
 > Example request: get all purchases
 
@@ -271,23 +246,35 @@ curl -X POST https://api.convertkit.com/v3/purchases \
 }
 ```
 
-Update a specific Purchase
---------------------------
-
 ### Endpoint
 
-PUT /v3/purchases/#{id}
+POST /v3/purchases
 
 ### Required parameters
 
--   `api_secret` - Your api secret key.
--   `id` - A purchase ID
+-   `api_secret` - Your api secret key.
+-   `transaction_id` - A unique ID for the purchase
+-   `email_address` - The subscriber that the purchase belongs to
+-   `products.sku` - Each product provided in the 'products' array must have a unique sku.
 
-#### Optional parameters
+### Optional parameters
 
--   `status` - Status of the purchase, i.e. "paid", "refund", etc.
+-   `subtotal` - The subtotal of the purchase
+-   `tax` - Tax applied to purchase
+-   `shipping` - Shipping amount applied to purchase
+-   `discount` - Discount amount applied to purchase
+-   `total` - Total cost of the purchase
+-   `currency` - 3 letter currency code, default **USD**
+-   `transaction_time` - date and time of purchase as ISO string, default **CURRENT_TIMESTAMP**
+-   `status` - Status of the purchase, i.e. "paid", "refund", etc.
+-   `products` - Array of purchased products
+    -   `name` - Product name
+    -   `sku` - Product sku
+    -   `unit_price` - Product price
+    -   `quantity` - Product quantity
 
-Note: `status` is only changeable field
+Update a specific Purchase
+--------------------------
 
 > Example request: update purchases with ID `8`
 
@@ -343,3 +330,18 @@ curl -X PUT https://api.convertkit.com/v3/purchases/8 \
     "message": "transaction_id can't be blank, Sku can't be blank for product: Floppy Disk (512k)"
 }
 ```
+
+Note: `status` is only changeable field
+
+### Endpoint
+
+PUT /v3/purchases/#{id}
+
+### Required parameters
+
+-   `api_secret` - Your api secret key.
+-   `id` - A purchase ID
+
+#### Optional parameters
+
+-   `status` - Status of the purchase, i.e. "paid", "refund", etc.
