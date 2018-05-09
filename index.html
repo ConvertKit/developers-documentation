@@ -278,9 +278,6 @@
                     <a href="#create-a-tag" class="toc-h2 toc-link" data-title="Create a tag">Create a tag</a>
                   </li>
                   <li>
-                    <a href="#endpoint-2" class="toc-h2 toc-link" data-title="Endpoint">Endpoint</a>
-                  </li>
-                  <li>
                     <a href="#tag-a-subscriber" class="toc-h2 toc-link" data-title="Tag a subscriber">Tag a subscriber</a>
                   </li>
                   <li>
@@ -295,13 +292,7 @@
             <a href="#subscribers" class="toc-h1 toc-link" data-title="Subscribers">Subscribers</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#endpoint" class="toc-h2 toc-link" data-title="Endpoint">Endpoint</a>
-                  </li>
-                  <li>
-                    <a href="#required-parameters" class="toc-h2 toc-link" data-title="Required parameters">Required parameters</a>
-                  </li>
-                  <li>
-                    <a href="#optional-parameters" class="toc-h2 toc-link" data-title="Optional parameters">Optional parameters</a>
+                    <a href="#list-subscribers" class="toc-h2 toc-link" data-title="List subscribers">List subscribers</a>
                   </li>
                   <li>
                     <a href="#view-a-single-subscriber" class="toc-h2 toc-link" data-title="View a single subscriber">View a single subscriber</a>
@@ -787,7 +778,7 @@ curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;
 <ul>
 <li>  <code>api_key</code> - Your account API key.</li>
 </ul>
-<h2 id='create-a-tag'>Create a tag</h2><h2 id='endpoint-2'>Endpoint</h2>
+<h2 id='create-a-tag'>Create a tag</h2>
 <blockquote>
 <p>Example request</p>
 </blockquote>
@@ -846,7 +837,7 @@ curl -X POST https://api.convertkit.com/v3/tags
   </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-12T11:11:566Z"</span><span class="w">
 </span><span class="p">}]</span><span class="w">
-</span></code></pre>
+</span></code></pre><h3 id='endpoint-2'>Endpoint</h3>
 <p>POST /v3/tags</p>
 <h3 id='required-parameters-2'>Required parameters</h3>
 <ul>
@@ -996,7 +987,7 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <li>  <code>sort_order</code> - <code>asc</code> or <code>desc</code>: <code>asc</code> to list subscribers added oldest to newest, <code>desc</code> to list subscribers added newest to oldest. <code>asc</code> is the default order.</li>
 <li>  <code>subscriber_state</code> - <code>active</code> or <code>cancelled</code>: receive only active subscribers or cancelled subscribers</li>
 </ul>
-<h1 id='subscribers'>Subscribers</h1>
+<h1 id='subscribers'>Subscribers</h1><h2 id='list-subscribers'>List subscribers</h2>
 <blockquote>
 <p>Example request</p>
 </blockquote>
@@ -1444,18 +1435,6 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 <li>  <code>id</code> - The ID of your custom field.</li>
 </ul>
 <h1 id='purchases'>Purchases</h1><h2 id='list-purchases'>List Purchases</h2>
-<p>Show all purchases for an account</p>
-<h3 id='endpoint'>Endpoint</h3>
-<p>GET /v3/purchases</p>
-<h3 id='required-parameters'>Required parameters</h3>
-<ul>
-<li>  <code>api_secret</code> - Your api secret key.</li>
-</ul>
-<h3 id='optional-parameters'>Optional parameters</h3>
-<ul>
-<li>  <code>page</code> - The page of results being requested. Default value is <code>1</code>. Each page of results will contain up to 50 purchases.</li>
-</ul>
-
 <blockquote>
 <p>Example request: Retrieve all purchases for an account</p>
 </blockquote>
@@ -1537,14 +1516,19 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
     </span><span class="s2">"error"</span><span class="p">:</span><span class="s2">"Authorization Failed"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"You do not have sufficient permissions to access this resource"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='retrieve-a-specific-purchase'>Retrieve a specific Purchase</h2><h3 id='endpoint-2'>Endpoint</h3>
-<p>GET /v3/purchases/#{id}</p>
-<h3 id='required-parameters-2'>Required parameters</h3>
+</span></code></pre>
+<p>Show all purchases for an account</p>
+<h3 id='endpoint'>Endpoint</h3>
+<p>GET /v3/purchases</p>
+<h3 id='required-parameters'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
-<li>  <code>id</code> - A purchase ID</li>
 </ul>
-
+<h3 id='optional-parameters'>Optional parameters</h3>
+<ul>
+<li>  <code>page</code> - The page of results being requested. Default value is <code>1</code>. Each page of results will contain up to 50 purchases.</li>
+</ul>
+<h2 id='retrieve-a-specific-purchase'>Retrieve a specific Purchase</h2>
 <blockquote>
 <p>Example request: get purchases with ID <code>8</code></p>
 </blockquote>
@@ -1592,35 +1576,16 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
     </span><span class="s2">"error"</span><span class="p">:</span><span class="s2">"Authorization Failed"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"You do not have sufficient permissions to access this resource"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='create-a-purchase'>Create a Purchase</h2><h3 id='endpoint-3'>Endpoint</h3>
-<p>POST /v3/purchases</p>
-<h3 id='required-parameters-3'>Required parameters</h3>
+</span></code></pre>
+<p>Show specific purchase by ID</p>
+<h3 id='endpoint-2'>Endpoint</h3>
+<p>GET /v3/purchases/#{id}</p>
+<h3 id='required-parameters-2'>Required parameters</h3>
 <ul>
-<li>  <code>api_secret</code> - Your api secret key.</li>
-<li>  <code>transaction_id</code> - A unique ID for the purchase</li>
-<li>  <code>email_address</code> - The subscriber that the purchase belongs to</li>
-<li>  <code>products.sku</code> - Each product provided in the &#39;products&#39; array must have a unique sku.</li>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+<li>  <code>id</code> - A purchase ID</li>
 </ul>
-<h3 id='optional-parameters-2'>Optional parameters</h3>
-<ul>
-<li>  <code>subtotal</code> - The subtotal of the purchase</li>
-<li>  <code>tax</code> - Tax applied to purchase</li>
-<li>  <code>shipping</code> - Shipping amount applied to purchase</li>
-<li>  <code>discount</code> - Discount amount applied to purchase</li>
-<li>  <code>total</code> - Total cost of the purchase</li>
-<li>  <code>currency</code> - 3 letter currency code, default <strong>USD</strong></li>
-<li>  <code>transaction_time</code> - date and time of purchase as ISO string, default <strong>CURRENT_TIMESTAMP</strong></li>
-<li>  <code>status</code> - Status of the purchase, i.e. &quot;paid&quot;, &quot;refund&quot;, etc.</li>
-<li>  <code>products</code> - Array of purchased products
-
-<ul>
-<li>  <code>name</code> - Product name</li>
-<li>  <code>sku</code> - Product sku</li>
-<li>  <code>unit_price</code> - Product price</li>
-<li>  <code>quantity</code> - Product quantity</li>
-</ul></li>
-</ul>
-
+<h2 id='create-a-purchase'>Create a Purchase</h2>
 <blockquote>
 <p>Example request: get all purchases</p>
 </blockquote>
@@ -1692,20 +1657,35 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
     </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your request is missing parameters"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transaction_id can't be blank, Sku can't be blank for product: Floppy Disk (512k)"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='update-a-specific-purchase'>Update a specific Purchase</h2><h3 id='endpoint-4'>Endpoint</h3>
-<p>PUT /v3/purchases/#{id}</p>
-<h3 id='required-parameters-4'>Required parameters</h3>
+</span></code></pre><h3 id='endpoint-3'>Endpoint</h3>
+<p>POST /v3/purchases</p>
+<h3 id='required-parameters-3'>Required parameters</h3>
 <ul>
-<li>  <code>api_secret</code> - Your api secret key.</li>
-<li>  <code>id</code> - A purchase ID</li>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+<li>  <code>transaction_id</code> - A unique ID for the purchase</li>
+<li>  <code>email_address</code> - The subscriber that the purchase belongs to</li>
+<li>  <code>products.sku</code> - Each product provided in the &#39;products&#39; array must have a unique sku.</li>
 </ul>
-<h4 id='optional-parameters-3'>Optional parameters</h4>
+<h3 id='optional-parameters-2'>Optional parameters</h3>
 <ul>
-<li>  <code>status</code> - Status of the purchase, i.e. &quot;paid&quot;, &quot;refund&quot;, etc.</li>
+<li>  <code>subtotal</code> - The subtotal of the purchase</li>
+<li>  <code>tax</code> - Tax applied to purchase</li>
+<li>  <code>shipping</code> - Shipping amount applied to purchase</li>
+<li>  <code>discount</code> - Discount amount applied to purchase</li>
+<li>  <code>total</code> - Total cost of the purchase</li>
+<li>  <code>currency</code> - 3 letter currency code, default <strong>USD</strong></li>
+<li>  <code>transaction_time</code> - date and time of purchase as ISO string, default <strong>CURRENT_TIMESTAMP</strong></li>
+<li>  <code>status</code> - Status of the purchase, i.e. &quot;paid&quot;, &quot;refund&quot;, etc.</li>
+<li>  <code>products</code> - Array of purchased products
+
+<ul>
+<li>  <code>name</code> - Product name</li>
+<li>  <code>sku</code> - Product sku</li>
+<li>  <code>unit_price</code> - Product price</li>
+<li>  <code>quantity</code> - Product quantity</li>
+</ul></li>
 </ul>
-
-<p>Note: <code>status</code> is only changeable field</p>
-
+<h2 id='update-a-specific-purchase'>Update a specific Purchase</h2>
 <blockquote>
 <p>Example request: update purchases with ID <code>8</code></p>
 </blockquote>
@@ -1759,6 +1739,19 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transaction_id can't be blank, Sku can't be blank for product: Floppy Disk (512k)"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Note: <code>status</code> is only changeable field</p>
+<h3 id='endpoint-4'>Endpoint</h3>
+<p>PUT /v3/purchases/#{id}</p>
+<h3 id='required-parameters-4'>Required parameters</h3>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+<li>  <code>id</code> - A purchase ID</li>
+</ul>
+<h4 id='optional-parameters-3'>Optional parameters</h4>
+<ul>
+<li>  <code>status</code> - Status of the purchase, i.e. &quot;paid&quot;, &quot;refund&quot;, etc.</li>
+</ul>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
