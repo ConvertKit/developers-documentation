@@ -1,7 +1,7 @@
 Webhooks
 ========
 
-> Example JSON Payload
+> Example JSON Payload for "subscriber.#{hook_name}"
 
 ```json
 {
@@ -17,6 +17,38 @@ Webhooks
   }
 }
 
+```
+
+> Example JSON Payload for "purchase.#{hook_name}"
+
+```json
+{
+    "id": 8,
+    "transaction_id": "123-abcd-456-efgh",
+    "status": "paid",
+    "email_address": "crashoverride@hackers.com",
+    "currency": "JPY",
+    "transaction_time": "2018-03-20 14:31",
+    "subtotal": 20.0,
+    "shipping": 2.0,
+    "discount": 3.0,
+    "tax": 2.0,
+    "total": 21.0,
+    "products": [
+        {
+            "unit_price": 5.0,
+            "quantity": 2,
+            "sku": "7890-ijkl",
+            "name": "Floppy Disk (512k)"
+        },
+        {
+            "unit_price": 10.0,
+            "quantity": 1,
+            "sku": "mnop-1234",
+            "name": "Telephone Cord (data)"
+        }
+    ]
+}
 ```
 
 Webhooks are automations that will receive subscriber data when a subscriber event is triggered, such as when a subscriber completes a sequence.
@@ -94,6 +126,7 @@ POST /v3/automations/hooks
 -   `target_url` - The URL that will receive subscriber data when the event is triggered.
 -   `event` - JSON object that includes the trigger name and extra information when needed. For example:
     -   `{ "name": "subscriber.subscriber_activate" }`
+    -   `{ "name": "purchase.purchase_create" }`
     -   `{ "name": "subscriber.tag_add", "tag_id": 4 }`
 
 These are the available event types:
@@ -107,6 +140,7 @@ These are the available event types:
 -   `"subscriber.subscriber_unsubscribe"`
 -   `"subscriber.tag_add"`
 -   `"subscriber.tag_remove"`
+-   `"purchase.purchase_create"`
 
 
 Destroy webhook
