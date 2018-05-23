@@ -98,15 +98,15 @@ POST /v3/automations/hooks
 
 These are the available event types:
 
--   `"subscriber.form_subscribe"`
--   `"subscriber.course_subscribe"`
--   `"subscriber.course_complete"`
--   `"subscriber.link_click"`
--   `"subscriber.product_purchase"`
 -   `"subscriber.subscriber_activate"`
 -   `"subscriber.subscriber_unsubscribe"`
--   `"subscriber.tag_add"`
--   `"subscriber.tag_remove"`
+-   `"subscriber.form_subscribe"`, *required parameter* `:form_id [Integer]`
+-   `"subscriber.course_subscribe"`, *required parameter* `:course_id [Integer]`
+-   `"subscriber.course_complete"`, *required parameter* `:course_id [Integer]`
+-   `"subscriber.link_click"`, *required parameter* `:initiator_value [String]` as a link URL
+-   `"subscriber.product_purchase"`, *required parameter* `:product_id [Integer]`
+-   `"subscriber.tag_add"`, *required parameter* `:tag_id [Integer]`
+-   `"subscriber.tag_remove"`, *required parameter* `:tag_id [Integer]`
 
 
 Destroy webhook
