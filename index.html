@@ -1265,15 +1265,15 @@ curl -X POST https://api.convertkit.com/v3/automations/hooks
 <p>These are the available event types:</p>
 
 <ul>
-<li>  <code>&quot;subscriber.form_subscribe&quot;</code></li>
-<li>  <code>&quot;subscriber.course_subscribe&quot;</code></li>
-<li>  <code>&quot;subscriber.course_complete&quot;</code></li>
-<li>  <code>&quot;subscriber.link_click&quot;</code></li>
-<li>  <code>&quot;subscriber.product_purchase&quot;</code></li>
 <li>  <code>&quot;subscriber.subscriber_activate&quot;</code></li>
 <li>  <code>&quot;subscriber.subscriber_unsubscribe&quot;</code></li>
-<li>  <code>&quot;subscriber.tag_add&quot;</code></li>
-<li>  <code>&quot;subscriber.tag_remove&quot;</code></li>
+<li>  <code>&quot;subscriber.form_subscribe&quot;</code>, <em>required parameter</em> <code>:form_id [Integer]</code></li>
+<li>  <code>&quot;subscriber.course_subscribe&quot;</code>, <em>required parameter</em> <code>:course_id [Integer]</code></li>
+<li>  <code>&quot;subscriber.course_complete&quot;</code>, <em>required parameter</em> <code>:course_id [Integer]</code></li>
+<li>  <code>&quot;subscriber.link_click&quot;</code>, <em>required parameter</em> <code>:initiator_value [String]</code> as a link URL</li>
+<li>  <code>&quot;subscriber.product_purchase&quot;</code>, <em>required parameter</em> <code>:product_id [Integer]</code></li>
+<li>  <code>&quot;subscriber.tag_add&quot;</code>, <em>required parameter</em> <code>:tag_id [Integer]</code></li>
+<li>  <code>&quot;subscriber.tag_remove&quot;</code>, <em>required parameter</em> <code>:tag_id [Integer]</code></li>
 </ul>
 <h2 id='destroy-webhook'>Destroy webhook</h2>
 <blockquote>
