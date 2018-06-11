@@ -318,7 +318,7 @@ curl -X PUT https://api.convertkit.com/v3/purchases/8 \
         },
         {
             "pid": 5555,
-            "lid": 7778
+            "lid": 7778,
             "unit_price": 10.0,
             "quantity": 1,
             "sku": "mnop-1234",
