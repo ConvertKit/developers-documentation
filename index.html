@@ -1664,7 +1664,8 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 <li>  <code>api_secret</code> - Your api secret key.</li>
 <li>  <code>transaction_id</code> - A unique ID for the purchase</li>
 <li>  <code>email_address</code> - The subscriber that the purchase belongs to</li>
-<li>  <code>products.sku</code> - Each product provided in the &#39;products&#39; array must have a unique sku.</li>
+<li>  <code>products.pid</code> - This is your identifier for a product. Each product provided in the &#39;products&#39; array must have a unique pid. Variants of the same product should have the same pid.</li>
+<li>  <code>products.lid</code> - Each product should have an lid that is unique to the product for this purchase. If you have &#39;line items&#39;, lid is where you would put your identifier for each line item.</li>
 </ul>
 <h3 id='optional-parameters-2'>Optional parameters</h3>
 <ul>
@@ -1680,6 +1681,8 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 
 <ul>
 <li>  <code>name</code> - Product name</li>
+<li>  <code>pid</code> - Your unique product identifier. Product variants should have the same pid</li>
+<li>  <code>lid</code> - Your identifier for the product in this specific purchase. i.e. A line item identifier</li>
 <li>  <code>sku</code> - Product sku</li>
 <li>  <code>unit_price</code> - Product price</li>
 <li>  <code>quantity</code> - Product quantity</li>
@@ -1716,19 +1719,23 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
     </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7890-ijkl"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Floppy Disk (512k)"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mnop-1234"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telephone Cord (data)"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+            </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">9999</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"lid: 7777,
+            "</span><span class="err">unit_price</span><span class="s2">": 5.0,
+            "</span><span class="err">quantity</span><span class="s2">": 2,
+            "</span><span class="err">sku</span><span class="s2">": "</span><span class="mi">7890</span><span class="err">-ijkl</span><span class="s2">",
+            "</span><span class="err">name</span><span class="s2">": "</span><span class="err">Floppy</span><span class="w"> </span><span class="err">Disk</span><span class="w"> </span><span class="err">(</span><span class="mi">512</span><span class="err">k)</span><span class="s2">"
+        },
+        {
+            "</span><span class="err">pid</span><span class="s2">": 5555,
+            "</span><span class="err">lid</span><span class="s2">": 7778,
+            "</span><span class="err">unit_price</span><span class="s2">": 10.0,
+            "</span><span class="err">quantity</span><span class="s2">": 1,
+            "</span><span class="err">sku</span><span class="s2">": "</span><span class="err">mnop</span><span class="mi">-1234</span><span class="s2">",
+            "</span><span class="err">name</span><span class="s2">": "</span><span class="err">Telephone</span><span class="w"> </span><span class="err">Cord</span><span class="w"> </span><span class="err">(data)</span><span class="s2">"
+        }
+    ]
+}
 </span></code></pre>
 <blockquote>
 <p>Failure response:
