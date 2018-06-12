@@ -255,7 +255,8 @@ POST /v3/purchases
 -   `api_secret` - Your api secret key.
 -   `transaction_id` - A unique ID for the purchase
 -   `email_address` - The subscriber that the purchase belongs to
--   `products.sku` - Each product provided in the 'products' array must have a unique sku.
+-   `products.pid` - This is your identifier for a product. Each product provided in the 'products' array must have a unique pid. Variants of the same product should have the same pid.
+-   `products.lid` - Each product should have an lid that is unique to the product for this purchase. If you have 'line items', lid is where you would put your identifier for each line item.
 
 ### Optional parameters
 
@@ -269,6 +270,8 @@ POST /v3/purchases
 -   `status` - Status of the purchase, i.e. "paid", "refund", etc.
 -   `products` - Array of purchased products
     -   `name` - Product name
+    -   `pid` - Your unique product identifier. Product variants should have the same pid
+    -   `lid` - Your identifier for the product in this specific purchase. i.e. A line item identifier
     -   `sku` - Product sku
     -   `unit_price` - Product price
     -   `quantity` - Product quantity
@@ -306,12 +309,16 @@ curl -X PUT https://api.convertkit.com/v3/purchases/8 \
     "total": 21.0,
     "products": [
         {
+            "pid": 9999,
+            "lid: 7777,
             "unit_price": 5.0,
             "quantity": 2,
             "sku": "7890-ijkl",
             "name": "Floppy Disk (512k)"
         },
         {
+            "pid": 5555,
+            "lid": 7778,
             "unit_price": 10.0,
             "quantity": 1,
             "sku": "mnop-1234",
