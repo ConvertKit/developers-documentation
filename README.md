@@ -1,3 +1,15 @@
+### Deploying updates
+
+To deploy changes to developers.convert.com, simply run the deploy script in the base directory.
+
+```
+./deploy.sh
+```
+
+**NOTE:** It will take a while to see the changes. Give it a few minutes.
+
+---
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/lord/img/master/logo-slate.png" alt="Slate: API Documentation Generator" width="226">
   <br>
