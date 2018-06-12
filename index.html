@@ -1465,16 +1465,20 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
             </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7890-ijkl"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Floppy Disk (512k)"</span><span class="w">
+                  </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">9999</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"lid"</span><span class="p">:</span><span class="w"> </span><span class="mi">7777</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7890-ijkl"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Floppy Disk (512k)"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"sku"</span><span class="p">:</span><span class="s2">"mnop-1234"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Telephone Cord (data)"</span><span class="w">
+                  </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">5555</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"lid"</span><span class="p">:</span><span class="w"> </span><span class="mi">7778</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"sku"</span><span class="p">:</span><span class="s2">"mnop-1234"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Telephone Cord (data)"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -1720,22 +1724,22 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
     </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">9999</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"lid: 7777,
-            "</span><span class="err">unit_price</span><span class="s2">": 5.0,
-            "</span><span class="err">quantity</span><span class="s2">": 2,
-            "</span><span class="err">sku</span><span class="s2">": "</span><span class="mi">7890</span><span class="err">-ijkl</span><span class="s2">",
-            "</span><span class="err">name</span><span class="s2">": "</span><span class="err">Floppy</span><span class="w"> </span><span class="err">Disk</span><span class="w"> </span><span class="err">(</span><span class="mi">512</span><span class="err">k)</span><span class="s2">"
-        },
-        {
-            "</span><span class="err">pid</span><span class="s2">": 5555,
-            "</span><span class="err">lid</span><span class="s2">": 7778,
-            "</span><span class="err">unit_price</span><span class="s2">": 10.0,
-            "</span><span class="err">quantity</span><span class="s2">": 1,
-            "</span><span class="err">sku</span><span class="s2">": "</span><span class="err">mnop</span><span class="mi">-1234</span><span class="s2">",
-            "</span><span class="err">name</span><span class="s2">": "</span><span class="err">Telephone</span><span class="w"> </span><span class="err">Cord</span><span class="w"> </span><span class="err">(data)</span><span class="s2">"
-        }
-    ]
-}
+            </span><span class="s2">"lid"</span><span class="p">:</span><span class="w"> </span><span class="mi">7777</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7890-ijkl"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Floppy Disk (512k)"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"pid"</span><span class="p">:</span><span class="w"> </span><span class="mi">5555</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"lid"</span><span class="p">:</span><span class="w"> </span><span class="mi">7778</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mnop-1234"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telephone Cord (data)"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>Failure response:
