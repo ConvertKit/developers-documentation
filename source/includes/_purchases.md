@@ -35,16 +35,12 @@ curl -X GET https://api.convertkit.com/v3/purchases \
             "total": 21.0,
             "products": [
                 {
-                  "pid": 9999,
-                  "lid": 7777,
                   "unit_price": 5.0,
                   "quantity": 2,
                   "sku": "7890-ijkl",
                   "name": "Floppy Disk (512k)"
                 },
                 {
-                  "pid": 5555,
-                  "lid": 7778,
                   "unit_price": 10.0,
                   "quantity": 1,
                   "sku":"mnop-1234",
@@ -193,11 +189,15 @@ curl -X POST https://api.convertkit.com/v3/purchases \
                 "total": 21.00,
                 "status": "paid",
                 "products": [{
+                    "pid": 9999,
+                    "lid": 7777,
                     "name": "Floppy Disk (512k)",
                     "sku": "7890-ijkl",
                     "unit_price": 5.00,
                     "quantity": 2
                 }, {
+                    "pid": 5555,
+                    "lid": 7778,
                     "name": "Telephone Cord (data)",
                     "sku": "mnop-1234",
                     "unit_price": 10.00,
@@ -313,16 +313,12 @@ curl -X PUT https://api.convertkit.com/v3/purchases/8 \
     "total": 21.0,
     "products": [
         {
-            "pid": 9999,
-            "lid": 7777,
             "unit_price": 5.0,
             "quantity": 2,
             "sku": "7890-ijkl",
             "name": "Floppy Disk (512k)"
         },
         {
-            "pid": 5555,
-            "lid": 7778,
             "unit_price": 10.0,
             "quantity": 1,
             "sku": "mnop-1234",
