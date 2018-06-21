@@ -262,6 +262,13 @@ POST /v3/purchases
 -   `products.pid` - This is your identifier for a product. Each product provided in the 'products' array must have a unique pid. Variants of the same product should have the same pid.
 -   `products.lid` - Each product should have an lid that is unique to the product for this purchase. If you have 'line items', lid is where you would put your identifier for each line item.
 
+### Required for third party integrations
+
+Are you building an integration? Contact us and we will help you get set up.
+
+-   `purchase.integration` - The name of your integration (i.e. eBay)
+-   `integration_key` - An access token for authenticating integrations.
+
 ### Optional parameters
 
 -   `subtotal` - The subtotal of the purchase
