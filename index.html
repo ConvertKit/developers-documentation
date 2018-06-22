@@ -284,6 +284,9 @@
                     <a href="#remove-tag-from-a-subscriber" class="toc-h2 toc-link" data-title="Remove tag from a subscriber">Remove tag from a subscriber</a>
                   </li>
                   <li>
+                    <a href="#remove-tag-from-a-subscriber-by-email" class="toc-h2 toc-link" data-title="Remove tag from a subscriber by email">Remove tag from a subscriber by email</a>
+                  </li>
+                  <li>
                     <a href="#list-subscriptions-to-a-tag" class="toc-h2 toc-link" data-title="List subscriptions to a tag">List subscriptions to a tag</a>
                   </li>
               </ul>
@@ -918,6 +921,27 @@ curl -X POST https://api.convertkit.com/v3/tags
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
 </ul>
+<h2 id='remove-tag-from-a-subscriber-by-email'>Remove tag from a subscriber by email</h2>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/unsubscribe?api_secret<span class="o">=</span>&lt;your_secret_api_key&gt;
+</code></pre>
+<blockquote>
+<p>Example response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"House Stark"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='endpoint-5'>Endpoint</h3>
+<p>POST /v3/tags/#{tag_id}/unsubscribe</p>
+<h3 id='required-parameters-5'>Required parameters</h3>
+<ul>
+<li>  <code>api_secret</code> - Your api secret key.</li>
+<li>  <code>email</code> - Subscriber email address.</li>
+</ul>
 <h2 id='list-subscriptions-to-a-tag'>List subscriptions to a tag</h2>
 <blockquote>
 <p>Example request</p>
@@ -976,9 +1000,9 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>List subscriptions to a tag including subscriber data.</p>
-<h3 id='endpoint-5'>Endpoint</h3>
+<h3 id='endpoint-6'>Endpoint</h3>
 <p>GET /v3/tags/#{tag_id}/subscriptions</p>
-<h3 id='required-parameters-5'>Required parameters</h3>
+<h3 id='required-parameters-6'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - your api secret key</li>
 </ul>
