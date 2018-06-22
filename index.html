@@ -1695,6 +1695,13 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 <li>  <code>products.pid</code> - This is your identifier for a product. Each product provided in the &#39;products&#39; array must have a unique pid. Variants of the same product should have the same pid.</li>
 <li>  <code>products.lid</code> - Each product should have an lid that is unique to the product for this purchase. If you have &#39;line items&#39;, lid is where you would put your identifier for each line item.</li>
 </ul>
+<h3 id='required-for-third-party-integrations'>Required for third party integrations</h3>
+<p>Are you building an integration? <a href="mailto:engineers@convertkit.com?subject=Purchases integration">Contact us</a> and we will help you get set up.</p>
+
+<ul>
+<li>  <code>purchase.integration</code> - The name of your integration (i.e. eBay)</li>
+<li>  <code>integration_key</code> - An access token for authenticating integrations.</li>
+</ul>
 <h3 id='optional-parameters-2'>Optional parameters</h3>
 <ul>
 <li>  <code>subtotal</code> - The subtotal of the purchase</li>
