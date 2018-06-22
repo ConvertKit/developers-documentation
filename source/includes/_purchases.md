@@ -264,7 +264,7 @@ POST /v3/purchases
 
 ### Required for third party integrations
 
-Are you building an integration? Contact us and we will help you get set up.
+Are you building an integration? <a href="mailto:engineers@convertkit.com?subject=Purchases integration">Contact us</a> and we will help you get set up.
 
 -   `purchase.integration` - The name of your integration (i.e. eBay)
 -   `integration_key` - An access token for authenticating integrations.
