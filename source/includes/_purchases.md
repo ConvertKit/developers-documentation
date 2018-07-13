@@ -179,7 +179,8 @@ curl -X POST https://api.convertkit.com/v3/purchases \
      -d '{ "api_secret": "<your_secret_api_key>",
            "purchase": {
                 "transaction_id": "123-abcd-456-efgh",
-                "email_address": "crashoverride@hackers.com",
+                "email_address": "john@example.com",
+                "first_name": "John",
                 "currency": "jpy",
                 "transaction_time": "2018-03-20 14:31:10",
                 "subtotal": 20.00,
@@ -271,6 +272,7 @@ Are you building an integration? <a href="mailto:engineers@convertkit.com?subjec
 
 ### Optional parameters
 
+-   `first_name` - The first name of the subscriber
 -   `subtotal` - The subtotal of the purchase
 -   `tax` - Tax applied to purchase
 -   `shipping` - Shipping amount applied to purchase
