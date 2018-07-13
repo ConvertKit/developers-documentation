@@ -1618,7 +1618,8 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
      -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",
            "purchase": {
                 "transaction_id": "123-abcd-456-efgh",
-                "email_address": "crashoverride@hackers.com",
+                "email_address": "john@example.com",
+                "first_name": "John",
                 "currency": "jpy",
                 "transaction_time": "2018-03-20 14:31:10",
                 "subtotal": 20.00,
@@ -1704,6 +1705,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 </ul>
 <h3 id='optional-parameters-2'>Optional parameters</h3>
 <ul>
+<li>  <code>first_name</code> - The first name of the subscriber</li>
 <li>  <code>subtotal</code> - The subtotal of the purchase</li>
 <li>  <code>tax</code> - Tax applied to purchase</li>
 <li>  <code>shipping</code> - Shipping amount applied to purchase</li>
