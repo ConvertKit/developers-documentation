@@ -280,7 +280,7 @@ Are you building an integration? <a href="mailto:engineers@convertkit.com?subjec
 -   `total` - Total cost of the purchase
 -   `currency` - 3 letter currency code, default **USD**
 -   `transaction_time` - date and time of purchase as ISO string, default **CURRENT_TIMESTAMP**
--   `status` - Status of the purchase, i.e. "paid", "refund", etc.
+-   `status` - We currently support a status of "paid"
 -   `products` - Array of purchased products
     -   `name` - Product name
     -   `pid` - Your unique product identifier. Product variants should have the same pid
