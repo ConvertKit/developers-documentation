@@ -354,6 +354,9 @@
                   <li>
                     <a href="#update-a-specific-purchase" class="toc-h2 toc-link" data-title="Update a specific Purchase">Update a specific Purchase</a>
                   </li>
+                  <li>
+                    <a href="#build-an-official-integration" class="toc-h2 toc-link" data-title="Build an official integration">Build an official integration</a>
+                  </li>
               </ul>
           </li>
       </div>
@@ -1791,6 +1794,14 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 <ul>
 <li>  <code>status</code> - Status of the purchase, i.e. &quot;paid&quot;, &quot;refund&quot;, etc.</li>
 </ul>
+<h2 id='build-an-official-integration'>Build an official integration</h2>
+<p>Are you building an official integration? Contact us (engineering@seva.com) to set up an integration and let us know the name we should use for the integration. I.e. Stripe. We will send you an integration_key. Collect the api_secret for the Seva account and send it, the integration_key, and the rest of the information for the purchase in each request. <a href="https://developers.convertkit.com/#create-a-purchase">https://developers.convertkit.com/#create-a-purchase</a></p>
+
+<p>When passing product information, it is important to choose a “pid” that is unique for a product but not for a variant. Variants of the same product should have the same “pid”. The “lid” should be your identifier for the line item of the purchase. In the future, this will allow for more fine-grained control over updates. For example, when one item from a purchase is returned this would identify which one.</p>
+
+<p>Currently, the status of a purchase is only recorded and we do not take any action on the status. You should only send us purchases that have been completed and paid.</p>
+
+<p>We suggest importing your transaction history when a user first sets up a connection with your integration. Previous purchases can be sent with a transaction_time in the past.</p>
 
       </div>
       <div class="dark-box">
