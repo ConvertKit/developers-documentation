@@ -361,3 +361,14 @@ PUT /v3/purchases/#{id}
 #### Optional parameters
 
 -   `status` - Status of the purchase, i.e. "paid", "refund", etc.
+
+Build an official integration
+--------------------------
+
+Are you building an official integration? Contact us (engineering@seva.com) to set up an integration and let us know the name we should use for the integration. I.e. Stripe. We will send you an integration_key. Collect the api_secret for the Seva account and send it, the integration_key, and the rest of the information for the purchase in each request. <a href="https://developers.convertkit.com/#create-a-purchase">https://developers.convertkit.com/#create-a-purchase</a>
+
+When passing product information, it is important to choose a “pid” that is unique for a product but not for a variant. Variants of the same product should have the same “pid”. The “lid” should be your identifier for the line item of the purchase. In the future, this will allow for more fine-grained control over updates. For example, when one item from a purchase is returned this would identify which one.
+
+Currently, the status of a purchase is only recorded and we do not take any action on the status. You should only send us purchases that have been completed and paid.
+
+We suggest importing your transaction history when a user first sets up a connection with your integration. Previous purchases can be sent with a transaction_time in the past.
