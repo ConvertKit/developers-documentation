@@ -365,7 +365,7 @@ PUT /v3/purchases/#{id}
 Build an official integration
 --------------------------
 
-Are you building an official integration? Contact us (engineering@seva.com) to set up an integration and let us know the name we should use for the integration. I.e. Stripe. We will send you an integration_key. Collect the api_secret for the Seva account and send it, the integration_key, and the rest of the information for the purchase in each request. <a href="https://developers.convertkit.com/#create-a-purchase">https://developers.convertkit.com/#create-a-purchase</a>
+Are you building an official integration? Contact us (engineering@convertkit.com) to set up an integration and let us know the name we should use for the integration. I.e. Stripe. We will send you an integration_key. Collect the api_secret for the ConvertKit account and send it, the integration_key, and the rest of the information for the purchase in each request. <a href="https://developers.convertkit.com/#create-a-purchase">https://developers.convertkit.com/#create-a-purchase</a>
 
 When passing product information, it is important to choose a “pid” that is unique for a product but not for a variant. Variants of the same product should have the same “pid”. The “lid” should be your identifier for the line item of the purchase. In the future, this will allow for more fine-grained control over updates. For example, when one item from a purchase is returned this would identify which one.
 
