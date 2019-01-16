@@ -204,6 +204,35 @@ DELETE /v3/subscribers/#{subscriber_id}/tags/#{tag_id}
 -   `api_secret` - Your api secret key.
 
 
+Remove tag from a subscriber by email
+-------------------------------------
+
+> Example request
+
+```shell
+curl -X POST https://api.convertkit.com/v3/tags/<tag_id>/unsubscribe?api_secret=<your_secret_api_key>
+```
+
+> Example response
+
+```json
+{
+  "id": 1,
+  "name": "House Stark",
+  "created_at": "2016-02-28T08:07:00Z"
+}
+```
+
+### Endpoint
+
+POST /v3/tags/#{tag_id}/unsubscribe
+
+### Required parameters
+
+-   `api_secret` - Your api secret key.
+-   `email` - Subscriber email address.
+
+
 List subscriptions to a tag
 ---------------------------
 
