@@ -1203,7 +1203,7 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 </ul>
 <h1 id='webhooks'>Webhooks</h1>
 <blockquote>
-<p>Example JSON Payload</p>
+<p>Example JSON Payload for &quot;subscriber.#{hook_name}&quot;</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1218,6 +1218,37 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
+</span></code></pre>
+<blockquote>
+<p>Example JSON Payload for &quot;purchase.#{hook_name}&quot;</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-abcd-456-efgh"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crashoverride@hackers.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-17T11:28:04Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7890-ijkl"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Floppy Disk (512k)"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mnop-1234"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telephone Cord (data)"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Webhooks are automations that will receive subscriber data when a subscriber event is triggered, such as when a subscriber completes a sequence.</p>
 
@@ -1285,6 +1316,7 @@ curl -X POST https://api.convertkit.com/v3/automations/hooks
 
 <ul>
 <li>  <code>{ &quot;name&quot;: &quot;subscriber.subscriber_activate&quot; }</code></li>
+<li>  <code>{ &quot;name&quot;: &quot;purchase.purchase_create&quot; }</code></li>
 <li>  <code>{ &quot;name&quot;: &quot;subscriber.tag_add&quot;, &quot;tag_id&quot;: 4 }</code></li>
 </ul></li>
 </ul>
@@ -1301,6 +1333,7 @@ curl -X POST https://api.convertkit.com/v3/automations/hooks
 <li>  <code>&quot;subscriber.product_purchase&quot;</code>, <em>required parameter</em> <code>:product_id [Integer]</code></li>
 <li>  <code>&quot;subscriber.tag_add&quot;</code>, <em>required parameter</em> <code>:tag_id [Integer]</code></li>
 <li>  <code>&quot;subscriber.tag_remove&quot;</code>, <em>required parameter</em> <code>:tag_id [Integer]</code></li>
+<li>  <code>&quot;purchase.purchase_create&quot;</code></li>
 </ul>
 <h2 id='destroy-webhook'>Destroy webhook</h2>
 <blockquote>
@@ -1484,7 +1517,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x@example.com"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-20 12:38"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-17T11:28:04Z"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
@@ -1511,7 +1544,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x@example.com"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-20 13:38"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-17T11:28:04Z"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
@@ -1573,7 +1606,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crashoverride@hackers.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-20 14:31"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-17T11:28:04Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
@@ -1624,7 +1657,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
                 "email_address": "john@example.com",
                 "first_name": "John",
                 "currency": "jpy",
-                "transaction_time": "2018-03-20 14:31:10",
+                "transaction_time": "2018-03-17 11:28:04",
                 "subtotal": 20.00,
                 "tax": 2.00,
                 "shipping": 2.00,
@@ -1659,7 +1692,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crashoverride@hackers.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-20 14:31"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-17T11:28:04Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
@@ -1751,7 +1784,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refund"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crashoverride@hackers.com"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-20 14:31"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-17T11:28:04Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
