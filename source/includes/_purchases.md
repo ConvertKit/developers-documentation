@@ -171,7 +171,7 @@ GET /v3/purchases/#{id}
 Create a Purchase
 -----------------
 
-> Example request: get all purchases
+> Example request: create a purchase
 
 ```shell
 curl -X POST https://api.convertkit.com/v3/purchases \
