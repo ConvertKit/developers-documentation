@@ -14,6 +14,7 @@ includes:
   - sequences
   - tags
   - subscribers
+  - broadcasts
   - webhooks
   - custom_fields
   - purchases

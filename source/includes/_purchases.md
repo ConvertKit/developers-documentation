@@ -97,7 +97,7 @@ Show all purchases for an account
 
 ### Required parameters
 
--   `api_secret` - Your api secret key.
+-   `api_secret` - Your API secret key.
 
 ### Optional parameters
 
