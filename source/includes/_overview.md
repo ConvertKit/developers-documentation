@@ -31,7 +31,7 @@ Some API calls require the `api_secret` parameter. All calls that require `ap
 
 ### Responses
 
-When an API call succeeds, the API will return a 200 or 201 HTTP response and a JSON response body.
+When an API call succeeds, the API will return a 200 or 201 HTTP response and a JSON response body unless otherwise noted.
 
 If there's some error, the API will return an HTTP response in the 400 or 500 range and a response body indicating what the error was. For example:
 
