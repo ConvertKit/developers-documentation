@@ -4,16 +4,13 @@ Purchases
 List Purchases
 --------------
 
-> Example request: Retrieve all purchases for an account
+> Example request
 
 ```shell
-curl -X GET https://api.convertkit.com/v3/purchases \
-      -H 'Content-Type: application/json' \
-      -d '{ "api_secret": "<your_secret_api_key>", "page": 1 }'
+curl https://api.convertkit.com/v3/purchases?api_secret=<your_secret_api_key>
 ```
 
-> Success response:
-    `HTTP/1.1 200 OK`
+> Example response
 
 ```json
 {
@@ -106,16 +103,13 @@ Show all purchases for an account
 Retrieve a specific Purchase
 ----------------------------
 
-> Example request: get purchases with ID `8`
+> Example request
 
 ```shell
-curl -X GET https://api.convertkit.com/v3/purchases/8 \
-     -H 'Content-Type: application/json' \
-     -d '{ "api_secret": "<your_secret_api_key>" }
+curl https://api.convertkit.com/v3/purchases/<purchase_id>?api_secret=<your_secret_api_key>
 ```
 
-> Success response:
-    `HTTP/1.1 200 OK`
+> Example response
 
 ```json
 {
@@ -161,17 +155,17 @@ Show specific purchase by ID
 
 ### Endpoint
 
-GET /v3/purchases/#{id}
+GET /v3/purchases/#{purchase_id}
 
 ### Required parameters
 
 -   `api_secret` - Your api secret key.
--   `id` - A purchase ID
+-   `purchase_id` - A purchase ID
 
 Create a Purchase
 -----------------
 
-> Example request: get all purchases
+> Example request
 
 ```shell
 curl -X POST https://api.convertkit.com/v3/purchases \
@@ -208,8 +202,7 @@ curl -X POST https://api.convertkit.com/v3/purchases \
      }'
 ```
 
-> Success response:
-    `HTTP/1.1 201 Created`
+> Example response:
 
 ```json
 {
@@ -292,10 +285,10 @@ Are you building an integration? <a href="mailto:engineers@convertkit.com?subjec
 Update a specific Purchase
 --------------------------
 
-> Example request: update purchases with ID `8`
+> Example request
 
 ```shell
-curl -X PUT https://api.convertkit.com/v3/purchases/8 \
+curl -X PUT https://api.convertkit.com/v3/purchases/<purchase_id> \
      -H 'Content-Type: application/json' \
      -d '{ "api_secret": "<your_secret_api_key>",
            "purchase": {
@@ -304,8 +297,7 @@ curl -X PUT https://api.convertkit.com/v3/purchases/8 \
         }'
 
 ```
-> Success response:
-    `HTTP/1.1 200 OK`
+> Example response
 
 ```json
 {
@@ -351,12 +343,12 @@ Note: `status` is only changeable field
 
 ### Endpoint
 
-PUT /v3/purchases/#{id}
+PUT /v3/purchases/#{purchase_id}
 
 ### Required parameters
 
 -   `api_secret` - Your api secret key.
--   `id` - A purchase ID
+-   `purchase_id` - A purchase ID
 
 #### Optional parameters
 
