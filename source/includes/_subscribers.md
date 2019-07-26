@@ -42,7 +42,7 @@ curl https://api.convertkit.com/v3/subscribers?api_secret=<your_secret_api_key>&
 }
 ```
 
-Returns a list of your subscribers. For unsubscribes only, use the `cancelled_at` value for `sort_field`param (currently the only supported extra sort field). Search subscribers by email address by providing the `email_address` param.
+Returns a list of your subscribers. For unsubscribes only, use the `cancelled_at` value for `sort_field` param (currently the only supported extra sort field). Search subscribers by email address by providing the `email_address` param.
 
 ### Endpoint
 
@@ -70,7 +70,7 @@ View a single subscriber
 > Example request
 
 ```shell
-curl https://api.convertkit.com/v3/subscribers/1?api_secret=<your_secret_api_key>
+curl https://api.convertkit.com/v3/subscribers/<subscriber_id>?api_secret=<your_secret_api_key>
 ```
 
 > Example response
@@ -108,7 +108,7 @@ Update subscriber
 > Example request
 
 ```shell
-curl -X PUT https://api.convertkit.com/v3/subscribers/1\
+curl -X PUT https://api.convertkit.com/v3/subscribers/<subscriber_id>\
      -H 'Content-Type: application/json'\
      -d '{ "api_secret": "<your_secret_api_key>",\
            "first_name": "Jon",\
@@ -199,9 +199,7 @@ List tags for a subscriber
 > Example request
 
 ```shell
-curl -X GET https://api.convertkit.com/v3/subscribers/<tag_id>/tags\
-     -H 'Content-Type: application/json'\
-     -d '{ "api_secret": "<your_secret_api_key>" }'
+curl https://api.convertkit.com/v3/subscribers/<subscriber_id>/tags?api_key=<your_public_api_key>
 ```
 
 > Example response
