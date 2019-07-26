@@ -1,7 +1,7 @@
 Custom fields
 =============
 
-A custom field allows you to collect subscriber information beyond the standard fields of first name and email address. An example would be a custom field called last name so you can get the full names of your subscribers. You create a custom field, and then you're able to use that in your forms or with the API (see the subscribers endpoint for adding custom field values to a subscriber.)
+A custom field allows you to collect subscriber information beyond the standard fields of first name and email address. An example would be a custom field called last name so you can get the full names of your subscribers. You create a custom field, and then you're able to use that in your forms or with the API (see the Subscribers endpoint for adding custom field values to a subscriber.)
 
 Note that you must create a custom field before you can use it with the subscribe methods on the forms, sequences, and tags endpoints.
 
@@ -70,7 +70,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields\
            "label": ["Occupation", "Location"] }'
 ```
 
-> Response: Single custom field
+> Example response: Single custom field
 
 ```json
 {
@@ -81,7 +81,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields\
 }
 ```
 
-> Response: Multiple custom fields
+> Example response: Multiple custom fields
 
 ```json
 [{
@@ -109,7 +109,7 @@ POST /v3/custom_fields
 ### Required parameters
 
 -   `api_secret` - Your api secret key.
--   `label` or `labels`- The label(s) of the custom field.
+-   `label` - The label(s) of the custom field.
 
 
 Update field
@@ -129,7 +129,7 @@ curl -X PUT https://api.convertkit.com/v3/custom_fields/1\
 No content will be returned.
 ```
 
-Updates a custom field label (see create field above for more information on labels). Note that the key and the name do not change even when the label is updated.
+Updates a custom field label (see Create field above for more information on labels). Note that the key and the name do not change even when the label is updated.
 
 ### Endpoint
 
