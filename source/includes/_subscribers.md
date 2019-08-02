@@ -168,7 +168,7 @@ PUT /v3/subscribers/#{subscriber_id}
 -   `email_address` - Updated email address for the subscriber.
 -   `fields` - Updated custom fields for your subscriber as object of key/value pairs (the custom field must exist before you can use it here).
 
-_NOTE: The API response returned when updating custom fields is dependent on the number of custom fields in the request, as shown by the examples at right. **A maximum of 125 custom fields are allowed.** Requests that exceed this limit will return a response of_ `413`.
+_NOTE: The API response returned when updating custom fields is dependent on the number of custom fields in the request, as shown by the examples at right. **A maximum of 125 custom fields are allowed.** Requests that exceed this limit will return a response of_ `400`.
 
 
 Unsubscribe subscriber
