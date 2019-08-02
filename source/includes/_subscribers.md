@@ -118,7 +118,24 @@ curl -X PUT https://api.convertkit.com/v3/subscribers/<subscriber_id>\
            } }'
 ```
 
-> Example response
+> Example response: Up to 10 custom fields, status `200`
+
+```json
+{
+  "subscriber": {
+    "id": 1,
+    "first_name": "Jon",
+    "email_address": "jonsnow@example.com",
+    "state": "active",
+    "created_at": "2016-02-28T08:07:00Z",
+    "fields": {
+      "last_name": "Snow"
+    }
+  }
+}
+```
+
+> Example response: 11 to 125 custom fields, status `202`
 
 ```json
 {
@@ -150,6 +167,8 @@ PUT /v3/subscribers/#{subscriber_id}
 -   `first_name` - Updated first name for the subscriber.
 -   `email_address` - Updated email address for the subscriber.
 -   `fields` - Updated custom fields for your subscriber as object of key/value pairs (the custom field must exist before you can use it here).
+
+_NOTE: The API response returned when updating custom fields is dependent on the number of custom fields in the request, as shown by the examples at right. **A maximum of 125 custom fields are allowed.** Requests that exceed this limit will return a response of_ `400`.
 
 
 Unsubscribe subscriber
