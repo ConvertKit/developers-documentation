@@ -64,7 +64,19 @@ Add subscriber to a form
 
 curl -X POST https://api.convertkit.com/v3/forms/<form_id>/subscribe\
      -H "Content-Type: application/json; charset=utf-8"\
-     -d
+     -d '{ \
+           "api_key": "<your_public_api_key>",\
+           "email": "jonsnow@example.com"\
+         }'
+
+# Include a tag during subscribing...(assumes the tags have been created)
+curl -X POST https://api.convertkit.com/v3/forms/<form_id>/subscribe\
+     -H "Content-Type: application/json; charset=utf-8"\
+     -d '{ \
+           "api_key": "<your_public_api_key>",\
+           "email": "jonsnow@example.com",\
+           "tags": [1234, 5678]\
+         }'
 ```
 > Example Response
 
