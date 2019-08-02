@@ -64,7 +64,19 @@ Add subscriber to a form
 
 curl -X POST https://api.convertkit.com/v3/forms/<form_id>/subscribe\
      -H "Content-Type: application/json; charset=utf-8"\
-     -d
+     -d '{ \
+           "api_key": "<your_public_api_key>",\
+           "email": "jonsnow@example.com"\
+         }'
+
+# Include a tag during subscribing
+curl -X POST https://api.convertkit.com/v3/forms/<form_id>/subscribe\
+     -H "Content-Type: application/json; charset=utf-8"\
+     -d '{ \
+           "api_key": "<your_public_api_key>",\
+           "email": "jonsnow@example.com",\
+           "tags": [1234, 5678]\
+         }'
 ```
 > Example Response
 
@@ -107,11 +119,12 @@ POST /v3/forms/#{form_id}/subscribe
 
 -   `first_name` - Subscriber first name.
 -   `fields` - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).
--   `name` - Subscriber first name. *legacy behavior, discouraged*
 -   `tags` - Array of tag ids to subscribe to.
--   `courses` - Array of sequence ids to subscribe to. *discouraged*
--   `forms` - Array of form ids to subscribe to. *strongly discouraged*
 
+### Deprecated parameters
+-   `courses` - Array of sequence ids to subscribe to. You should [add the subscriber to the sequence](#add-subscriber-to-a-sequence) directly.
+-   `forms` - Array of form ids to subscribe to. You should add the subscriber to each form individually.
+-   `name` - Subscriber first name. You should prefer using `first_name` listed above.
 
 List subscriptions to a form
 ----------------------------

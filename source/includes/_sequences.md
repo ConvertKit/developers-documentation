@@ -96,10 +96,12 @@ POST /v3/courses/#{course_id}/subscribe
 
 -   `first_name` - Subscriber first name.
 -   `fields` - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).
--   `name` - Subscriber first name. *legacy behavior, discouraged*
 -   `tags` - Array of tag ids to subscribe to.
--   `courses` - Array of sequence ids to subscribe to. *discouraged*
--   `forms` - Array of form ids to subscribe to. *strongly discouraged*
+
+### Deprecated parameters
+-   `courses` - Array of sequence ids to subscribe to. You should add the subscriber to each course individually.
+-   `forms` - Array of form ids to subscribe to. You should [add the subscriber to the form](#add-subscriber-to-a-form) directly.
+-   `name` - Subscriber first name. You should prefer using `first_name` listed above.
 
 List subscriptions to a sequence
 --------------------------------
