@@ -45,7 +45,7 @@ When you create or update a field, you may receive an HTTP 422 if any fields con
 
 If your request rate exceeds our limits, you will receive an HTTP status of 429 with the message "Too Many Requests".
 
--   For the subscribe endpoints for forms, sequences, and tags, the rate is no more than 600 requests over any 5 minute period.
+-   The rate is no more than 600 requests over any 5 minute period.
 
 #### Internal server errors
 
