@@ -169,11 +169,12 @@ POST /v3/tags/#{tag_id}/subscribe
 
 -   `first_name` - Subscriber first name.
 -   `fields` - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).
--   `name` - Subscriber first name. *legacy behavior, deprecated*
 -   `tags` - Array of tag ids to subscribe to.
--   `courses` - Array of sequence ids to subscribe to. *discouraged*
--   `forms` - Array of form ids to subscribe to. *strongly discouraged*
 
+### Deprecated parameters
+-   `courses` - Array of sequence ids to subscribe to. You should [add the subscriber to the sequence](#add-subscriber-to-a-sequence) directly.
+-   `forms` - Array of form ids to subscribe to. You should [add the subscriber to the form](#add-subscriber-to-a-form) directly.
+-   `name` - Subscriber first name. You should prefer using `first_name` listed above.
 
 
 Remove tag from a subscriber

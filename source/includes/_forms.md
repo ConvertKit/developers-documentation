@@ -123,7 +123,7 @@ POST /v3/forms/#{form_id}/subscribe
 
 ### Deprecated parameters
 -   `courses` - Array of sequence ids to subscribe to. You should [add the subscriber to the sequence](#add-subscriber-to-a-sequence) directly.
--   `forms` - Array of form ids to subscribe to. You should subscribe to one form at a time.
+-   `forms` - Array of form ids to subscribe to. You should add the subscriber to each form individually.
 -   `name` - Subscriber first name. You should prefer using `first_name` listed above.
 
 List subscriptions to a form
