@@ -146,10 +146,10 @@ These are the available event types:
 Destroy webhook
 ---------------
 
-> Example request: Delete webhook automation rule with ID #456.
+> Example request
 
 ```shell
-curl -X DELETE https://api.convertkit.com/v3/automations/hooks/456
+curl -X DELETE https://api.convertkit.com/v3/automations/hooks/<rule_id>
      -H 'Content-Type: application/json'\
      -d '{ "api_secret": "<your_secret_api_key>" }'
 ```
