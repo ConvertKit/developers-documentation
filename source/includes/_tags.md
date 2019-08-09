@@ -74,7 +74,7 @@ curl -X POST https://api.convertkit.com/v3/tags
 ```json
 {
   "account_id": 1,
-  "created_at": "2017-04-12T11:10:32Z"
+  "created_at": "2017-04-12T11:10:32Z",
   "deleted_at": null,
   "id": 1,
   "name": "Example Tag",
@@ -86,7 +86,7 @@ A request to create multiple tags will receive a JSON array with the same type o
 
 [{
   "account_id": 1,
-  "created_at": "2017-04-12T11:10:32Z"
+  "created_at": "2017-04-12T11:10:32Z",
   "deleted_at": null,
   "id": 1,
   "name": "Example Tag",
@@ -95,7 +95,7 @@ A request to create multiple tags will receive a JSON array with the same type o
 },
 {
   "account_id": 1,
-  "created_at": "2017-04-12T11:11:566Z"
+  "created_at": "2017-04-12T11:11:566Z",
   "deleted_at": null,
   "id": 1,
   "name": "Example Tag 2",
@@ -124,7 +124,10 @@ Tag a subscriber
 ```shell
 curl -X POST https://api.convertkit.com/v3/tags/<tag_id>/subscribe\
      -H "Content-Type: application/json; charset=utf-8"\
-     -d
+     -d '{ \
+            "api_key": "<your_public_api_key>",\
+            "email": "jonsnow@example.com"\
+         }'
 ```
 
 > Example response
@@ -211,7 +214,12 @@ Remove tag from a subscriber by email
 > Example request
 
 ```shell
-curl -X POST https://api.convertkit.com/v3/tags/<tag_id>/unsubscribe?api_secret=<your_secret_api_key>
+curl -X POST https://api.convertkit.com/v3/tags/<tag_id>/unsubscribe\
+    -H "Content-Type: application/json; charset=utf-8"\
+    -d '{ \
+          "api_secret": "<your_secret_api_key>",\
+          "email": "jonsnow@example.com"\
+        }'
 ```
 
 > Example response
