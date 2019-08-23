@@ -43,9 +43,10 @@ When you create or update a field, you may receive an HTTP 422 if any fields con
 
 #### Rate limiting
 
-If your request rate exceeds our limits, you will receive an HTTP status of 429 with the message "Too Many Requests".
+Our rate limit is no more than 120 requests over a rolling 60 second period, for a given api key.
 
--   The rate is no more than 600 requests over any 5 minute period.
+If your request rate exceeds our limits, you will receive a 429 response, which your code should gracefully handle.  We recommend spacing out your requests and performing an [exponential backoff](https://en.wikipedia.org/wiki/Exponential_backoff) to keep within the limit.
+
 
 #### Internal server errors
 
