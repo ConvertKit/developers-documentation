@@ -381,17 +381,7 @@
         <h1 id='getting-started'>Getting started</h1><h2 id='overview'>Overview</h2>
 <p>Calls for ConvertKit API v3 are relative to the url <a href="https://api.convertkit.com/v3/">https://api.convertkit.com/v3/</a></p>
 
-<p>API v3 is in active development. Currently it allows you to:</p>
-
-<ul>
-<li>  Get a list of forms for an account</li>
-<li>  Add subscriber to a form</li>
-<li>  Add subscriber to an email sequence</li>
-<li>  Create a tag</li>
-<li>  Tag a subscriber</li>
-<li>  Remove tags from a subscriber</li>
-<li>  Add, update, and list custom fields</li>
-</ul>
+<p>API v3 is in active development.</p>
 <h2 id='planning-your-integration'>Planning your integration</h2>
 <p>Sweet! You&#39;re building an integration with ConvertKit. We&#39;re thrilled that you want to add-on to our platform. But before you dive in and start slinging code, let&#39;s talk about the best way to integrate with ConvertKit.</p>
 
@@ -403,25 +393,23 @@
 <li>  <strong>Full Integration.</strong> If you want a more full integration with ConvertKit you can add support for forms, courses, and tags.</li>
 </ul>
 
-<p>If you aren&#39;t sure how best to structure your integration, just reach out to our team, we&#39;ll be happy to help you design it.</p>
+<p>If you aren&#39;t sure how best to structure your integration, just reach out to our team. We&#39;ll be happy to help you design it.</p>
 <h2 id='api-basics'>API Basics</h2><h3 id='api-key'>API Key</h3>
 <p>All API calls require the <code>api_key</code> parameter. You can find your API Key in the ConvertKit Account page.</p>
 <h3 id='api-secret'>API Secret</h3>
-<p>Some API calls require the <code>api_secret</code> parameter. All calls that require <code>api_key</code> also work with <code>api_secret</code>, there&#39;s no need to use both. This key grants access to sensitive data and actions on your subscribers, so you should treat it as your password, and do not use it in any client-side code (usually that means JavaScript).</p>
+<p>Some API calls require the <code>api_secret</code> parameter. All calls that require <code>api_key</code> also work with <code>api_secret</code>, there&#39;s no need to use both. This key grants access to sensitive data and actions on your subscribers. You should treat it as your password and do not use it in any client-side code (usually that means JavaScript).</p>
 <h3 id='responses'>Responses</h3>
-<p>When an API call goes well the API will return a 200 or 201 HTTP response, along with a JSON response body.</p>
+<p>When an API call succeeds, the API will return a 200 or 201 HTTP response and a JSON response body unless otherwise noted.</p>
 
-<p>If there&#39;s some error the API will return an HTTP response in the 400 or 500 range, and a response body indicating what the error was, for example:</p>
+<p>If there&#39;s some error, the API will return an HTTP response in the 400 or 500 range and a response body indicating what the error was. For example:</p>
 
 <p><code>{ &quot;error&quot;: &quot;Authorization Failed&quot;, &quot;message&quot;: &quot;API Key not present&quot; }</code> with a 401 error.</p>
 <h4 id='bad-data'>Bad data</h4>
 <p>When you create or update a field, you may receive an HTTP 422 if any fields contain bad data or required fields are missing.</p>
 <h4 id='rate-limiting'>Rate limiting</h4>
-<p>If your request rate exceeds our limits, you will receive an HTTP status of 429 with the message &quot;Too Many Requests&quot;.</p>
+<p>Our rate limit is no more than 120 requests over a rolling 60 second period, for a given api key.</p>
 
-<ul>
-<li>  For the subscribe endpoints for forms, sequences, and tags, the rate is no more than 600 requests over any 5 minute period.</li>
-</ul>
+<p>If your request rate exceeds our limits, you will receive a 429 response, which your code should gracefully handle.  We recommend spacing out your requests and performing an <a href="https://en.wikipedia.org/wiki/Exponential_backoff">exponential backoff</a> to keep within the limit.</p>
 <h4 id='internal-server-errors'>Internal server errors</h4>
 <p>If the server is overloaded or you encounter a bug, you will get a 500 error. Try again after a short period, and if you continue to encounter an error, please raise the issue with support.</p>
 <h1 id='account'>Account</h1><h2 id='show-the-current-account'>Show the current account</h2>
@@ -499,7 +487,19 @@ curl https://api.convertkit.com/v3/forms?api_key<span class="o">=</span>&lt;your
 <pre class="highlight shell tab-shell"><code>
 curl -X POST https://api.convertkit.com/v3/forms/&lt;form_id&gt;/subscribe<span class="se">\</span>
      -H <span class="s2">"Content-Type: application/json; charset=utf-8"</span><span class="se">\</span>
-     -d
+     -d <span class="s1">'{ \
+           "api_key": "&lt;your_public_api_key&gt;",\
+           "email": "jonsnow@example.com"\
+         }'</span>
+
+<span class="c"># Include a tag during subscribing</span>
+curl -X POST https://api.convertkit.com/v3/forms/&lt;form_id&gt;/subscribe<span class="se">\</span>
+     -H <span class="s2">"Content-Type: application/json; charset=utf-8"</span><span class="se">\</span>
+     -d <span class="s1">'{ \
+           "api_key": "&lt;your_public_api_key&gt;",\
+           "email": "jonsnow@example.com",\
+           "tags": [1234, 5678]\
+         }'</span>
 </code></pre>
 <blockquote>
 <p>Example Response</p>
@@ -539,10 +539,13 @@ curl -X POST https://api.convertkit.com/v3/forms/&lt;form_id&gt;/subscribe<span 
 <ul>
 <li>  <code>first_name</code> - Subscriber first name.</li>
 <li>  <code>fields</code> - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).</li>
-<li>  <code>name</code> - Subscriber first name. <em>legacy behavior, discouraged</em></li>
 <li>  <code>tags</code> - Array of tag ids to subscribe to.</li>
-<li>  <code>courses</code> - Array of sequence ids to subscribe to. <em>discouraged</em></li>
-<li>  <code>forms</code> - Array of form ids to subscribe to. <em>strongly discouraged</em></li>
+</ul>
+<h3 id='deprecated-parameters'>Deprecated parameters</h3>
+<ul>
+<li>  <code>courses</code> - Array of sequence ids to subscribe to. You should <a href="#add-subscriber-to-a-sequence">add the subscriber to the sequence</a> directly.</li>
+<li>  <code>forms</code> - Array of form ids to subscribe to. You should add the subscriber to each form individually.</li>
+<li>  <code>name</code> - Subscriber first name. You should prefer using <code>first_name</code> listed above.</li>
 </ul>
 <h2 id='list-subscriptions-to-a-form'>List subscriptions to a form</h2>
 <blockquote>
@@ -692,10 +695,13 @@ curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;
 <ul>
 <li>  <code>first_name</code> - Subscriber first name.</li>
 <li>  <code>fields</code> - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).</li>
-<li>  <code>name</code> - Subscriber first name. <em>legacy behavior, discouraged</em></li>
 <li>  <code>tags</code> - Array of tag ids to subscribe to.</li>
-<li>  <code>courses</code> - Array of sequence ids to subscribe to. <em>discouraged</em></li>
-<li>  <code>forms</code> - Array of form ids to subscribe to. <em>strongly discouraged</em></li>
+</ul>
+<h3 id='deprecated-parameters'>Deprecated parameters</h3>
+<ul>
+<li>  <code>courses</code> - Array of sequence ids to subscribe to. You should add the subscriber to each course individually.</li>
+<li>  <code>forms</code> - Array of form ids to subscribe to. You should <a href="#add-subscriber-to-a-form">add the subscriber to the form</a> directly.</li>
+<li>  <code>name</code> - Subscriber first name. You should prefer using <code>first_name</code> listed above.</li>
 </ul>
 <h2 id='list-subscriptions-to-a-sequence'>List subscriptions to a sequence</h2>
 <blockquote>
@@ -826,7 +832,7 @@ curl -X POST https://api.convertkit.com/v3/tags
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-12T11:10:32Z"</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-12T11:10:32Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Tag"</span><span class="p">,</span><span class="w">
@@ -838,7 +844,7 @@ curl -X POST https://api.convertkit.com/v3/tags
 
 </span><span class="p">[{</span><span class="w">
   </span><span class="s2">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-12T11:10:32Z"</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-12T11:10:32Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Tag"</span><span class="p">,</span><span class="w">
@@ -847,7 +853,7 @@ curl -X POST https://api.convertkit.com/v3/tags
 </span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="s2">"account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-12T11:11:566Z"</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-12T11:11:566Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Tag 2"</span><span class="p">,</span><span class="w">
@@ -871,7 +877,10 @@ curl -X POST https://api.convertkit.com/v3/tags
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscribe<span class="se">\</span>
      -H <span class="s2">"Content-Type: application/json; charset=utf-8"</span><span class="se">\</span>
-     -d
+     -d <span class="s1">'{ \
+            "api_key": "&lt;your_public_api_key&gt;",\
+            "email": "jonsnow@example.com"\
+         }'</span>
 </code></pre>
 <blockquote>
 <p>Example response</p>
@@ -910,10 +919,13 @@ curl -X POST https://api.convertkit.com/v3/tags
 <ul>
 <li>  <code>first_name</code> - Subscriber first name.</li>
 <li>  <code>fields</code> - Object of key/value pairs for custom fields (the custom field must exist before you can use it here).</li>
-<li>  <code>name</code> - Subscriber first name. <em>legacy behavior, deprecated</em></li>
 <li>  <code>tags</code> - Array of tag ids to subscribe to.</li>
-<li>  <code>courses</code> - Array of sequence ids to subscribe to. <em>discouraged</em></li>
-<li>  <code>forms</code> - Array of form ids to subscribe to. <em>strongly discouraged</em></li>
+</ul>
+<h3 id='deprecated-parameters'>Deprecated parameters</h3>
+<ul>
+<li>  <code>courses</code> - Array of sequence ids to subscribe to. You should <a href="#add-subscriber-to-a-sequence">add the subscriber to the sequence</a> directly.</li>
+<li>  <code>forms</code> - Array of form ids to subscribe to. You should <a href="#add-subscriber-to-a-form">add the subscriber to the form</a> directly.</li>
+<li>  <code>name</code> - Subscriber first name. You should prefer using <code>first_name</code> listed above.</li>
 </ul>
 <h2 id='remove-tag-from-a-subscriber'>Remove tag from a subscriber</h2>
 <blockquote>
@@ -939,7 +951,12 @@ curl -X POST https://api.convertkit.com/v3/tags
 <blockquote>
 <p>Example request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/unsubscribe?api_secret<span class="o">=</span>&lt;your_secret_api_key&gt;
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/unsubscribe<span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json; charset=utf-8"</span><span class="se">\</span>
+    -d <span class="s1">'{ \
+          "api_secret": "&lt;your_secret_api_key&gt;",\
+          "email": "jonsnow@example.com"\
+        }'</span>
 </code></pre>
 <blockquote>
 <p>Example response</p>
@@ -1062,7 +1079,7 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns a list of your subscribers. For unsubscribes only, use the <code>cancelled_at</code> value for <code>sort_field</code>param (currently the only supported extra sort field). Search subscribers by email address by providing the <code>email_address</code> param.</p>
+<p>Returns a list of your subscribers. For unsubscribes only, use the <code>cancelled_at</code> value for <code>sort_field</code> param (currently the only supported extra sort field). Search subscribers by email address by providing the <code>email_address</code> param.</p>
 <h3 id='endpoint'>Endpoint</h3>
 <p>GET /v3/subscribers</p>
 <h3 id='required-parameters'>Required parameters</h3>
@@ -1084,7 +1101,7 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <blockquote>
 <p>Example request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl https://api.convertkit.com/v3/subscribers/1?api_secret<span class="o">=</span>&lt;your_secret_api_key&gt;
+<pre class="highlight shell tab-shell"><code>curl https://api.convertkit.com/v3/subscribers/&lt;subscriber_id&gt;?api_secret<span class="o">=</span>&lt;your_secret_api_key&gt;
 </code></pre>
 <blockquote>
 <p>Example response</p>
@@ -1113,7 +1130,7 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <blockquote>
 <p>Example request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X PUT https://api.convertkit.com/v3/subscribers/1<span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X PUT https://api.convertkit.com/v3/subscribers/&lt;subscriber_id&gt;<span class="se">\</span>
      -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
      -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",\
            "first_name": "Jon",\
@@ -1123,7 +1140,23 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
            } }'</span>
 </code></pre>
 <blockquote>
-<p>Example response</p>
+<p>Example response: Up to 10 custom fields, status <code>200</code></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jon"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jonsnow@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snow"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response: 11 to 125 custom fields, status <code>202</code></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1151,6 +1184,8 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <li>  <code>email_address</code> - Updated email address for the subscriber.</li>
 <li>  <code>fields</code> - Updated custom fields for your subscriber as object of key/value pairs (the custom field must exist before you can use it here).</li>
 </ul>
+
+<p><em>NOTE: The API response returned when updating custom fields is dependent on the number of custom fields in the request, as shown by the examples at right. <strong>A maximum of 125 custom fields are allowed.</strong> Requests that exceed this limit will return a response of</em> <code>400</code>.</p>
 <h2 id='unsubscribe-subscriber'>Unsubscribe subscriber</h2>
 <blockquote>
 <p>Example request</p>
@@ -1188,9 +1223,7 @@ curl https://api.convertkit.com/v3/tags/&lt;tag_id&gt;/subscriptions?api_secret<
 <blockquote>
 <p>Example request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api.convertkit.com/v3/subscribers/&lt;tag_id&gt;/tags<span class="se">\</span>
-     -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
-     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;" }'</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.convertkit.com/v3/subscribers/&lt;subscriber_id&gt;/tags?api_key<span class="o">=</span>&lt;your_public_api_key&gt;
 </code></pre>
 <blockquote>
 <p>Example response</p>
@@ -1426,9 +1459,9 @@ curl -X POST https://api.convertkit.com/v3/automations/hooks
 </ul>
 <h2 id='destroy-webhook'>Destroy webhook</h2>
 <blockquote>
-<p>Example request: Delete webhook automation rule with ID #456.</p>
+<p>Example request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X DELETE https://api.convertkit.com/v3/automations/hooks/456
+<pre class="highlight shell tab-shell"><code>curl -X DELETE https://api.convertkit.com/v3/automations/hooks/&lt;rule_id&gt;
      -H <span class="s1">'Content-Type: application/json'</span><span class="se">\</span>
      -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;" }'</span>
 </code></pre>
@@ -1447,7 +1480,7 @@ curl -X POST https://api.convertkit.com/v3/automations/hooks
 <li>  <code>api_secret</code> - Your api secret key.</li>
 </ul>
 <h1 id='custom-fields'>Custom fields</h1>
-<p>A custom field allows you to collect subscriber information beyond the standard fields of first name and email address. An example would be a custom field called last name so you can get the full names of your subscribers. You create a custom field, and then you&#39;re able to use that in your forms or with the API (see the subscribers endpoint for adding custom field values to a subscriber.)</p>
+<p>A custom field allows you to collect subscriber information beyond the standard fields of first name and email address. An example would be a custom field called last name so you can get the full names of your subscribers. You create a custom field, and then you&#39;re able to use that in your forms or with the API (see the Subscribers endpoint for adding custom field values to a subscriber.)</p>
 
 <p>Note that you must create a custom field before you can use it with the subscribe methods on the forms, sequences, and tags endpoints.</p>
 <h2 id='list-fields'>List fields</h2>
@@ -1504,7 +1537,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
            "label": ["Occupation", "Location"] }'</span>
 </code></pre>
 <blockquote>
-<p>Response: Single custom field</p>
+<p>Example response: Single custom field</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1514,7 +1547,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Response: Multiple custom fields</p>
+<p>Example response: Multiple custom fields</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1537,7 +1570,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 <h3 id='required-parameters-2'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
-<li>  <code>label</code> or <code>labels</code>- The label(s) of the custom field.</li>
+<li>  <code>label</code> - The label(s) of the custom field.</li>
 </ul>
 <h2 id='update-field'>Update field</h2>
 <blockquote>
@@ -1553,7 +1586,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 </blockquote>
 <pre class="highlight shell tab-shell"><code>No content will be returned.
 </code></pre>
-<p>Updates a custom field label (see create field above for more information on labels). Note that the key and the name do not change even when the label is updated.</p>
+<p>Updates a custom field label (see Create field above for more information on labels). Note that the key and the name do not change even when the label is updated.</p>
 <h3 id='endpoint-3'>Endpoint</h3>
 <p>PUT /v3/custom_fields/#{your custom field ID}</p>
 <h3 id='required-parameters-3'>Required parameters</h3>
@@ -1585,15 +1618,12 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 </ul>
 <h1 id='purchases'>Purchases</h1><h2 id='list-purchases'>List Purchases</h2>
 <blockquote>
-<p>Example request: Retrieve all purchases for an account</p>
+<p>Example request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api.convertkit.com/v3/purchases <span class="se">\</span>
-      -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-      -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;", "page": 1 }'</span>
+<pre class="highlight shell tab-shell"><code>curl https://api.convertkit.com/v3/purchases?api_secret<span class="o">=</span>&lt;your_secret_api_key&gt;
 </code></pre>
 <blockquote>
-<p>Success response:
-    <code>HTTP/1.1 200 OK</code></p>
+<p>Example response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"total_purchases"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -1679,15 +1709,12 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 </ul>
 <h2 id='retrieve-a-specific-purchase'>Retrieve a specific Purchase</h2>
 <blockquote>
-<p>Example request: get purchases with ID <code>8</code></p>
+<p>Example request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://api.convertkit.com/v3/purchases/8 <span class="se">\</span>
-     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;" }
-</span></code></pre>
+<pre class="highlight shell tab-shell"><code>curl https://api.convertkit.com/v3/purchases/&lt;purchase_id&gt;?api_secret<span class="o">=</span>&lt;your_secret_api_key&gt;
+</code></pre>
 <blockquote>
-<p>Success response:
-    <code>HTTP/1.1 200 OK</code></p>
+<p>Example response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
@@ -1728,15 +1755,15 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 </span></code></pre>
 <p>Show specific purchase by ID</p>
 <h3 id='endpoint-2'>Endpoint</h3>
-<p>GET /v3/purchases/#{id}</p>
+<p>GET /v3/purchases/#{purchase_id}</p>
 <h3 id='required-parameters-2'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
-<li>  <code>id</code> - A purchase ID</li>
+<li>  <code>purchase_id</code> - A purchase ID</li>
 </ul>
 <h2 id='create-a-purchase'>Create a Purchase</h2>
 <blockquote>
-<p>Example request: get all purchases</p>
+<p>Example request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -X POST https://api.convertkit.com/v3/purchases <span class="se">\</span>
      -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -1772,8 +1799,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
      }'</span>
 </code></pre>
 <blockquote>
-<p>Success response:
-    <code>HTTP/1.1 201 Created</code></p>
+<p>Example response:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
@@ -1852,9 +1878,9 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 </ul>
 <h2 id='update-a-specific-purchase'>Update a specific Purchase</h2>
 <blockquote>
-<p>Example request: update purchases with ID <code>8</code></p>
+<p>Example request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X PUT https://api.convertkit.com/v3/purchases/8 <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X PUT https://api.convertkit.com/v3/purchases/&lt;purchase_id&gt; <span class="se">\</span>
      -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
      -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",
            "purchase": {
@@ -1864,8 +1890,7 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 
 </code></pre>
 <blockquote>
-<p>Success response:
-    <code>HTTP/1.1 200 OK</code></p>
+<p>Example response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
@@ -1906,11 +1931,11 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 </span></code></pre>
 <p>Note: <code>status</code> is only changeable field</p>
 <h3 id='endpoint-4'>Endpoint</h3>
-<p>PUT /v3/purchases/#{id}</p>
+<p>PUT /v3/purchases/#{purchase_id}</p>
 <h3 id='required-parameters-4'>Required parameters</h3>
 <ul>
 <li>  <code>api_secret</code> - Your api secret key.</li>
-<li>  <code>id</code> - A purchase ID</li>
+<li>  <code>purchase_id</code> - A purchase ID</li>
 </ul>
 <h4 id='optional-parameters-3'>Optional parameters</h4>
 <ul>
