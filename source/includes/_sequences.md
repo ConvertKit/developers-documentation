@@ -37,7 +37,7 @@ Returns a list of sequences for the account.
 
 ### Endpoint
 
-GET /v3/courses
+GET /v3/sequences
 
 ### Required parameters
 
@@ -51,9 +51,12 @@ Add subscriber to a sequence
 > Example request
 
 ```shell
-curl -X POST https://api.convertkit.com/v3/courses/<course_id>/subscribe\
+curl -X POST https://api.convertkit.com/v3/sequences/<sequence_id>/subscribe\
      -H "Content-Type: application/json; charset=utf-8"\
-     -d
+     -d '{ \
+            "api_key": "<your_public_api_key>",\
+            "email": "jonsnow@example.com"\
+         }'
 ```
 > Example response
 
@@ -85,7 +88,7 @@ Subscribe an email address to one of your sequences.
 
 ### Endpoint
 
-POST /v3/courses/#{course_id}/subscribe
+POST /v3/sequences/#{sequence_id}/subscribe
 
 ### Required parameters
 
