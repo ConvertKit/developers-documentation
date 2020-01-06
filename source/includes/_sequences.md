@@ -71,14 +71,7 @@ curl -X POST https://api.convertkit.com/v3/sequences/<sequence_id>/subscribe\
     "subscribable_id": 1,
     "subscribable_type": "course",
     "subscriber": {
-      "id": 1,
-      "first_name": "Jon",
-      "email_address": "jonsnow@example.com",
-      "state": "active",
-      "created_at": "2016-02-28T08:07:00Z",
-      "fields": {
-        "last_name": "Snow"
-      }
+      "id": 1
     }
   }
 }
