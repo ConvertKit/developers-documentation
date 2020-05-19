@@ -366,9 +366,6 @@
                     <a href="#create-a-purchase" class="toc-h2 toc-link" data-title="Create a Purchase">Create a Purchase</a>
                   </li>
                   <li>
-                    <a href="#update-a-specific-purchase" class="toc-h2 toc-link" data-title="Update a specific Purchase">Update a specific Purchase</a>
-                  </li>
-                  <li>
                     <a href="#build-an-official-integration" class="toc-h2 toc-link" data-title="Build an official integration">Build an official integration</a>
                   </li>
               </ul>
@@ -522,14 +519,7 @@ curl -X POST https://api.convertkit.com/v3/forms/&lt;form_id&gt;/subscribe<span 
     </span><span class="s2">"subscribable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"subscribable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"form"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jon"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jonsnow@example.com"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snow"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -652,7 +642,7 @@ curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;
 </span></code></pre>
 <p>Returns a list of sequences for the account.</p>
 <h3 id='endpoint'>Endpoint</h3>
-<p>GET /v3/courses</p>
+<p>GET /v3/sequences</p>
 <h3 id='required-parameters'>Required parameters</h3>
 <ul>
 <li>  <code>api_key</code> - Your account API key.</li>
@@ -661,9 +651,12 @@ curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;
 <blockquote>
 <p>Example request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X POST https://api.convertkit.com/v3/courses/&lt;course_id&gt;/subscribe<span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://api.convertkit.com/v3/sequences/&lt;sequence_id&gt;/subscribe<span class="se">\</span>
      -H <span class="s2">"Content-Type: application/json; charset=utf-8"</span><span class="se">\</span>
-     -d
+     -d <span class="s1">'{ \
+            "api_key": "&lt;your_public_api_key&gt;",\
+            "email": "jonsnow@example.com"\
+         }'</span>
 </code></pre>
 <blockquote>
 <p>Example response</p>
@@ -678,21 +671,14 @@ curl https://api.convertkit.com/v3/sequences?api_key<span class="o">=</span>&lt;
     </span><span class="s2">"subscribable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"subscribable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"course"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jon"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jonsnow@example.com"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snow"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Subscribe an email address to one of your sequences.</p>
 <h3 id='endpoint-2'>Endpoint</h3>
-<p>POST /v3/courses/#{course_id}/subscribe</p>
+<p>POST /v3/sequences/#{sequence_id}/subscribe</p>
 <h3 id='required-parameters-2'>Required parameters</h3>
 <ul>
 <li>  <code>api_key</code> - Your account API key.</li>
@@ -902,14 +888,7 @@ curl -X POST https://api.convertkit.com/v3/tags
     </span><span class="s2">"subscribable_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"subscribable_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tag"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"subscriber"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jon"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jonsnow@example.com"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-28T08:07:00Z"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Snow"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1882,71 +1861,6 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 <li>  <code>unit_price</code> - Product price</li>
 <li>  <code>quantity</code> - Product quantity</li>
 </ul></li>
-</ul>
-<h2 id='update-a-specific-purchase'>Update a specific Purchase</h2>
-<blockquote>
-<p>Example request</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl -X PUT https://api.convertkit.com/v3/purchases/&lt;purchase_id&gt; <span class="se">\</span>
-     -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-     -d <span class="s1">'{ "api_secret": "&lt;your_secret_api_key&gt;",
-           "purchase": {
-                "status": "refund"
-           }
-        }'</span>
-
-</code></pre>
-<blockquote>
-<p>Example response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-abcd-456-efgh"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refund"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crashoverride@hackers.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-17T11:28:04Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.00</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">21.0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7890-ijkl"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Floppy Disk (512k)"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mnop-1234"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telephone Cord (data)"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Failure response:
-    <code>HTTP/1.1 400 Bad Request</code></p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your request is missing parameters"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transaction_id can't be blank, Sku can't be blank for product: Floppy Disk (512k)"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>Note: <code>status</code> is only changeable field</p>
-<h3 id='endpoint-4'>Endpoint</h3>
-<p>PUT /v3/purchases/#{purchase_id}</p>
-<h3 id='required-parameters-4'>Required parameters</h3>
-<ul>
-<li>  <code>api_secret</code> - Your api secret key.</li>
-<li>  <code>purchase_id</code> - A purchase ID</li>
-</ul>
-<h4 id='optional-parameters-3'>Optional parameters</h4>
-<ul>
-<li>  <code>status</code> - Status of the purchase, i.e. &quot;paid&quot;, &quot;refund&quot;, etc.</li>
 </ul>
 <h2 id='build-an-official-integration'>Build an official integration</h2>
 <p>Are you building an official integration? Contact us (engineering@convertkit.com) to set up an integration and let us know the name we should use for the integration. I.e. Stripe. We will send you an integration_key. Collect the api_secret for the ConvertKit account and send it, the integration_key, and the rest of the information for the purchase in each request. <a href="https://developers.convertkit.com/#create-a-purchase">https://developers.convertkit.com/#create-a-purchase</a></p>
