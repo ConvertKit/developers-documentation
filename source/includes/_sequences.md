@@ -173,3 +173,4 @@ GET /v3/sequences/#{sequence_id}/subscriptions
 
 -   `sort_order` - `asc` or `desc`: `asc` to list subscribers added oldest to newest, `desc` to list subscribers added newest to oldest. `asc` is the default order.
 -   `subscriber_state`?-?`active`?or??`cancelled`: receive only active subscribers or cancelled subscribers
+-   `page` - the page to retrieve. 50 results are returned per page.
