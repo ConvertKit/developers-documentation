@@ -21,7 +21,7 @@ If you aren't sure how best to structure your integration, just reach out to our
 
 ## Building a larger integration?
 
-If you're working with a company that's building a large integration with ConvertKit, please [fill out this form](https://docs.google.com/forms/d/e/1FAIpQLSdirDoKSD6q018u9PPGLoX5xstF3_LykXzbacuIi9N57warEg/viewform) to get an integration key. We'll work with you to ensure your integration works amazingly for our mutual customers.
+If you're working with a company that's building a large integration with ConvertKit, please [fill out this form](https://docs.google.com/forms/d/e/1FAIpQLSdiRK0t-LQjBiphLGNy4d6mmG4MXkf7ytrF0b47lvV1bT-_SA/viewform) to get an integration key. We'll work with you to ensure your integration works amazingly for our mutual customers.
 
 ## API Basics
 
