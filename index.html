@@ -395,9 +395,7 @@
 
 <p>If you aren&#39;t sure how best to structure your integration, just reach out to our team. We&#39;ll be happy to help you design it.</p>
 <h2 id='building-a-larger-integration'>Building a larger integration?</h2>
-<p>If you&#39;re working with a company that&#39;s building a large integration with ConvertKit, please <a href="https://docs.google.com/forms/d/e/1FAIpQLSdirDoKSD6q018u9PPGLoX5xstF3_LykXzbacuIi9N57warEg/viewform">fill out this form</a> to get an integration key.  We&#39;ll work with you to ensure your integration works amazingly for our mutual customers.</p>
-
-<p>Using an integration key will allow your integration to access specific features of our API, and we&#39;ll be able to work with you to set custom rate limiting.</p>
+<p>If you&#39;re working with a company that&#39;s building a large integration with ConvertKit, you will need to use an integration key. This key will help us triaging, troubleshooting and diagnosing potential issues with integrations, ensuring that your integration works perfectly for your customers. Please <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiRK0t-LQjBiphLGNy4d6mmG4MXkf7ytrF0b47lvV1bT-_SA/viewform">fill out this form</a> to request an integration key.</p>
 <h2 id='api-basics'>API Basics</h2><h3 id='api-key'>API Key</h3>
 <p>All API calls require the <code>api_key</code> parameter. You can find your API Key in the ConvertKit Account page.</p>
 <h3 id='api-secret'>API Secret</h3>
@@ -1837,11 +1835,11 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 <li>  <code>products.lid</code> - Each product should have an lid that is unique to the product for this purchase. If you have &#39;line items&#39;, lid is where you would put your identifier for each line item.</li>
 </ul>
 <h3 id='required-for-third-party-integrations'>Required for third party integrations</h3>
-<p>Are you building an integration? <a href="mailto:engineers@convertkit.com?subject=Purchases integration">Contact us</a> and we will help you get set up.</p>
+<p>Are you building an integration? Please <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiRK0t-LQjBiphLGNy4d6mmG4MXkf7ytrF0b47lvV1bT-_SA/viewform">fill out this form</a> and we will help you get set up.</p>
 
 <ul>
 <li>  <code>purchase.integration</code> - The name of your integration (i.e. eBay)</li>
-<li>  <code>integration_key</code> - An access token for authenticating integrations.</li>
+<li>  <code>integration_key</code> - A token for tracking integrations.</li>
 </ul>
 <h3 id='optional-parameters-2'>Optional parameters</h3>
 <ul>
