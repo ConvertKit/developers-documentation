@@ -1831,8 +1831,16 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 <li>  <code>api_secret</code> - Your api secret key.</li>
 <li>  <code>transaction_id</code> - A unique ID for the purchase</li>
 <li>  <code>email_address</code> - The subscriber that the purchase belongs to</li>
-<li>  <code>products.pid</code> - This is your identifier for a product. Each product provided in the &#39;products&#39; array must have a unique pid. Variants of the same product should have the same pid.</li>
-<li>  <code>products.lid</code> - Each product should have an lid that is unique to the product for this purchase. If you have &#39;line items&#39;, lid is where you would put your identifier for each line item.</li>
+<li>  <code>currency</code> - 3 letter currency code (e.g. <code>USD</code>)</li>
+<li>  <code>products</code> - Array of purchased products
+
+<ul>
+<li>  <code>unit_price</code> - Product price</li>
+<li>  <code>quantity</code> - Product quantity</li>
+<li>  <code>name</code> - Product name</li>
+<li>  <code>pid</code> - This is your identifier for a product. Each product provided in the &#39;products&#39; array must have a unique pid. Variants of the same product should have the same pid.</li>
+<li>  <code>lid</code> - Each product should have an lid that is unique to the product for this purchase. i.e. A line item identifier.</li>
+</ul></li>
 </ul>
 <h3 id='required-for-third-party-integrations'>Required for third party integrations</h3>
 <p>Are you building an integration? Please <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiRK0t-LQjBiphLGNy4d6mmG4MXkf7ytrF0b47lvV1bT-_SA/viewform">fill out this form</a> and we will help you get set up.</p>
@@ -1849,18 +1857,12 @@ curl -X POST https://api.convertkit.com/v3/custom_fields<span class="se">\</span
 <li>  <code>shipping</code> - Shipping amount applied to purchase</li>
 <li>  <code>discount</code> - Discount amount applied to purchase</li>
 <li>  <code>total</code> - Total cost of the purchase</li>
-<li>  <code>currency</code> - 3 letter currency code, default <strong>USD</strong></li>
 <li>  <code>transaction_time</code> - date and time of purchase as ISO string, default <strong>CURRENT_TIMESTAMP</strong></li>
 <li>  <code>status</code> - We currently support a status of &quot;paid&quot;</li>
 <li>  <code>products</code> - Array of purchased products
 
 <ul>
-<li>  <code>name</code> - Product name</li>
-<li>  <code>pid</code> - Your unique product identifier. Product variants should have the same pid</li>
-<li>  <code>lid</code> - Your identifier for the product in this specific purchase. i.e. A line item identifier</li>
 <li>  <code>sku</code> - Product sku</li>
-<li>  <code>unit_price</code> - Product price</li>
-<li>  <code>quantity</code> - Product quantity</li>
 </ul></li>
 </ul>
 <h2 id='build-an-official-integration'>Build an official integration</h2>
