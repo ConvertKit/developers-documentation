@@ -253,8 +253,13 @@ POST /v3/purchases
 -   `api_secret` - Your api secret key.
 -   `transaction_id` - A unique ID for the purchase
 -   `email_address` - The subscriber that the purchase belongs to
--   `products.pid` - This is your identifier for a product. Each product provided in the 'products' array must have a unique pid. Variants of the same product should have the same pid.
--   `products.lid` - Each product should have an lid that is unique to the product for this purchase. If you have 'line items', lid is where you would put your identifier for each line item.
+-   `currency` - 3 letter currency code (e.g. `USD`)
+-   `products` - Array of purchased products
+    -   `unit_price` - Product price
+    -   `quantity` - Product quantity
+    -   `name` - Product name
+    -   `pid` - This is your identifier for a product. Each product provided in the 'products' array must have a unique pid. Variants of the same product should have the same pid.
+    -   `lid` - Each product should have an lid that is unique to the product for this purchase. i.e. A line item identifier.
 
 ### Required for third party integrations
 
@@ -271,16 +276,10 @@ Are you building an integration? Please [fill out this form](https://docs.google
 -   `shipping` - Shipping amount applied to purchase
 -   `discount` - Discount amount applied to purchase
 -   `total` - Total cost of the purchase
--   `currency` - 3 letter currency code, default **USD**
 -   `transaction_time` - date and time of purchase as ISO string, default **CURRENT_TIMESTAMP**
 -   `status` - We currently support a status of "paid"
 -   `products` - Array of purchased products
-    -   `name` - Product name
-    -   `pid` - Your unique product identifier. Product variants should have the same pid
-    -   `lid` - Your identifier for the product in this specific purchase. i.e. A line item identifier
     -   `sku` - Product sku
-    -   `unit_price` - Product price
-    -   `quantity` - Product quantity
 
 
 
